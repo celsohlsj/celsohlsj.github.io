@@ -1,7 +1,7 @@
 ---
 title: 'Deforestation-Induced Fragmentation Increases Forest Fire Occurrence in Central Brazilian Amazonia' 
 collection: publications
-permalink: /pdfs/forests-09-00305-v3.pdf
+permalink: /files/forests-09-00305-v3.pdf
 excerpt: 
 date: 2018-06-01
 venue: 'Forests'
