@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Sami W Rifai</title>
+    <link>/publication/</link>
+    <description>Recent content in Publications on Sami W Rifai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Sami Rifai &amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>publication_list</title>
+      <link>/publication/publication_list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/publication_list/</guid>
+      <description>In Review Núñez-Reguiro M.M., Fletcher R.J., Pienaar E.F., Branch L.C., Volante J., and S.W. Rifai. in review. Adding the temporal dimension to spatial patterns of Payment for Ecosystem Services enrollment. Ecosystem Services
+Gvozdevaite A., Oliveras I., Rifai S.W., Fauset S., Waites R., Peprah T., Boakye M., Afriyie L., Martini D., Miguel J., Moore S., Adu-Bredu S., and Y. Malhi. submitted Significance of leaf shape dynamics along light and temperature gradients in the tropics.</description>
+    </item>
+    
+  </channel>
+</rss>

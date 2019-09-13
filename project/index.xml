@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Sami W Rifai</title>
+    <link>/project/</link>
+    <description>Recent content in Projects on Sami W Rifai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Sami Rifai &amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 26 Aug 2018 00:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Amazon Wind Disturbance</title>
+      <link>/project/amazon_wind_disturbance/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/project/amazon_wind_disturbance/</guid>
+      <description>Strong thunderstorms in the Amazon basin are capable of producing mass tree mortality events, but there impact of the long-term forest structure, carbon stocks, and species composition.
+During my PhD I examined which trees are most likely to die from a wind disturbance event, how the community composition changes in the decades following disturbance, and I quantified the spatial and temporal patterns of wind disturbance in the northwest Amazon.</description>
+    </item>
+    
+    <item>
+      <title>Global Ecosystems Monitoring Network</title>
+      <link>/project/gem/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/project/gem/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

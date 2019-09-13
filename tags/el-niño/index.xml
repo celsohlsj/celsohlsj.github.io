@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>El Niño on Sami W Rifai</title>
+    <link>/tags/el-ni%C3%B1o/</link>
+    <description>Recent content in El Niño on Sami W Rifai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Sami Rifai &amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 26 Aug 2018 00:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="/tags/el-ni%C3%B1o/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Global Ecosystems Monitoring Network</title>
+      <link>/project/gem/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/project/gem/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
