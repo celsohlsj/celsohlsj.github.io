@@ -1,7 +1,7 @@
 ---
 title: '21st Century drought-related fires counteract the decline of Amazon deforestation carbon emissions' 
 collection: publications
-permalink: /publication/s41467-017-02771-y.pdf
+permalink: /pdf/s41467-017-02771-y.pdf
 excerpt: 
 date: 2018-02-13
 venue: 'Nature Communication'
