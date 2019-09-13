@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Celso's Website"
 title_separator          : "-"
 name                     : &name "Celso's Website"
-description              : &description "personal description"
+description              : &description "Brazilian Environmental Engineer. Curious about the effects of fire and fragmentation in tropical forests. Currently doing PhD in Remote Sensing at INPE/Brazil."
 url                      : https://celsohlsj.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "celsohlsj/celsohlsj.github.io"
@@ -122,6 +122,7 @@ include:
   - .htaccess
   - _pages
   - files
+  - pdfs
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
