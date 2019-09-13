@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Celso H. L. Silva Junior"
   avatar           : "profile.jpg"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : "Brazilian Environmental Engineer. Curious about the effects of fire and fragmentation in tropical forests. Currently doing PhD in Remote Sensing at INPE/Brazil."
   location         : "São José dos Campos - SP, Brazil"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "https://github.com/celsohlsj"
   google_plus      :
   keybase          :
   instagram        :
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "@celsohlsj"
+  twitter          : "celsohlsj"
   vine             :
   weibo            :
   xing             :
