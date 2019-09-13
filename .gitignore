@@ -1,10 +1,2 @@
-# IDE specific
-.idea/
-.vscode/
-resources/
+_site/
 
-# Jupyter
-.ipynb_checkpoints/
-
-# Node
-node_modules/
