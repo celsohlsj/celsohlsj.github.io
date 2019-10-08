@@ -25,21 +25,17 @@ Education
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Dec 2014 to Feb 2016: Research Assistant
+  * National Institute for Space Research, Brazil
+  * Duties included: Burned Areas Mapping into the Amazonia
+  * Supervisor: Luiz Aragão
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Remote Sensing
+  * Remote Sensing of Vegetation
+  * Lidar Remote Sensing
+  * Land Use and Land Cover Dynamics
+* Forest Fragmentation
+* Fire Dynamics in Tropical Ecosystems
+* Environmental Changes in the Tropics
