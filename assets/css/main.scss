@@ -9,13 +9,12 @@
  *  - https://twitter.com/mmistakes
  *
 */
+//@import "minimal-mistakes/skins/default"; // skin
 
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
 @import "mixins";
 @import "vendor/susy/susy";
-
-@import "minimal-mistakes/skins/default"; // skin
 
 @import "reset";
 @import "base";
