@@ -38,7 +38,6 @@ def fetch_author():
 
 
 def build_payload(author):
-    # ── Top-level metrics ──
     metrics = {
         "name": author.get("name", "Celso H. L. Silva-Junior"),
         "affiliation": author.get("affiliation", ""),
@@ -51,9 +50,8 @@ def build_payload(author):
         "fetched_at": datetime.now(timezone.utc).isoformat(),
     }
 
-    # ── Publications: fill each one to get citation count ──
     pubs_raw = author.get("publications", [])
-    print(f"Found {len(pubs_raw)} publications. Filling details…")
+    print(f"Found {len(pubs_raw)} publications. Filling details...")
 
     filled = []
     for i, pub in enumerate(pubs_raw):
@@ -69,13 +67,12 @@ def build_payload(author):
                 "scholar_url": filled_pub.get("pub_url", ""),
             }
             filled.append(entry)
-            print(f"  [{i+1}/{len(pubs_raw)}] {entry['title'][:60]}… ({entry['citations']} cit.)")
-            time.sleep(1.5)   # polite delay to avoid rate limiting
+            print(f"  [{i+1}/{len(pubs_raw)}] {entry['title'][:60]}... ({entry['citations']} cit.)")
+            time.sleep(1.5)
         except Exception as exc:
             print(f"  Warning: could not fill pub {i+1}: {exc}")
             continue
 
-    # Sort by citations descending, keep top 10
     filled.sort(key=lambda x: x["citations"], reverse=True)
     metrics["top_publications"] = filled[:10]
     metrics["total_publications"] = len(filled)
@@ -86,7 +83,6 @@ def build_payload(author):
 def main():
     author = fetch_author()
     payload = build_payload(author)
-
     OUTPUT_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
     print(f"\n✓ Data written to {OUTPUT_PATH}")
     print(f"  Citations: {payload['citations_total']}  |  h-index: {payload['h_index']}  |  Publications: {payload['total_publications']}")
