@@ -779,15 +779,15 @@
     </div>
     <div class="hero-metrics fade-up">
       <div>
-        <div class="metric-val">4,400+</div>
+        <div class="metric-val" id="metric-citations">4,400+</div>
         <div class="metric-label">Citations</div>
       </div>
       <div>
-        <div class="metric-val">h = 28</div>
+        <div class="metric-val" id="metric-hindex">h = 28</div>
         <div class="metric-label">h-index</div>
       </div>
       <div>
-        <div class="metric-val">70+</div>
+        <div class="metric-val" id="metric-articles">70+</div>
         <div class="metric-label">Articles</div>
       </div>
     </div>
@@ -1165,6 +1165,18 @@
 </footer>
 
 <script>
+  // Load Scholar metrics from data/scholar_data.json
+  fetch('data/scholar_data.json')
+    .then(r => r.json())
+    .then(data => {
+      const cit = data.citations_total;
+      document.getElementById('metric-citations').textContent =
+        cit >= 1000 ? (Math.floor(cit / 100) * 100).toLocaleString() + '+' : cit.toLocaleString() + '+';
+      document.getElementById('metric-hindex').textContent = 'h = ' + data.h_index;
+      document.getElementById('metric-articles').textContent = data.total_publications + '+';
+    })
+    .catch(() => { /* keep hardcoded fallback values if fetch fails */ });
+
   // Publication filter
   function filterPubs(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
