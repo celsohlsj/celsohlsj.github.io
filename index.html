@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celso H. L. Silva-Junior | Environmental Scientist</title>
+  <meta name="description" content="Researcher at IPAM, specialist in tropical forest carbon dynamics, remote sensing, and climate change in Brazilian biomes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f1a14;
+      --forest: #1a3a2a;
+      --canopy: #2d5a3d;
+      --leaf: #4a8c5c;
+      --mist: #e8ede9;
+      --fog: #f4f7f4;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --white: #fdfefe;
+      --gray: #6b7c72;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--fog);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(253,254,254,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(42,90,61,0.12);
+      transition: padding 0.3s;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--forest);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--canopy); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--forest);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 7rem 4rem 5rem;
+      position: relative;
+    }
+
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-light);
+      border-radius: 2px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .metric-val {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.3rem;
+    }
+
+    .hero-right {
+      position: relative;
+      background: var(--mist);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 7rem 4rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,140,92,0.15) 0%, transparent 70%);
+    }
+
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+
+    .hero-bio {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--forest);
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-bio strong {
+      font-weight: 600;
+      color: var(--canopy);
+    }
+
+    .hero-affiliations {
+      position: relative;
+      z-index: 1;
+    }
+
+    .affil-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .affil-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .affil-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--forest);
+    }
+
+    .affil-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 2rem;
+      background: var(--forest);
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--canopy);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      padding: 0.8rem 2rem;
+      background: transparent;
+      color: var(--forest);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--canopy);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(42,90,61,0.08);
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTION COMMONS ── */
+    section {
+      padding: 6rem 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      color: var(--forest);
+      line-height: 1.15;
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+      font-weight: 300;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      padding-bottom: 1.8rem;
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 43px;
+      top: 1.5rem;
+      bottom: 0;
+      width: 1px;
+      background: rgba(42,90,61,0.15);
+    }
+
+    .timeline-year {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gold);
+      padding-top: 0.15rem;
+      text-align: right;
+    }
+
+    .timeline-content {
+      padding-left: 1rem;
+      border-left: 2px solid var(--canopy);
+    }
+
+    .timeline-place {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--forest);
+    }
+
+    .timeline-desc {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--gray);
+      margin-top: 0.2rem;
+      line-height: 1.5;
+    }
+
+    /* ── RESEARCH ── */
+    .research {
+      background: var(--fog);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+    }
+
+    .research-card {
+      background: var(--white);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s;
+    }
+
+    .research-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--canopy);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .research-card:hover::before { transform: scaleX(1); }
+    .research-card:hover { transform: translateY(-3px); }
+
+    .research-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .research-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .research-card p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .publications {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .publications .section-title { color: var(--white); }
+
+    .pub-filter {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--forest);
+    }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .pub-item:hover {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+      background: rgba(255,255,255,0.04);
+      border-radius: 4px;
+    }
+
+    .pub-year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+    }
+
+    .pub-info h4 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-journal {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .pub-if {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .pub-if span {
+      display: block;
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 0.2rem;
+    }
+
+    .show-more {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    /* ── PROJECTS ── */
+    .projects {
+      background: var(--white);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .project-card {
+      border: 1px solid rgba(42,90,61,0.15);
+      padding: 2.5rem;
+      position: relative;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .project-card:hover {
+      border-color: var(--canopy);
+      box-shadow: 0 8px 30px rgba(26,58,42,0.1);
+    }
+
+    .project-badge {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      background: var(--forest);
+      color: var(--gold-light);
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      line-height: 1.35;
+    }
+
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-funding {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--gold);
+      border-top: 1px solid rgba(42,90,61,0.1);
+      padding-top: 1rem;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--ink);
+      color: var(--white);
+      padding: 5rem 0;
+    }
+
+    .contact .section-title { color: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-text {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+
+    .contact-link-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-link-info {
+      flex: 1;
+    }
+
+    .contact-link-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-link-value {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .fade-up:nth-child(1) { animation-delay: 0.1s; }
+    .fade-up:nth-child(2) { animation-delay: 0.25s; }
+    .fade-up:nth-child(3) { animation-delay: 0.4s; }
+    .fade-up:nth-child(4) { animation-delay: 0.55s; }
+    .fade-up:nth-child(5) { animation-delay: 0.7s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { min-height: 60vh; padding: 6rem 2rem 3rem; }
+      .hero-right { padding: 3rem 2rem; }
+
+      .about-grid,
+      .contact-grid,
+      .projects-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .research-grid { grid-template-columns: 1fr; }
+
+      .container { padding: 0 1.5rem; }
+
+      .pub-item { grid-template-columns: 60px 1fr; }
+      .pub-if { display: none; }
+
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Celso H. L. Silva-Junior</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="fade-up">
+      <div class="hero-eyebrow">Environmental Scientist · Remote Sensing · Carbon Science</div>
+    </div>
+    <div class="fade-up">
+      <h1 class="hero-name">Celso H. L.<br><em>Silva-Junior</em></h1>
+      <p class="hero-title">Researcher, IPAM — Instituto de Pesquisa Ambiental da Amazônia</p>
+    </div>
+    <div class="hero-tags fade-up">
+      <span class="tag">Tropical Forests</span>
+      <span class="tag">Carbon Dynamics</span>
+      <span class="tag">Remote Sensing</span>
+      <span class="tag">Climate Change</span>
+      <span class="tag">Fire Ecology</span>
+      <span class="tag">GEE / Python / R</span>
+    </div>
+    <div class="hero-metrics fade-up">
+      <div>
+        <div class="metric-val">4,400+</div>
+        <div class="metric-label">Citations</div>
+      </div>
+      <div>
+        <div class="metric-val">h = 28</div>
+        <div class="metric-label">h-index</div>
+      </div>
+      <div>
+        <div class="metric-val">70+</div>
+        <div class="metric-label">Articles</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <p class="hero-bio fade-up">
+      I investigate the <strong>carbon cycle of tropical ecosystems</strong> — how deforestation, fire, and forest regeneration shape greenhouse gas fluxes across Brazilian biomes.
+    </p>
+    <p class="hero-bio fade-up" style="font-size:1.1rem; margin-bottom: 2rem;">
+      My work bridges field measurements, satellite data, and machine learning to inform climate policy and conservation strategies at national and global scales.
+    </p>
+    <div class="hero-affiliations fade-up">
+      <div class="affil-label">Affiliations</div>
+      <div class="affil-list">
+        <div class="affil-item"><span class="affil-dot"></span>IPAM — Instituto de Pesquisa Ambiental da Amazônia</div>
+        <div class="affil-item"><span class="affil-dot"></span>UFMA — Permanent Faculty, PPG Biodiversity & Conservation</div>
+        <div class="affil-item"><span class="affil-dot"></span>CNPq — Research Productivity Fellow (Level C)</div>
+        <div class="affil-item"><span class="affil-dot"></span>ESA — International Research Fellow, Amazonian Science Hub</div>
+        <div class="affil-item"><span class="affil-dot"></span>University of Manchester — Honorary Research Fellow</div>
+      </div>
+    </div>
+    <div class="hero-cta fade-up">
+      <a href="#publications" class="btn-primary">View Publications</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Background</div>
+        <h2 class="section-title">From the mangroves of<br><em>São Luís to global science</em></h2>
+        <p>
+          Born and raised on the Ilha de Upaon-Açu in the heart of the Amazon, I developed an early fascination with the ecological complexity of tropical ecosystems — particularly the mangroves near my childhood home.
+        </p>
+        <p>
+          That curiosity drove me from Environmental Engineering in Maranhão to the Brazilian National Institute for Space Research (INPE), where I completed my M.Sc. and Ph.D. in Remote Sensing, and then to a postdoctoral fellowship at UCLA and NASA's Jet Propulsion Laboratory.
+        </p>
+        <p>
+          Today, my research focuses on the intersection of remote sensing technology, carbon biogeochemistry, and climate policy — producing work that has appeared in <em>Nature</em>, <em>Science</em>, <em>Nature Climate Change</em>, and more than 70 peer-reviewed articles.
+        </p>
+        <p>
+          I am also a member of the Scientific Panel for the Amazon (SPA/SDSN) and have contributed to the 5th National Greenhouse Gas Inventory of Brazil.
+        </p>
+      </div>
+
+      <div>
+        <div class="section-label">Academic Journey</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-content">
+              <div class="timeline-place">ESA Amazonian Science Hub</div>
+              <div class="timeline-desc">International Research Fellow</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2022–23</div>
+            <div class="timeline-content">
+              <div class="timeline-place">UCLA / NASA JPL</div>
+              <div class="timeline-desc">Postdoctoral Fellow — Tropical Forest Monitoring</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2018–22</div>
+            <div class="timeline-content">
+              <div class="timeline-place">INPE — São José dos Campos</div>
+              <div class="timeline-desc">Ph.D. in Remote Sensing</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016–18</div>
+            <div class="timeline-content">
+              <div class="timeline-place">INPE — São José dos Campos</div>
+              <div class="timeline-desc">M.Sc. in Remote Sensing</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2014–16</div>
+            <div class="timeline-content">
+              <div class="timeline-place">PUC Minas</div>
+              <div class="timeline-desc">Specialization in Geoprocessing</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2009–14</div>
+            <div class="timeline-content">
+              <div class="timeline-place">UniCEUMA — São Luís</div>
+              <div class="timeline-desc">B.Sc. Environmental Engineering (ProUni scholar)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="research" id="research">
+  <div class="container">
+    <div class="section-label">Research Areas</div>
+    <h2 class="section-title">Investigating the carbon–climate–<br><em>land use nexus</em></h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <span class="research-icon">🌿</span>
+        <h3>Forest Carbon Dynamics</h3>
+        <p>Quantifying above- and below-ground biomass stocks, carbon losses from deforestation and fragmentation, and recovery rates in secondary forests across Brazilian biomes using LiDAR, hyperspectral, and optical data.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🔥</span>
+        <h3>Fire Ecology & Emissions</h3>
+        <p>Mapping burned areas, analyzing fire regimes across Amazonia, Cerrado and Caatinga, and estimating CO₂, CH₄ and N₂O emissions — including near-real-time detection systems for land managers and government agencies.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🛰️</span>
+        <h3>Remote Sensing & ML</h3>
+        <p>Developing deep-learning pipelines (Planet NICFI, GEDI, Sentinel) for forest degradation mapping, secondary vegetation age mapping, and multi-sensor data fusion for ecosystem monitoring at continental scales.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🌍</span>
+        <h3>Climate Policy & REDD+</h3>
+        <p>Assessing Brazil's compliance with its Forest Reference Emission Levels, analyzing the effectiveness of protected areas, and providing scientific evidence for international climate negotiations including COP commitments.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🪴</span>
+        <h3>Secondary Forest Regeneration</h3>
+        <p>Modeling growth trajectories, carbon debt accumulation, and climate benefits of secondary forests — with projections to 2100 under fire legacy and no-fire scenarios using Chapman-Richards growth modeling.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-icon">🌊</span>
+        <h3>Coastal & Wetland Ecosystems</h3>
+        <p>Investigating mangrove carbon stocks, sea-level rise vulnerability, and flooded forest dynamics in Eastern Amazonia, including post-fire carbon emission pipelines for Amazonian igapó and várzea forests.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="publications" id="publications">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">Selected Publications</div>
+    <h2 class="section-title">High-impact work in<br><em>global scientific journals</em></h2>
+
+    <div class="pub-filter">
+      <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+      <button class="filter-btn" onclick="filterPubs('nature', this)">Nature Family</button>
+      <button class="filter-btn" onclick="filterPubs('science', this)">Science</button>
+      <button class="filter-btn" onclick="filterPubs('remote', this)">Remote Sensing</button>
+    </div>
+
+    <div class="pub-list" id="pubList">
+
+      <div class="pub-item" data-cat="nature">
+        <div class="pub-year">2025</div>
+        <div class="pub-info">
+          <h4>Protect young secondary forests for optimum carbon removal</h4>
+          <div class="pub-journal">Nature Climate Change</div>
+        </div>
+        <div class="pub-if">IF 29.6<span>Nature Climate Change</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="nature">
+        <div class="pub-year">2023</div>
+        <div class="pub-info">
+          <h4>The carbon sink of secondary and degraded humid tropical forests</h4>
+          <div class="pub-journal">Nature</div>
+        </div>
+        <div class="pub-if">IF 50.5<span>Nature</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="science">
+        <div class="pub-year">2024</div>
+        <div class="pub-info">
+          <h4>Roots in Brazil's Amazon mangroves</h4>
+          <div class="pub-journal">Science</div>
+        </div>
+        <div class="pub-if">IF 44.7<span>Science</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="science">
+        <div class="pub-year">2023</div>
+        <div class="pub-info">
+          <h4>The drivers and impacts of Amazon forest degradation</h4>
+          <div class="pub-journal">Science</div>
+        </div>
+        <div class="pub-if">IF 44.7<span>Science</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="science">
+        <div class="pub-year">2022</div>
+        <div class="pub-info">
+          <h4>Brazil's mangroves: Natural carbon storage</h4>
+          <div class="pub-journal">Science</div>
+        </div>
+        <div class="pub-if">IF 44.7<span>Science</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="science">
+        <div class="pub-year">2021</div>
+        <div class="pub-info">
+          <h4>Northeast Brazil's imperiled Cerrado</h4>
+          <div class="pub-journal">Science</div>
+        </div>
+        <div class="pub-if">IF 44.7<span>Science</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="nature">
+        <div class="pub-year">2021</div>
+        <div class="pub-info">
+          <h4>Amazonian forest degradation must be incorporated into the COP26 agenda</h4>
+          <div class="pub-journal">Nature Geoscience</div>
+        </div>
+        <div class="pub-if">IF 15.7<span>Nature Geoscience</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="nature">
+        <div class="pub-year">2021</div>
+        <div class="pub-info">
+          <h4>Large carbon sink potential of Secondary Forests in the Brazilian Amazon to mitigate climate change</h4>
+          <div class="pub-journal">Nature Communications</div>
+        </div>
+        <div class="pub-if">IF 14.7<span>Nat. Comms.</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="nature">
+        <div class="pub-year">2020</div>
+        <div class="pub-info">
+          <h4>The Brazilian Amazon deforestation rate in 2020 is the greatest of the decade</h4>
+          <div class="pub-journal">Nature Ecology & Evolution · ~478 citations</div>
+        </div>
+        <div class="pub-if">IF 13.9<span>Nat. Ecol. Evol.</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="nature">
+        <div class="pub-year">2018</div>
+        <div class="pub-info">
+          <h4>21st Century drought-related fires counteract the decline of Amazon deforestation carbon emissions</h4>
+          <div class="pub-journal">Nature Communications</div>
+        </div>
+        <div class="pub-if">IF 14.7<span>Nat. Comms.</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="remote">
+        <div class="pub-year">2023</div>
+        <div class="pub-info">
+          <h4>Mapping tropical forest degradation with deep learning and Planet NICFI data</h4>
+          <div class="pub-journal">Remote Sensing of Environment</div>
+        </div>
+        <div class="pub-if">IF 11.1<span>RSE</span></div>
+      </div>
+
+      <div class="pub-item" data-cat="remote">
+        <div class="pub-year">2022</div>
+        <div class="pub-info">
+          <h4>Large scale multi-layer fuel load characterization in tropical savanna using GEDI spaceborne lidar data</h4>
+          <div class="pub-journal">Remote Sensing of Environment</div>
+        </div>
+        <div class="pub-if">IF 11.1<span>RSE</span></div>
+      </div>
+
+    </div>
+
+    <div class="show-more">
+      <a href="https://scholar.google.com.br/citations?user=UEWx5SkAAAAJ&hl=pt-BR" target="_blank" class="btn-secondary" style="display:inline-block; border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.7);">
+        View Full List on Google Scholar →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-label">Current Projects</div>
+    <h2 class="section-title">Leading science with<br><em>real-world impact</em></h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <span class="project-badge">Active · 2023–present</span>
+        <h3>YBYRÁ-BR: Spatio-temporal Quantification of CO₂ Emissions and Removals by Brazilian Forests</h3>
+        <p>Ambitious national-scale effort integrating optical, radar and LiDAR satellite data with AI to separate gross emissions (deforestation, fire, degradation) from removals (secondary forest growth), feeding into Brazil's Paris Agreement reporting.</p>
+        <div class="project-funding">CNPq/MCTI · Principal Investigator</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge">Active · 2024–present</span>
+        <h3>Amazonian BioTechQuilombo: Biodiversity Monitoring in Quilombola Territories</h3>
+        <p>Pioneering initiative combining advanced remote sensing with participatory science, mobile apps, and traditional ecological knowledge in quilombola communities to support autonomous territorial monitoring and biodiversity conservation.</p>
+        <div class="project-funding">Amazônia +10 · Principal Investigator · R$ 12.6M</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge">Active · 2024–present</span>
+        <h3>Climate-Resilient Forest Restoration in the Eastern Amazon</h3>
+        <p>International collaboration led by Lancaster University focused on large-scale tropical forest restoration in Pará, maximizing co-benefits for climate, biodiversity and local communities through advanced spatial modelling.</p>
+        <div class="project-funding">University of Lancaster (UK) · Collaborator</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge">Active · 2024–present</span>
+        <h3>Resilience of Biodiversity in the Gurupi Biological Reserve (PELD Phase II)</h3>
+        <p>Long-term ecological research program investigating natural regeneration trajectories after forest disturbance, contributing to understanding the resilience of Amazonian ecosystems under combined pressures of fire and land use change.</p>
+        <div class="project-funding">CNPq PELD Network · Collaborator</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Let's collaborate<br><em>on science that matters</em></h2>
+        <p class="contact-text">
+          I am open to research collaborations, graduate student supervision, editorial partnerships, and scientific consulting in remote sensing, carbon accounting, and tropical forest ecology.
+          <br><br>
+          Based in São Luís, Maranhão — working globally.
+        </p>
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:celsohlsj@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">celsohlsj@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://scholar.google.com.br/citations?user=UEWx5SkAAAAJ&hl=pt-BR" target="_blank" class="contact-link">
+          <div class="contact-link-icon">🎓</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Google Scholar</div>
+            <div class="contact-link-value">View publication record</div>
+          </div>
+        </a>
+
+        <a href="https://orcid.org/0000-0002-1052-5551" target="_blank" class="contact-link">
+          <div class="contact-link-icon">⬡</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">ORCID</div>
+            <div class="contact-link-value">0000-0002-1052-5551</div>
+          </div>
+        </a>
+
+        <a href="http://lattes.cnpq.br/0506851271452550" target="_blank" class="contact-link">
+          <div class="contact-link-icon">📋</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Currículo Lattes</div>
+            <div class="contact-link-value">CNPq Research Profile</div>
+          </div>
+        </a>
+
+        <a href="https://www.researchgate.net/profile/Celso-Silva-Junior-2" target="_blank" class="contact-link">
+          <div class="contact-link-icon">🔬</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">ResearchGate</div>
+            <div class="contact-link-value">Connect & collaborate</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">© 2025 Celso H. L. Silva-Junior · Environmental Scientist · São Luís, Maranhão, Brazil</div>
+  <div class="footer-text">IPAM · UFMA · CNPq · ESA</div>
+</footer>
+
+<script>
+  // Publication filter
+  function filterPubs(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pub-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = 'grid';
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(10px)';
+        requestAnimationFrame(() => {
+          item.style.transition = 'opacity 0.3s, transform 0.3s';
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        });
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.research-card, .project-card, .timeline-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '0.8rem 3rem';
+    } else {
+      nav.style.padding = '1.2rem 3rem';
+    }
+  });
+</script>
+
+</body>
+</html>
