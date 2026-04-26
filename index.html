@@ -241,26 +241,17 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
   <div class="container">
     <div class="slbl reveal" data-en="Scientific Output" data-pt="Produção Científica">Scientific Output</div>
     <h2 class="stit reveal" data-en="Top 10 Most Cited Publications" data-pt="10 Publicações Mais Citadas">Top 10 Most Cited Publications</h2>
-    <p class="ssub reveal" data-en="Ranked by citation count, updated weekly via Semantic Scholar. Visit the full publications page for the complete list with filters." data-pt="Ordenadas por número de citações, atualizadas semanalmente via Semantic Scholar. Acesse a página completa de publicações para a lista completa com filtros.">Ranked by citation count, updated weekly via Semantic Scholar. Visit the full publications page for the complete list with filters.</p>
-
-    <!-- Live sync indicator -->
+    <p class="ssub reveal" data-en="Ranked by citation count from Google Scholar. Updated weekly via SerpAPI." data-pt="Ordenadas por citações do Google Scholar. Atualizadas semanalmente via SerpAPI.">Ranked by citation count from Google Scholar. Updated weekly via SerpAPI.</p>
     <div class="reveal" style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap">
       <div style="display:inline-flex;align-items:center;gap:.5rem;background:var(--gp);border:1px solid rgba(45,106,79,.2);color:var(--gm);font-size:.7rem;font-weight:600;letter-spacing:.06em;padding:.3rem .85rem;border-radius:20px">
         <span style="width:7px;height:7px;border-radius:50%;background:var(--gb);animation:pls 2s infinite;display:inline-block"></span>
-        <span data-en="Citations synced via Semantic Scholar API" data-pt="Citações sincronizadas via Semantic Scholar API">Citations synced via Semantic Scholar API</span>
+        <span data-en="Data from Google Scholar via SerpAPI" data-pt="Dados do Google Scholar via SerpAPI">Data from Google Scholar via SerpAPI</span>
       </div>
       <span id="home-last-upd" style="font-size:.72rem;color:var(--tm)"></span>
     </div>
-
-    <div class="plist" id="home-pub-list">
-      <div style="text-align:center;padding:2rem;color:var(--tm)">
-        <span style="font-size:1.5rem">⏳</span>
-        <div style="margin-top:.5rem;font-size:.88rem" data-en="Loading top publications…" data-pt="Carregando publicações…">Loading top publications…</div>
-      </div>
-    </div>
-
+    <div class="plist" id="home-pub-list"></div>
     <div style="text-align:center;margin-top:2.5rem" class="reveal">
-      <a href="publications.html" class="btp" data-en="View all publications with live citations →" data-pt="Ver todas as publicações com citações ao vivo →">View all publications with live citations →</a>
+      <a href="publications.html" class="btp" data-en="View all publications →" data-pt="Ver todas as publicações →">View all publications →</a>
     </div>
   </div>
 </section>
@@ -477,119 +468,105 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
   <p style="margin-top:.5rem"><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes</a> · <a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID</a> · <a href="https://ipam.org.br" target="_blank">IPAM</a></p>
 </footer>
 
+<script src="pub_data.js"></script>
 <script>
-let lang='en';
-
 /* ============================================================
-   TOP-10 — loaded from data/scholar_papers.json
-   Generated weekly by fetch_scholar.py via SerpAPI
+   Publications data — loaded from pub_data.js (always available)
+   Optionally overridden by data/scholar_papers.json (from SerpAPI)
    ============================================================ */
-const NATURE_KW=['nature','communications earth','scientific reports','scientific data','npj'];
-const SCIENCE_KW=['science','science advances'];
 
-function catOf(j=''){
-  const s=j.toLowerCase();
-  if(s.includes('science of the total')) return 'other';
-  for(const k of NATURE_KW) if(s.includes(k)) return 'nature';
-  for(const k of SCIENCE_KW) if(s.includes(k)) return 'science';
-  return 'other';
-}
-
-function hlAuthor(s=''){
-  // Normalise "Silva Junior" -> "Silva-Junior" then bold
-  return s
-    .replace(/Silva\s+Junior/gi, 'Silva-Junior')
-    .replace(/Silva\.?-Junior[^,;<]*/gi, m=>`<strong>${m}</strong>`)
-    .replace(/Celso[^,;<]*Silva-Junior[^,;<]*/gi, m=>`<strong>${m}</strong>`);
-}
+let lang = 'en';
 
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-async function loadTop10(){
-  const list=document.getElementById('home-pub-list');
-  const lu=document.getElementById('home-last-upd');
+function renderTop10(papers, updatedAt){
+  const list = document.getElementById('home-pub-list');
   if(!list) return;
 
-  let papers=[], stats={};
-
-  try{
-    const [rp,rs]=await Promise.all([
-      fetch('data/scholar_papers.json'),
-      fetch('data/scholar_data.json')
-    ]);
-    if(rp.ok) papers=await rp.json();
-    if(rs.ok) stats=await rs.json();
-  }catch(e){}
-
-  if(!papers.length){
-    list.innerHTML=`<div style="text-align:center;padding:2rem;color:var(--tm);font-size:.88rem">
-      <div style="font-size:1.5rem;margin-bottom:.5rem">📊</div>
-      <div>${lang==='en'
-        ?'Run <code>fetch_scholar.py</code> to populate publications.'
-        :'Execute <code>fetch_scholar.py</code> para carregar as publicações.'}</div>
-    </div>`;
-    return;
-  }
-
   // Sort by citations desc, take top 10
-  const top10=[...papers]
+  const top10 = [...papers]
     .sort((a,b)=>(b.cited_by||0)-(a.cited_by||0))
     .slice(0,10);
 
-  const citLbl=lang==='en'?'citations':'citações';
+  const citLbl = lang==='en' ? 'citations' : 'citações';
 
-  list.innerHTML=top10.map(p=>{
-    const citH=(p.cited_by!=null&&p.cited_by>0)
-      ?`<span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;font-weight:700;color:var(--ad);background:rgba(233,180,76,.1);padding:.22rem .65rem;border-radius:12px">
-          ★ ${Number(p.cited_by).toLocaleString('en')}
-          <span style="font-size:.69rem;font-weight:400;color:var(--tm)">${citLbl}</span>
-        </span>`:'';
-    const lnk=p.link
-      ?`<a href="${p.link}" target="_blank" style="font-size:.72rem;color:var(--gb);font-weight:600;text-decoration:none" rel="noopener">Scholar ↗</a>`:'';
+  list.innerHTML = top10.map(p => {
+    const citH = (p.cited_by > 0)
+      ? `<span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;font-weight:700;color:var(--ad);background:rgba(233,180,76,.1);padding:.22rem .65rem;border-radius:12px">
+           ★ ${Number(p.cited_by).toLocaleString('en')}
+           <span style="font-size:.69rem;font-weight:400;color:var(--tm)">${citLbl}</span>
+         </span>` : '';
+    const lnk = p.link
+      ? `<a href="${p.link}" target="_blank" style="font-size:.72rem;color:var(--gb);font-weight:600;text-decoration:none" rel="noopener">Google Scholar ↗</a>` : '';
     return `<div class="pi">
       <div class="py">${p.year||'—'}</div>
       <div>
         <span class="pj">${esc(p.journal||'')}</span>
-        <div class="ptit">${esc(p.title||'')}</div>
-        <div class="pau">${hlAuthor(esc(p.authors||''))}</div>
+        <div class="ptit">${p.title||''}</div>
+        <div class="pau">${p.authors||''}</div>
         <div class="pmeta" style="display:flex;gap:.75rem;margin-top:.35rem;flex-wrap:wrap">${citH}${lnk}</div>
       </div>
     </div>`;
   }).join('');
 
-  if(stats.updated_at&&lu){
-    const d=new Date(stats.updated_at);
-    lu.textContent=`${lang==='en'?'Last updated:':'Atualizado em:'} ${d.toLocaleDateString(lang==='en'?'en-GB':'pt-BR')}`;
+  const lu = document.getElementById('home-last-upd');
+  if(lu && updatedAt){
+    const d = new Date(updatedAt);
+    lu.textContent = `${lang==='en'?'Last updated:':'Atualizado em:'} ${d.toLocaleDateString(lang==='en'?'en-GB':'pt-BR')}`;
   }
 }
 
-/* ============================================================
-   LANG / REVEAL / NAV
-   ============================================================ */
+async function loadTop10(){
+  // Always render static data immediately
+  if(typeof STATIC_PAPERS !== 'undefined') renderTop10(STATIC_PAPERS, null);
+
+  // Try to load fresher data from JSON (generated by fetch_scholar.py)
+  try{
+    const [rp, rs] = await Promise.allSettled([
+      fetch('data/scholar_papers.json'),
+      fetch('data/scholar_data.json')
+    ]);
+    if(rp.status==='fulfilled' && rp.value.ok){
+      const papers = await rp.value.json();
+      let updatedAt = null;
+      if(rs.status==='fulfilled' && rs.value.ok){
+        const stats = await rs.value.json();
+        updatedAt = stats.updated_at;
+      }
+      if(papers && papers.length > 0) renderTop10(papers, updatedAt);
+    }
+  }catch(e){ /* Keep static data */ }
+}
+
+/* === LANG === */
 function toggleLang(btn){
-  lang=lang==='en'?'pt':'en';
-  btn.textContent=lang==='en'?'🌐 PT':'🌐 EN';
-  document.documentElement.setAttribute('lang',lang==='en'?'en':'pt-BR');
-  document.title=lang==='en'?'Celso H. L. Silva-Junior | Environmental Scientist | IPAM':'Celso H. L. Silva-Junior | Cientista Ambiental | IPAM';
+  lang = lang==='en'?'pt':'en';
+  btn.textContent = lang==='en'?'🌐 PT':'🌐 EN';
+  document.documentElement.setAttribute('lang', lang==='en'?'en':'pt-BR');
+  document.title = lang==='en'
+    ? 'Celso H. L. Silva-Junior | Environmental Scientist | IPAM'
+    : 'Celso H. L. Silva-Junior | Cientista Ambiental | IPAM';
   document.querySelectorAll('[data-en]').forEach(el=>{
-    const v=el.getAttribute('data-'+lang);
-    if(v!==null&&el.children.length===0)el.textContent=v;
+    const v = el.getAttribute('data-'+lang);
+    if(v!==null && el.children.length===0) el.textContent = v;
   });
   loadTop10();
 }
 
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}});
+/* === REVEAL === */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*55); obs.unobserve(e.target); }});
 },{threshold:.07});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
+/* === NAV HIGHLIGHT === */
 window.addEventListener('scroll',()=>{
   let cur='';
-  document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
-  document.querySelectorAll('.nav-links a[href]').forEach(a=>{a.style.color=a.getAttribute('href')===`#${cur}`?'var(--am)':'';});
+  document.querySelectorAll('section[id]').forEach(s=>{ if(window.scrollY>=s.offsetTop-80) cur=s.id; });
+  document.querySelectorAll('.nav-links a[href]').forEach(a=>{ a.style.color = a.getAttribute('href')===`#${cur}`?'var(--am)':''; });
 });
 
-document.addEventListener('DOMContentLoaded',()=>loadTop10());
+document.addEventListener('DOMContentLoaded', loadTop10);
 </script>
 </body>
 </html>
