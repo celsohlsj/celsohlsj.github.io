@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Celso H. L. Silva-Junior</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Slab:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#1a3a2a;--gm:#2d6a4f;--gb:#40916c;--gl:#74c69d;--gp:#d8f3dc;--am:#e9b44c;--ad:#c68b1a;--cr:#f8f5ef;--dk:#111a15;--tx:#1e2d25;--tm:#5a7a65;--wh:#ffffff;--br:rgba(45,106,79,.15);--sh:0 4px 28px rgba(26,58,42,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;background:var(--cr);color:var(--tx);line-height:1.7;padding-top:64px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,58,42,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--am);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-brand{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:var(--wh);text-decoration:none;letter-spacing:.02em;flex-shrink:0}
+.nav-brand span{color:var(--am)}
+.nav-links{display:flex;gap:.1rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .6rem;border-radius:4px;transition:all .2s}
+.nav-links a:hover{color:var(--am);background:rgba(233,180,76,.1)}
+.lang-btn{background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.5);color:var(--am);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .75rem;border-radius:4px;cursor:pointer;transition:all .2s;font-family:'Roboto',sans-serif}
+.lang-btn:hover{background:var(--am);color:var(--dk)}
+.divider{height:3px;background:linear-gradient(90deg,var(--gd),var(--gb),var(--am),var(--gb),var(--gd))}
+
+/* PAGE HEADER */
+.page-header{background:var(--gd);padding:4rem 2rem 3rem;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 90% 50%,rgba(64,145,108,.18) 0%,transparent 65%),radial-gradient(ellipse 30% 50% at 5% 80%,rgba(116,198,157,.08) 0%,transparent 60%)}
+.phc{position:relative;max-width:1200px;margin:0 auto}
+.ph-back{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.5);font-size:.78rem;font-weight:500;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s}
+.ph-back:hover{color:var(--am)}
+.ph-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.4);color:var(--am);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .85rem;border-radius:2px;margin-bottom:1.2rem}
+.ph-title{font-family:'Roboto Slab',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:var(--wh);line-height:1.15;margin-bottom:1rem}
+.ph-sub{font-size:.95rem;color:rgba(255,255,255,.6);max-width:600px;line-height:1.8}
+.ph-stats{display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap}
+.ph-st .n{font-family:'Roboto Slab',serif;font-size:1.8rem;font-weight:700;color:var(--am);display:block;line-height:1}
+.ph-st .l{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:.15rem}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:3rem 2rem}
+
+/* SECTION HEADINGS */
+.sec-head{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;margin-top:4rem}
+.sec-head:first-child{margin-top:0}
+.sec-badge{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wh);padding:.3rem .8rem;border-radius:3px;flex-shrink:0}
+.sec-badge.ongoing{background:var(--gb)}
+.sec-badge.concluded{background:var(--tm)}
+.sec-line{flex:1;height:1px;background:var(--br)}
+.sec-title{font-family:'Roboto Slab',serif;font-size:1.1rem;font-weight:600;color:var(--gd)}
+
+/* PROJECT CARDS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:1.5rem}
+
+.pcard{background:var(--wh);border:1px solid var(--br);border-radius:12px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--gl)}
+.pcard.concluded{opacity:.82}
+
+.pcard-accent{height:5px}
+.pcard-accent.coord{background:linear-gradient(90deg,var(--gd),var(--gb))}
+.pcard-accent.member{background:linear-gradient(90deg,var(--gb),var(--gl))}
+.pcard-accent.done{background:linear-gradient(90deg,var(--tm),#a0b8ab)}
+
+.pcard-body{padding:1.8rem;flex:1;display:flex;flex-direction:column;gap:1rem}
+
+.pcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.pcard-role{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wh);padding:.22rem .6rem;border-radius:2px;flex-shrink:0}
+.pcard-role.coord{background:var(--gm)}
+.pcard-role.member{background:var(--gb)}
+.pcard-role.done-role{background:var(--tm)}
+
+.pcard-status{display:inline-flex;align-items:center;gap:.35rem;font-size:.65rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.pcard-status.on{color:var(--gb)}
+.pcard-status.on::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gb);animation:pls 2s infinite;display:inline-block;flex-shrink:0}
+.pcard-status.cl{color:var(--tm)}
+.pcard-status.cl::before{content:'✓';font-size:.8em}
+
+.pcard h3{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:600;color:var(--gd);line-height:1.45}
+.pcard p{font-size:.85rem;color:var(--tm);line-height:1.7;flex:1}
+
+.pcard-meta{border-top:1px solid var(--br);padding-top:1rem;display:flex;flex-direction:column;gap:.4rem}
+.meta-row{display:flex;align-items:flex-start;gap:.6rem;font-size:.78rem;color:var(--tx)}
+.meta-row .ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem}
+.meta-row strong{color:var(--gd);font-weight:600}
+
+/* PUBS LINKED */
+.pubs-linked{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.pub-pill{background:var(--gp);color:var(--gm);font-size:.68rem;font-weight:600;padding:.2rem .65rem;border-radius:12px;text-decoration:none;transition:all .2s;letter-spacing:.02em}
+.pub-pill:hover{background:var(--gm);color:var(--wh)}
+
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+footer{background:var(--dk);padding:2rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.06);margin-top:5rem}
+footer a{color:rgba(255,255,255,.45);text-decoration:none}
+
+@media(max-width:768px){.projects-grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><span>CHL</span> Silva-Junior</a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="← Home" data-pt="← Início">← Home</a></li>
+    <li><a href="publications.html" data-en="Publications" data-pt="Publicações">Publications</a></li>
+    <li><a href="fieldwork.html" data-en="Fieldwork" data-pt="Campo">Fieldwork</a></li>
+    <li><a href="index.html#students" data-en="Students" data-pt="Orientandos">Students</a></li>
+    <li><a href="index.html#contact" data-en="Contact" data-pt="Contato">Contact</a></li>
+    <li><button class="lang-btn" onclick="toggleLang(this)">🌐 PT</button></li>
+  </ul>
+</nav>
+<div class="divider"></div>
+
+<div class="page-header">
+  <div class="phc">
+    <a href="index.html" class="ph-back" data-en="← Back to home" data-pt="← Voltar ao início">← Back to home</a>
+    <div class="ph-tag">🔬 <span data-en="Research Projects" data-pt="Projetos de Pesquisa">Research Projects</span></div>
+    <h1 class="ph-title" data-en="Projects" data-pt="Projetos">Projects</h1>
+    <p class="ph-sub" data-en="Research projects funded by national and international agencies, focusing on forest carbon balance, fire dynamics, biodiversity, and forest restoration across Brazilian biomes." data-pt="Projetos de pesquisa financiados por agências nacionais e internacionais, com foco no balanço de carbono florestal, dinâmica do fogo, biodiversidade e restauração florestal nos biomas brasileiros.">Research projects funded by national and international agencies, focusing on forest carbon balance, fire dynamics, biodiversity, and forest restoration across Brazilian biomes.</p>
+    <div class="ph-stats">
+      <div class="ph-st"><span class="n">5</span><span class="l" data-en="Active projects" data-pt="Projetos ativos">Active projects</span></div>
+      <div class="ph-st"><span class="n">4</span><span class="l" data-en="As coordinator" data-pt="Como coordenador">As coordinator</span></div>
+      <div class="ph-st"><span class="n">3</span><span class="l" data-en="Concluded" data-pt="Concluídos">Concluded</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ── ONGOING ──────────────────────────────────────────────── -->
+  <div class="sec-head reveal">
+    <span class="sec-badge ongoing" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+    <div class="sec-line"></div>
+    <span class="sec-title" data-en="Active Research Projects" data-pt="Projetos em Andamento">Active Research Projects</span>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- YBYRÁ-BR -->
+    <div class="pcard reveal">
+      <div class="pcard-accent coord"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role coord" data-en="Coordinator" data-pt="Coordenador">Coordinator</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3>YBYRÁ-BR: <span data-en="Spatio-temporal Quantification of CO₂ Emissions and Removals by Brazilian Forests" data-pt="Quantificação Espaço-temporal das Emissões e Remoções de CO₂ pelas Florestas Brasileiras">Spatio-temporal Quantification of CO₂ Emissions and Removals by Brazilian Forests</span></h3>
+        <p data-en="Central laboratory project focused on Brazil's forest carbon balance. Uses Google Earth Engine pipelines integrating deforestation, fire, degradation, and secondary forest data (MapBiomas Collection 10.1) across all Brazilian biomes to quantify annual CO₂ emissions and removals." data-pt="Projeto central do laboratório, focado no balanço de carbono das florestas brasileiras. Utiliza pipelines no Google Earth Engine integrando dados de desmatamento, fogo, degradação e florestas secundárias (MapBiomas Coleção 10.1) em todos os biomas brasileiros para quantificar emissões e remoções anuais de CO₂.">Central laboratory project focused on Brazil's forest carbon balance. Uses Google Earth Engine pipelines integrating deforestation, fire, degradation, and secondary forest data (MapBiomas Collection 10.1) across all Brazilian biomes to quantify annual CO₂ emissions and removals.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> <span data-en="Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq/MCTI) · Process 401741/2023-0" data-pt="Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq/MCTI) · Processo 401741/2023-0">Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq/MCTI) · Process 401741/2023-0</span></div></div>
+          <div class="meta-row"><span class="ico">🔗</span><div><strong>GitHub:</strong> <a href="https://github.com/celsohlsj/Brazil-National-FREL" target="_blank" style="color:var(--gb);text-decoration:none">celsohlsj/Brazil-National-FREL ↗</a></div></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2023" data-pt="Desde 2023">Since 2023</span></div>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem" data-en="Related publications" data-pt="Publicações relacionadas">Related publications</div>
+          <div class="pubs-linked">
+            <a class="pub-pill" href="publications.html">Lapola et al. 2023 · Science</a>
+            <a class="pub-pill" href="publications.html">Silva-Junior et al. 2021 · Nat. Geoscience</a>
+            <a class="pub-pill" href="publications.html">Heinrich et al. 2023 · Nature</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REBIO GURUPI -->
+    <div class="pcard reveal">
+      <div class="pcard-accent coord"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role coord" data-en="Coordinator" data-pt="Coordenador">Coordinator</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3 data-en="Resilience of Biodiversity in the Reserva Biológica do Gurupi, Phase II" data-pt="Resiliência da Biodiversidade na Reserva Biológica do Gurupi, Fase II">Resilience of Biodiversity in the Reserva Biológica do Gurupi, Phase II</h3>
+        <p data-en="Long-term ecological research (PELD) monitoring three vegetation cover types — conserved forest, post-pasture regeneration, and post-fire regeneration — combined with topographic variation (plateau and lowland). Addresses recovery trajectories, hydrological conditions, and community participation." data-pt="Pesquisa ecológica de longa duração (PELD) com monitoramento de três tipos de cobertura vegetal — floresta conservada, regeneração pós-pasto e pós-fogo — combinados com variação topográfica (platô e baixada). Aborda trajetórias de recuperação, condições hidrológicas e participação comunitária.">Long-term ecological research (PELD) monitoring three vegetation cover types — conserved forest, post-pasture regeneration, and post-fire regeneration — combined with topographic variation (plateau and lowland). Addresses recovery trajectories, hydrological conditions, and community participation.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)</div></div>
+          <div class="meta-row"><span class="ico">📍</span><span data-en="Reserva Biológica do Gurupi, Maranhão, Brazil" data-pt="Reserva Biológica do Gurupi, Maranhão, Brasil">Reserva Biológica do Gurupi, Maranhão, Brazil</span></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2024" data-pt="Desde 2024">Since 2024</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BioTechQuilombo -->
+    <div class="pcard reveal">
+      <div class="pcard-accent coord"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role coord" data-en="Coordinator" data-pt="Coordenador">Coordinator</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3>Amazonian BioTechQuilombo — <span data-en="Amazonian Biodiversity, Technology Assessment and Knowledge Exchange with Quilombo Communities" data-pt="Biodiversidade Amazônica, Avaliação Tecnológica e Troca de Conhecimento com Quilombos">Amazonian Biodiversity, Technology Assessment and Knowledge Exchange with Quilombo Communities</span></h3>
+        <p data-en="Interdisciplinary research integrating Amazonian biodiversity assessment, geospatial technology, and co-production of knowledge with Quilombola communities. Combines remote sensing with participatory approaches to support conservation and territorial management." data-pt="Pesquisa interdisciplinar integrando avaliação da biodiversidade amazônica, tecnologia geoespacial e coprodução de conhecimento com comunidades Quilombolas. Combina sensoriamento remoto com abordagens participativas para apoiar a conservação e a gestão territorial.">Interdisciplinary research integrating Amazonian biodiversity assessment, geospatial technology, and co-production of knowledge with Quilombola communities. Combines remote sensing with participatory approaches to support conservation and territorial management.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2024" data-pt="Desde 2024">Since 2024</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eastern Amazon Restoration -->
+    <div class="pcard reveal">
+      <div class="pcard-accent member"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role member" data-en="Member" data-pt="Integrante">Member</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3 data-en="Enabling Large-scale and Climate-resilient Forest Restoration in the Eastern Amazon" data-pt="Habilitando a Restauração Florestal em Grande Escala e Resiliente ao Clima na Amazônia Oriental">Enabling Large-scale and Climate-resilient Forest Restoration in the Eastern Amazon</h3>
+        <p data-en="Project focused on large-scale forest restoration in Pará State, Brazil — which has a target of restoring 7.4 million hectares by 2036. Guides where restoration maximises benefits for climate, people and biodiversity. Investigates fire threats to the permanence of natural regeneration and co-develops a prioritisation tool with local stakeholders." data-pt="Projeto focado na restauração florestal em grande escala no estado do Pará — que tem meta de restaurar 7,4 milhões de hectares até 2036. Orienta onde a restauração maximiza benefícios para o clima, as pessoas e a biodiversidade. Investiga ameaças do fogo à permanência da regeneração natural e codesenvolvida com partes interessadas locais.">Project focused on large-scale forest restoration in Pará State, Brazil — which has a target of restoring 7.4 million hectares by 2036. Guides where restoration maximises benefits for climate, people and biodiversity. Investigates fire threats to the permanence of natural regeneration and co-develops a prioritisation tool with local stakeholders.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funders:" data-pt="Financiadores:">Funders:</strong> Department for Environment, Food &amp; Rural Affairs (DEFRA) / Global Centre on Biodiversity for Climate</div></div>
+          <div class="meta-row"><span class="ico">🤝</span><div><strong data-en="Lead:" data-pt="Coordenação:">Lead:</strong> Lancaster University (Jos Barlow)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2024" data-pt="Desde 2024">Since 2024</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP-Fire -->
+    <div class="pcard reveal">
+      <div class="pcard-accent member"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role member" data-en="Member" data-pt="Integrante">Member</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3>MAP-Fire: <span data-en="A Platform for Carbon Balance Management — Fire Emissions and Secondary Forest Removals for Maranhão State" data-pt="Uma Plataforma de Gestão do Balanço de Carbono — Emissões pelo Fogo e Remoções por Florestas Secundárias para o Estado do Maranhão">A Platform for Carbon Balance Management — Fire Emissions and Secondary Forest Removals for Maranhão State</span></h3>
+        <p data-en="Develops a monitoring system for fire occurrence probability and the carbon balance between fire emissions and secondary forest carbon removals in Maranhão State. Final product is an open online platform for visualising fire, climate, biomass, deforestation, and CO₂ data at municipal level." data-pt="Desenvolve um sistema de monitoramento da probabilidade de ocorrência de incêndios e do balanço de carbono entre emissões pelo fogo e remoções por florestas secundárias no Maranhão. O produto final é uma plataforma online aberta para visualização de dados de fogo, clima, biomassa, desmatamento e CO₂ em nível municipal.">Develops a monitoring system for fire occurrence probability and the carbon balance between fire emissions and secondary forest carbon removals in Maranhão State. Final product is an open online platform for visualising fire, climate, biomass, deforestation, and CO₂ data at municipal level.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> Fundação de Amparo à Pesquisa do Estado de São Paulo (FAPESP)</div></div>
+          <div class="meta-row"><span class="ico">🤝</span><div><strong data-en="Lead:" data-pt="Coordenação:">Lead:</strong> Liana O. Anderson (CEMADEN/INPE)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2022" data-pt="Desde 2022">Since 2022</span></div>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem" data-en="Related publications" data-pt="Publicações relacionadas">Related publications</div>
+          <div class="pubs-linked">
+            <a class="pub-pill" href="publications.html">Silva-Junior et al. 2022 · Fire</a>
+            <a class="pub-pill" href="publications.html">Pessoa et al. 2023 · Ecol. Economics</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CO2 Balance Maranhão -->
+    <div class="pcard reveal">
+      <div class="pcard-accent member"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role member" data-en="Member" data-pt="Integrante">Member</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3 data-en="Carbon Balance of CO₂ Emissions for Maranhão State" data-pt="Balanço das Emissões Brutas de CO₂ para o Estado do Maranhão">Carbon Balance of CO₂ Emissions for Maranhão State</h3>
+        <p data-en="Provides a comprehensive balance between CO₂ emissions from deforestation, forest fragmentation, and fires, and removals through secondary forest growth for Maranhão State (1985–2020). Integrates state-of-the-art remote sensing products with field data." data-pt="Fornece um balanço abrangente entre as emissões de CO₂ por desmatamento, fragmentação florestal e incêndios, e as remoções pelo crescimento de florestas secundárias para o estado do Maranhão (1985–2020). Integra produtos de sensoriamento remoto de ponta com dados de campo.">Provides a comprehensive balance between CO₂ emissions from deforestation, forest fragmentation, and fires, and removals through secondary forest growth for Maranhão State (1985–2020). Integrates state-of-the-art remote sensing products with field data.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)</div></div>
+          <div class="meta-row"><span class="ico">🤝</span><div><strong data-en="Lead:" data-pt="Coordenação:">Lead:</strong> Liana O. Anderson (CEMADEN/INPE)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2022" data-pt="Desde 2022">Since 2022</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARBOLES -->
+    <div class="pcard reveal">
+      <div class="pcard-accent member"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role member" data-en="Member" data-pt="Integrante">Member</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3>ARBOLES: <span data-en="Understanding Biodiversity and Resilience of Latin American Forests Based on Functional Traits" data-pt="Um Entendimento da Biodiversidade e Resiliência das Florestas LATAM baseado em Características Funcionais">Understanding Biodiversity and Resilience of Latin American Forests Based on Functional Traits</span></h3>
+        <p data-en="Investigates the functional diversity and ecological resilience of Latin American forests using remote sensing and field-based functional trait data. Focuses on how traits mediate ecosystem responses to disturbance and climate change across tropical and subtropical forests." data-pt="Investiga a diversidade funcional e a resiliência ecológica das florestas latino-americanas usando sensoriamento remoto e dados de campo de características funcionais. Foca em como os traços medeiam as respostas dos ecossistemas a perturbações e mudanças climáticas em florestas tropicais e subtropicais.">Investigates the functional diversity and ecological resilience of Latin American forests using remote sensing and field-based functional trait data. Focuses on how traits mediate ecosystem responses to disturbance and climate change across tropical and subtropical forests.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> Fundação de Amparo à Pesquisa do Estado de São Paulo (FAPESP)</div></div>
+          <div class="meta-row"><span class="ico">🤝</span><div><strong data-en="Lead:" data-pt="Coordenação:">Lead:</strong> L. E. O. C. Aragão (INPE)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2019" data-pt="Desde 2019">Since 2019</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quantification Maranhão fragmentation -->
+    <div class="pcard reveal">
+      <div class="pcard-accent member"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role member" data-en="Member" data-pt="Integrante">Member</span>
+          <span class="pcard-status on" data-en="Ongoing" data-pt="Em andamento">Ongoing</span>
+        </div>
+        <h3 data-en="Quantification of Forest Carbon Stock Losses due to Deforestation and Forest Fragmentation in Maranhão State" data-pt="Quantificação das Perdas de Estoques de Carbono Florestal devido ao Desmatamento e Fragmentação Florestal para o Estado do Maranhão">Quantification of Forest Carbon Stock Losses due to Deforestation and Forest Fragmentation in Maranhão State</h3>
+        <p data-en="Quantifies spatio-temporal forest carbon losses driven by deforestation and edge effects in Maranhão, integrating remote sensing products with field inventory data across Amazon and Cerrado biomes." data-pt="Quantifica as perdas espaço-temporais de carbono florestal impulsionadas pelo desmatamento e pelos efeitos de borda no Maranhão, integrando produtos de sensoriamento remoto com dados de inventário de campo nos biomas Amazônia e Cerrado.">Quantifies spatio-temporal forest carbon losses driven by deforestation and edge effects in Maranhão, integrating remote sensing products with field inventory data across Amazon and Cerrado biomes.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> Fundação de Amparo à Pesquisa ao Desenvolvimento Científico e Tecnológico do Maranhão (FAPEMA)</div></div>
+          <div class="meta-row"><span class="ico">🤝</span><div><strong data-en="Lead:" data-pt="Coordenação:">Lead:</strong> Denilson da Silva Bezerra (UFMA)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span data-en="Since 2020" data-pt="Desde 2020">Since 2020</span></div>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem" data-en="Related publications" data-pt="Publicações relacionadas">Related publications</div>
+          <div class="pubs-linked">
+            <a class="pub-pill" href="publications.html">Silva-Junior et al. 2020 · Sci. Advances</a>
+            <a class="pub-pill" href="publications.html">Broggio et al. 2024 · Env. Res. Letters</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ongoing grid -->
+
+  <!-- ── CONCLUDED ─────────────────────────────────────────────── -->
+  <div class="sec-head reveal" style="margin-top:4rem">
+    <span class="sec-badge concluded" data-en="Concluded" data-pt="Concluído">Concluded</span>
+    <div class="sec-line"></div>
+    <span class="sec-title" data-en="Completed Projects" data-pt="Projetos Concluídos">Completed Projects</span>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Fighting fires indigenous -->
+    <div class="pcard concluded reveal">
+      <div class="pcard-accent done"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role coord" data-en="Coordinator" data-pt="Coordenador">Coordinator</span>
+          <span class="pcard-status cl" data-en="Concluded" data-pt="Concluído">Concluded</span>
+        </div>
+        <h3 data-en="Fighting Forest Fires in Amazon Indigenous Territories from Space" data-pt="Combate a Incêndios Florestais em Terras Indígenas Amazônicas pelo Espaço">Fighting Forest Fires in Amazon Indigenous Territories from Space</h3>
+        <p data-en="Mapped and analysed forest fire dynamics inside Amazon Indigenous Territories using high-frequency satellite data, generating intelligence to support fire prevention and territorial management by indigenous communities and public agencies." data-pt="Mapeou e analisou a dinâmica dos incêndios florestais dentro das Terras Indígenas Amazônicas usando dados satelitais de alta frequência, gerando inteligência para apoiar a prevenção de incêndios e o manejo territorial por comunidades indígenas e órgãos públicos.">Mapped and analysed forest fire dynamics inside Amazon Indigenous Territories using high-frequency satellite data, generating intelligence to support fire prevention and territorial management by indigenous communities and public agencies.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> University of Manchester</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span>2023–2024</span></div>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem" data-en="Related publications" data-pt="Publicações relacionadas">Related publications</div>
+          <div class="pubs-linked">
+            <a class="pub-pill" href="publications.html">Silva-Junior et al. 2023 · Sci. Reports</a>
+            <a class="pub-pill" href="publications.html">Fernandes et al. 2026 · LAND</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amazon fragmentation Manchester -->
+    <div class="pcard concluded reveal">
+      <div class="pcard-accent done"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role coord" data-en="Coordinator" data-pt="Coordenador">Coordinator</span>
+          <span class="pcard-status cl" data-en="Concluded" data-pt="Concluído">Concluded</span>
+        </div>
+        <h3 data-en="Forest Fragmentation Mapping of the Amazon and Amazon–Cerrado Transition Forests" data-pt="Mapeamento da Fragmentação Florestal da Amazônia e das Florestas de Transição Amazônia-Cerrado">Forest Fragmentation Mapping of the Amazon and Amazon–Cerrado Transition Forests</h3>
+        <p data-en="Generated forest fragmentation maps (1990–2021) for the entire Amazon rainforest including the Amazon–Cerrado transition zone. Updated a field database by remeasuring trees in three permanent 1-ha plots, and validated fragmentation maps against field carbon stock estimates." data-pt="Gerou mapas de fragmentação florestal (1990–2021) para toda a floresta amazônica, incluindo a zona de transição Amazônia-Cerrado. Atualizou um banco de dados de campo remédindo árvores em três parcelas permanentes de 1 ha, e validou os mapas de fragmentação contra estimativas de campo de estoques de carbono.">Generated forest fragmentation maps (1990–2021) for the entire Amazon rainforest including the Amazon–Cerrado transition zone. Updated a field database by remeasuring trees in three permanent 1-ha plots, and validated fragmentation maps against field carbon stock estimates.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funders:" data-pt="Financiadores:">Funders:</strong> University of Manchester / Fundação de Apoio ao Ensino, Pesquisa e Extensão (FAPEX)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span>2022–2024</span></div>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem" data-en="Related publications" data-pt="Publicações relacionadas">Related publications</div>
+          <div class="pubs-linked">
+            <a class="pub-pill" href="publications.html">Silva-Junior et al. 2020 · Sci. Advances</a>
+            <a class="pub-pill" href="publications.html">Broggio et al. 2024 · Env. Res. Letters</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODIS VIIRS fire mapping -->
+    <div class="pcard concluded reveal">
+      <div class="pcard-accent done"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <span class="pcard-role member" data-en="Member" data-pt="Integrante">Member</span>
+          <span class="pcard-status cl" data-en="Concluded" data-pt="Concluído">Concluded</span>
+        </div>
+        <h3 data-en="Mapping Wildfires in the Amazon with MODIS and VIIRS Data" data-pt="Mapeamento de Queimadas na Amazônia com Dados MODIS e VIIRS">Mapping Wildfires in the Amazon with MODIS and VIIRS Data</h3>
+        <p data-en="Developed and validated burned area mapping methodologies for the Amazon biome using multi-sensor satellite data (MODIS MCD14ML, MOD45, VIIRS). Analysed fire frequency, intensity, and spatial patterns across the Brazilian Amazon." data-pt="Desenvolveu e validou metodologias de mapeamento de área queimada para o bioma amazônico usando dados multi-sensor (MODIS MCD14ML, MOD45, VIIRS). Analisou frequência, intensidade e padrões espaciais de incêndios na Amazônia brasileira.">Developed and validated burned area mapping methodologies for the Amazon biome using multi-sensor satellite data (MODIS MCD14ML, MOD45, VIIRS). Analysed fire frequency, intensity, and spatial patterns across the Brazilian Amazon.</p>
+        <div class="pcard-meta">
+          <div class="meta-row"><span class="ico">🏛️</span><div><strong data-en="Funder:" data-pt="Financiador:">Funder:</strong> Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)</div></div>
+          <div class="meta-row"><span class="ico">🤝</span><div><strong data-en="Lead:" data-pt="Coordenação:">Lead:</strong> L. E. O. C. Aragão (INPE)</div></div>
+          <div class="meta-row"><span class="ico">📅</span><span>2014–2016</span></div>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem" data-en="Related publications" data-pt="Publicações relacionadas">Related publications</div>
+          <div class="pubs-linked">
+            <a class="pub-pill" href="publications.html">Aragão et al. 2018 · Nat. Communications</a>
+            <a class="pub-pill" href="publications.html">Silva-Junior et al. 2019 · Front. Earth Sci.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /concluded grid -->
+</div><!-- /main -->
+
+<footer>
+  <p>© 2026 Celso Henrique Leite Silva-Junior · <span data-en="All rights reserved" data-pt="Todos os direitos reservados">All rights reserved</span></p>
+  <p style="margin-top:.5rem"><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes</a> · <a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID</a> · <a href="https://ipam.org.br" target="_blank">IPAM</a></p>
+</footer>
+
+<script>
+let lang = 'en';
+function toggleLang(btn){
+  lang = lang==='en'?'pt':'en';
+  btn.textContent = lang==='en'?'🌐 PT':'🌐 EN';
+  document.documentElement.setAttribute('lang', lang==='en'?'en':'pt-BR');
+  document.title = lang==='en'?'Projects — Celso H. L. Silva-Junior':'Projetos — Celso H. L. Silva-Junior';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v = el.getAttribute('data-'+lang);
+    if(v!==null && el.children.length===0) el.textContent = v;
+  });
+}
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*70); obs.unobserve(e.target); }});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>

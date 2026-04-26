@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fieldwork — Celso H. L. Silva-Junior</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Slab:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#1a3a2a;--gm:#2d6a4f;--gb:#40916c;--gl:#74c69d;--gp:#d8f3dc;--am:#e9b44c;--ad:#c68b1a;--cr:#f8f5ef;--dk:#111a15;--tx:#1e2d25;--tm:#5a7a65;--wh:#ffffff;--br:rgba(45,106,79,.15);--sh:0 4px 28px rgba(26,58,42,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;background:var(--cr);color:var(--tx);line-height:1.7;padding-top:64px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,58,42,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--am);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-brand{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:var(--wh);text-decoration:none;letter-spacing:.02em;flex-shrink:0}
+.nav-brand span{color:var(--am)}
+.nav-links{display:flex;gap:.1rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .6rem;border-radius:4px;transition:all .2s}
+.nav-links a:hover{color:var(--am);background:rgba(233,180,76,.1)}
+.lang-btn{background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.5);color:var(--am);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .75rem;border-radius:4px;cursor:pointer;transition:all .2s;font-family:'Roboto',sans-serif}
+.lang-btn:hover{background:var(--am);color:var(--dk)}
+.divider{height:3px;background:linear-gradient(90deg,var(--gd),var(--gb),var(--am),var(--gb),var(--gd))}
+
+/* PAGE HEADER */
+.page-header{background:var(--gd);padding:4rem 2rem 3rem;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 85% 40%,rgba(64,145,108,.2) 0%,transparent 65%),radial-gradient(ellipse 40% 60% at 5% 70%,rgba(116,198,157,.08) 0%,transparent 60%)}
+.phc{position:relative;max-width:1200px;margin:0 auto}
+.ph-back{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.5);font-size:.78rem;font-weight:500;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s}
+.ph-back:hover{color:var(--am)}
+.ph-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.4);color:var(--am);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .85rem;border-radius:2px;margin-bottom:1.2rem}
+.ph-title{font-family:'Roboto Slab',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:var(--wh);line-height:1.15;margin-bottom:1rem}
+.ph-sub{font-size:.95rem;color:rgba(255,255,255,.6);max-width:600px;line-height:1.8}
+.ph-stats{display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap}
+.ph-st .n{font-family:'Roboto Slab',serif;font-size:1.8rem;font-weight:700;color:var(--am);display:block;line-height:1}
+.ph-st .l{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:.15rem}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:3rem 2rem}
+
+/* SECTION HEADINGS */
+.sec-head{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;margin-top:4rem}
+.sec-head:first-child{margin-top:0}
+.sec-icon{font-size:1.4rem;flex-shrink:0}
+.sec-title{font-family:'Roboto Slab',serif;font-size:1.15rem;font-weight:700;color:var(--gd)}
+.sec-line{flex:1;height:1px;background:var(--br)}
+
+/* FIELDWORK CARDS — main featured */
+.fw-featured{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
+
+.fw-card{background:var(--wh);border:1px solid var(--br);border-radius:12px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.fw-card:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--gl)}
+
+/* Colour band per biome */
+.fw-band{height:6px}
+.fw-band.amazon{background:linear-gradient(90deg,#1a5c3a,#2d8a5f)}
+.fw-band.cerrado{background:linear-gradient(90deg,#8c6a1a,#c69a2a)}
+.fw-band.coastal{background:linear-gradient(90deg,#1a3d6a,#2d6aaa)}
+.fw-band.peld{background:linear-gradient(90deg,#3a1a6a,#6a2daa)}
+.fw-band.multi{background:linear-gradient(90deg,var(--gd),var(--gb),var(--am))}
+
+.fw-illus{height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden}
+.fw-illus-inner{position:relative;z-index:1}
+
+/* SVG landscape illustrations embedded as CSS backgrounds */
+.fw-illus.amazon-bg{background:linear-gradient(160deg,#0d2e1a 0%,#1a5c3a 40%,#2d8a5f 70%,#1a3d2a 100%)}
+.fw-illus.cerrado-bg{background:linear-gradient(160deg,#3d2200 0%,#7a4a00 40%,#c47a00 70%,#8c5a00 100%)}
+.fw-illus.coastal-bg{background:linear-gradient(160deg,#001a3d 0%,#0a3d6a 40%,#1a6aaa 70%,#0d2e4a 100%)}
+.fw-illus.peld-bg{background:linear-gradient(160deg,#1a0d2e 0%,#3a1a5c 40%,#6a2d8c 70%,#2e1a4a 100%)}
+.fw-illus.drone-bg{background:linear-gradient(160deg,#0a1a0d 0%,#1a3a2a 40%,#2d6a4f 70%,#1a2e1a 100%)}
+.fw-illus.field-bg{background:linear-gradient(160deg,#1a1a00 0%,#3a3a00 40%,#6a6a00 70%,#2e2e00 100%)}
+
+.fw-body{padding:1.8rem;flex:1;display:flex;flex-direction:column;gap:.85rem}
+.fw-biome{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wh);padding:.22rem .65rem;border-radius:2px}
+.fw-biome.amazon{background:#1a5c3a}
+.fw-biome.cerrado{background:#7a4a00}
+.fw-biome.coastal{background:#1a3d6a}
+.fw-biome.peld{background:#3a1a6a}
+.fw-biome.multi{background:var(--gm)}
+
+.fw-card h3{font-family:'Roboto Slab',serif;font-size:1.05rem;font-weight:600;color:var(--gd);line-height:1.4}
+.fw-card p{font-size:.86rem;color:var(--tm);line-height:1.75;flex:1}
+
+.fw-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.fw-tag{background:var(--gp);color:var(--gm);font-size:.67rem;font-weight:600;padding:.2rem .6rem;border-radius:12px;letter-spacing:.03em}
+
+.fw-meta{display:flex;flex-direction:column;gap:.35rem;border-top:1px solid var(--br);padding-top:.85rem;margin-top:.2rem}
+.fw-meta-row{display:flex;align-items:flex-start;gap:.55rem;font-size:.78rem;color:var(--tx)}
+.fw-meta-row .ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem}
+.fw-meta-row strong{color:var(--gd);font-weight:600}
+
+/* SMALL ACTIVITY CARDS */
+.activities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+.act-card{background:var(--wh);border:1px solid var(--br);border-radius:8px;padding:1.4rem;display:flex;gap:1rem;align-items:flex-start;transition:all .25s}
+.act-card:hover{border-color:var(--gl);box-shadow:var(--sh)}
+.act-icon{width:46px;height:46px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.act-icon.am{background:rgba(26,92,58,.12)}
+.act-icon.ce{background:rgba(122,74,0,.12)}
+.act-icon.co{background:rgba(26,61,106,.12)}
+.act-icon.tr{background:rgba(45,106,79,.12)}
+.act-info h4{font-size:.9rem;font-weight:600;color:var(--gd);margin-bottom:.25rem;line-height:1.3}
+.act-info p{font-size:.8rem;color:var(--tm);line-height:1.55}
+.act-year{font-size:.68rem;color:var(--gb);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem}
+
+/* INSTRUMENTS */
+.instruments-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-top:2rem}
+.inst-item{background:var(--wh);border:1px solid var(--br);border-radius:8px;padding:1.2rem;text-align:center;transition:all .2s}
+.inst-item:hover{border-color:var(--gb);transform:translateY(-2px)}
+.inst-icon{font-size:1.8rem;display:block;margin-bottom:.5rem}
+.inst-name{font-size:.78rem;font-weight:600;color:var(--gd)}
+.inst-desc{font-size:.7rem;color:var(--tm);margin-top:.2rem}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+footer{background:var(--dk);padding:2rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.06);margin-top:5rem}
+footer a{color:rgba(255,255,255,.45);text-decoration:none}
+
+@media(max-width:860px){.fw-featured{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><span>CHL</span> Silva-Junior</a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="← Home" data-pt="← Início">← Home</a></li>
+    <li><a href="projects.html" data-en="Projects" data-pt="Projetos">Projects</a></li>
+    <li><a href="publications.html" data-en="Publications" data-pt="Publicações">Publications</a></li>
+    <li><a href="index.html#students" data-en="Students" data-pt="Orientandos">Students</a></li>
+    <li><a href="index.html#contact" data-en="Contact" data-pt="Contato">Contact</a></li>
+    <li><button class="lang-btn" onclick="toggleLang(this)">🌐 PT</button></li>
+  </ul>
+</nav>
+<div class="divider"></div>
+
+<div class="page-header">
+  <div class="phc">
+    <a href="index.html" class="ph-back" data-en="← Back to home" data-pt="← Voltar ao início">← Back to home</a>
+    <div class="ph-tag">🌿 <span data-en="Field Activities" data-pt="Atividades de Campo">Field Activities</span></div>
+    <h1 class="ph-title" data-en="Fieldwork" data-pt="Trabalho de Campo">Fieldwork</h1>
+    <p class="ph-sub" data-en="Forest inventories, biomass measurements, burned area surveys, and remote sensing product validation carried out across the Amazon, Cerrado, and coastal ecosystems of Maranhão and Pará states." data-pt="Inventários florestais, medições de biomassa, levantamentos de área queimada e validação de produtos de sensoriamento remoto realizados na Amazônia, Cerrado e ecossistemas costeiros dos estados do Maranhão e Pará.">Forest inventories, biomass measurements, burned area surveys, and remote sensing product validation carried out across the Amazon, Cerrado, and coastal ecosystems of Maranhão and Pará states.</p>
+    <div class="ph-stats">
+      <div class="ph-st"><span class="n">3</span><span class="l" data-en="Biomes covered" data-pt="Biomas cobertos">Biomes covered</span></div>
+      <div class="ph-st"><span class="n">5+</span><span class="l" data-en="States visited" data-pt="Estados visitados">States visited</span></div>
+      <div class="ph-st"><span class="n">10+</span><span class="l" data-en="Years of field experience" data-pt="Anos de experiência de campo">Years of field experience</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ── MAIN FIELDWORK ACTIVITIES ────────────────────────────── -->
+  <div class="sec-head reveal">
+    <span class="sec-icon">🌳</span>
+    <span class="sec-title" data-en="Main Field Campaigns" data-pt="Principais Campanhas de Campo">Main Field Campaigns</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="fw-featured">
+
+    <!-- Amazon forest inventories -->
+    <div class="fw-card reveal">
+      <div class="fw-band amazon"></div>
+      <div class="fw-illus amazon-bg"><span class="fw-illus-inner">🌳</span></div>
+      <div class="fw-body">
+        <span class="fw-biome amazon" data-en="Amazon" data-pt="Amazônia">Amazon</span>
+        <h3 data-en="Forest Inventories in the Amazon — Permanent Plot Network" data-pt="Inventários Florestais na Amazônia — Rede de Parcelas Permanentes">Forest Inventories in the Amazon — Permanent Plot Network</h3>
+        <p data-en="Measurement and remeasurement of permanent 1-ha plots in intact and fire-degraded Amazon forests across Maranhão and Pará states. Activities include individual tree identification, diameter at breast height (DBH) measurement, height estimation, and crown assessment. Data are used to validate fragmentation maps and calibrate remote sensing-based carbon stock estimates." data-pt="Medição e remedição de parcelas permanentes de 1 ha em florestas amazônicas intactas e degradadas pelo fogo nos estados do Maranhão e Pará. As atividades incluem identificação individual de árvores, medição do diâmetro à altura do peito (DAP), estimativa de altura e avaliação de copa. Os dados são usados para validar mapas de fragmentação e calibrar estimativas de estoque de carbono baseadas em sensoriamento remoto.">Measurement and remeasurement of permanent 1-ha plots in intact and fire-degraded Amazon forests across Maranhão and Pará states. Activities include individual tree identification, diameter at breast height (DBH) measurement, height estimation, and crown assessment. Data are used to validate fragmentation maps and calibrate remote sensing-based carbon stock estimates.</p>
+        <div class="fw-tags">
+          <span class="fw-tag" data-en="Permanent plots" data-pt="Parcelas permanentes">Permanent plots</span>
+          <span class="fw-tag">AGB · Biomass</span>
+          <span class="fw-tag">DBH · Height</span>
+          <span class="fw-tag" data-en="Carbon stocks" data-pt="Estoques de carbono">Carbon stocks</span>
+        </div>
+        <div class="fw-meta">
+          <div class="fw-meta-row"><span class="ico">📍</span><span>Maranhão · Pará · Mato Grosso</span></div>
+          <div class="fw-meta-row"><span class="ico">🔗</span><div><strong data-en="Related project:" data-pt="Projeto relacionado:">Related project:</strong> <a href="projects.html" style="color:var(--gb);text-decoration:none">YBYRÁ-BR · Manchester Fragmentation Project</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PELD Gurupi -->
+    <div class="fw-card reveal">
+      <div class="fw-band peld"></div>
+      <div class="fw-illus peld-bg"><span class="fw-illus-inner">🔬</span></div>
+      <div class="fw-body">
+        <span class="fw-biome peld">PELD · Amazon</span>
+        <h3 data-en="Long-term Ecological Research — Reserva Biológica do Gurupi" data-pt="Pesquisa Ecológica de Longa Duração — Reserva Biológica do Gurupi">Long-term Ecological Research — Reserva Biológica do Gurupi</h3>
+        <p data-en="Monitoring three vegetation cover types — conserved forest, post-pasture regeneration, and post-fire regeneration — in two topographic positions (plateau and lowland). Field campaigns assess vegetation structure, soil properties, carbon stocks, terrestrial fauna, and hydrological conditions. Part of the Brazilian Long-term Ecological Research network (PELD/CNPq)." data-pt="Monitoramento de três tipos de cobertura vegetal — floresta conservada, regeneração pós-pasto e pós-fogo — em duas posições topográficas (platô e baixada). As campanhas de campo avaliam estrutura da vegetação, propriedades do solo, estoques de carbono, fauna terrestre e condições hidrológicas. Parte da rede brasileira de Pesquisa Ecológica de Longa Duração (PELD/CNPq).">Monitoring three vegetation cover types — conserved forest, post-pasture regeneration, and post-fire regeneration — in two topographic positions (plateau and lowland). Field campaigns assess vegetation structure, soil properties, carbon stocks, terrestrial fauna, and hydrological conditions. Part of the Brazilian Long-term Ecological Research network (PELD/CNPq).</p>
+        <div class="fw-tags">
+          <span class="fw-tag">PELD/CNPq</span>
+          <span class="fw-tag" data-en="Forest regeneration" data-pt="Regeneração florestal">Forest regeneration</span>
+          <span class="fw-tag" data-en="Soil carbon" data-pt="Carbono no solo">Soil carbon</span>
+          <span class="fw-tag" data-en="Fauna" data-pt="Fauna">Fauna</span>
+        </div>
+        <div class="fw-meta">
+          <div class="fw-meta-row"><span class="ico">📍</span><span data-en="Reserva Biológica do Gurupi, western Maranhão" data-pt="Reserva Biológica do Gurupi, oeste do Maranhão">Reserva Biológica do Gurupi, western Maranhão</span></div>
+          <div class="fw-meta-row"><span class="ico">🔗</span><div><strong data-en="Related project:" data-pt="Projeto relacionado:">Related project:</strong> <a href="projects.html" style="color:var(--gb);text-decoration:none">Rebio Gurupi Phase II</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cerrado post-fire -->
+    <div class="fw-card reveal">
+      <div class="fw-band cerrado"></div>
+      <div class="fw-illus cerrado-bg"><span class="fw-illus-inner">🔥</span></div>
+      <div class="fw-body">
+        <span class="fw-biome cerrado" data-en="Cerrado" data-pt="Cerrado">Cerrado</span>
+        <h3 data-en="Post-fire Surveys in the Cerrado of Maranhão" data-pt="Levantamentos Pós-fogo no Cerrado do Maranhão">Post-fire Surveys in the Cerrado of Maranhão</h3>
+        <p data-en="Field surveys in burned Cerrado areas for characterisation of fire impact on vegetation structure, species composition, and carbon stocks. Data are used to validate MODIS and VIIRS burned area products and to ground-truth fire severity estimates derived from Landsat and Sentinel-2 imagery." data-pt="Levantamentos de campo em áreas queimadas do Cerrado para caracterização do impacto do fogo na estrutura da vegetação, composição de espécies e estoques de carbono. Os dados são usados para validar produtos de área queimada MODIS e VIIRS e para referenciar estimativas de severidade do fogo derivadas de imagens Landsat e Sentinel-2.">Field surveys in burned Cerrado areas for characterisation of fire impact on vegetation structure, species composition, and carbon stocks. Data are used to validate MODIS and VIIRS burned area products and to ground-truth fire severity estimates derived from Landsat and Sentinel-2 imagery.</p>
+        <div class="fw-tags">
+          <span class="fw-tag" data-en="Post-fire" data-pt="Pós-fogo">Post-fire</span>
+          <span class="fw-tag" data-en="Burned area" data-pt="Área queimada">Burned area</span>
+          <span class="fw-tag">MODIS · VIIRS</span>
+          <span class="fw-tag" data-en="Fire severity" data-pt="Severidade do fogo">Fire severity</span>
+        </div>
+        <div class="fw-meta">
+          <div class="fw-meta-row"><span class="ico">📍</span><span data-en="Maranhão — Amazon–Cerrado transition zone" data-pt="Maranhão — Zona de transição Amazônia-Cerrado">Maranhão — Amazon–Cerrado transition zone</span></div>
+          <div class="fw-meta-row"><span class="ico">🔗</span><div><strong data-en="Related project:" data-pt="Projeto relacionado:">Related project:</strong> <a href="projects.html" style="color:var(--gb);text-decoration:none">MAP-Fire · CO₂ Balance Maranhão</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mangroves -->
+    <div class="fw-card reveal">
+      <div class="fw-band coastal"></div>
+      <div class="fw-illus coastal-bg"><span class="fw-illus-inner">🌊</span></div>
+      <div class="fw-body">
+        <span class="fw-biome coastal" data-en="Coastal · Amazon" data-pt="Costeiro · Amazônia">Coastal · Amazon</span>
+        <h3 data-en="Mangrove Inventories — Maranhão Coastal Zone" data-pt="Inventários de Manguezais — Zona Costeira do Maranhão">Mangrove Inventories — Maranhão Coastal Zone</h3>
+        <p data-en="Structural and biomass data collection in Amazonian coast mangrove forests of Maranhão State. Field measurements include tree height, DBH, root biomass, and sediment carbon sampling. Data contribute to blue carbon estimates and validation of satellite-based mangrove cover change products." data-pt="Coleta de dados estruturais e de biomassa em florestas de manguezal da costa amazônica do estado do Maranhão. As medições de campo incluem altura das árvores, DAP, biomassa de raízes e amostragem de carbono no sedimento. Os dados contribuem para estimativas de carbono azul e validação de produtos de mudança de cobertura de manguezal baseados em satélites.">Structural and biomass data collection in Amazonian coast mangrove forests of Maranhão State. Field measurements include tree height, DBH, root biomass, and sediment carbon sampling. Data contribute to blue carbon estimates and validation of satellite-based mangrove cover change products.</p>
+        <div class="fw-tags">
+          <span class="fw-tag" data-en="Mangrove" data-pt="Manguezal">Mangrove</span>
+          <span class="fw-tag" data-en="Blue carbon" data-pt="Carbono azul">Blue carbon</span>
+          <span class="fw-tag" data-en="Coastal ecology" data-pt="Ecologia costeira">Coastal ecology</span>
+          <span class="fw-tag">AGB · Sediment C</span>
+        </div>
+        <div class="fw-meta">
+          <div class="fw-meta-row"><span class="ico">📍</span><span data-en="Maranhão Coast — Baía de São Marcos region" data-pt="Costa do Maranhão — Região da Baía de São Marcos">Maranhão Coast — Baía de São Marcos region</span></div>
+          <div class="fw-meta-row"><span class="ico">🔗</span><div><strong data-en="Related publication:" data-pt="Publicação relacionada:">Related publication:</strong> <a href="publications.html" style="color:var(--gb);text-decoration:none">Bezerra et al. 2022 · Science</a></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /featured -->
+
+  <!-- ── ADDITIONAL ACTIVITIES ─────────────────────────────────── -->
+  <div class="sec-head reveal" style="margin-top:3.5rem">
+    <span class="sec-icon">🗺️</span>
+    <span class="sec-title" data-en="Additional Field Activities" data-pt="Atividades de Campo Adicionais">Additional Field Activities</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="activities-grid">
+
+    <div class="act-card reveal">
+      <div class="act-icon am">🚁</div>
+      <div class="act-info">
+        <h4 data-en="UAV Mapping of Native Forests (Amazon)" data-pt="Mapeamento com VANT de Florestas Nativas (Amazônia)">UAV Mapping of Native Forests (Amazon)</h4>
+        <p data-en="Use of unmanned aerial vehicles (UAV/drone) for high-resolution mapping of forest canopy structure, integrating outputs with orbital data for validation of forest cover products." data-pt="Uso de veículos aéreos não tripulados (VANT/drone) para mapeamento de alta resolução da estrutura do dossel florestal, integrando resultados com dados orbitais para validação de produtos de cobertura florestal.">Use of unmanned aerial vehicles (UAV/drone) for high-resolution mapping of forest canopy structure, integrating outputs with orbital data for validation of forest cover products.</p>
+        <div class="act-year">EMBRAPA · 2020</div>
+      </div>
+    </div>
+
+    <div class="act-card reveal">
+      <div class="act-icon ce">🔥</div>
+      <div class="act-info">
+        <h4 data-en="Fire Probability Mapping — Pará State" data-pt="Mapeamento de Probabilidade de Fogo — Estado do Pará">Fire Probability Mapping — Pará State</h4>
+        <p data-en="Field validation campaigns supporting a Random Forest fire probability model for Pará State (AUC-ROC = 0.933). Included collection of fire occurrence records and landscape characterisation at sample points across the eastern Amazon." data-pt="Campanhas de validação de campo apoiando um modelo de probabilidade de fogo Random Forest para o estado do Pará (AUC-ROC = 0,933). Incluiu coleta de registros de ocorrência de fogo e caracterização da paisagem em pontos amostrais na Amazônia oriental.">Field validation campaigns supporting a Random Forest fire probability model for Pará State (AUC-ROC = 0.933). Included collection of fire occurrence records and landscape characterisation at sample points across the eastern Amazon.</p>
+        <div class="act-year" data-en="Pará · 2022–2023" data-pt="Pará · 2022–2023">Pará · 2022–2023</div>
+      </div>
+    </div>
+
+    <div class="act-card reveal">
+      <div class="act-icon co">🌿</div>
+      <div class="act-info">
+        <h4 data-en="Babaçu Palm Mapping — Maranhão" data-pt="Mapeamento da Palmeira Babaçu — Maranhão">Babaçu Palm Mapping — Maranhão</h4>
+        <p data-en="Field verification for geospatial mapping of babaçu palm (Attalea speciosa) distribution across Maranhão State, combining satellite imagery with ground-truth points across rural landscapes." data-pt="Verificação de campo para mapeamento geoespacial da distribuição da palmeira babaçu (Attalea speciosa) no estado do Maranhão, combinando imagens de satélite com pontos de referência em paisagens rurais.">Field verification for geospatial mapping of babaçu palm (Attalea speciosa) distribution across Maranhão State, combining satellite imagery with ground-truth points across rural landscapes.</p>
+        <div class="act-year">EMBRAPA Cocais · 2014</div>
+      </div>
+    </div>
+
+    <div class="act-card reveal">
+      <div class="act-icon am">🌲</div>
+      <div class="act-info">
+        <h4 data-en="Amazonia and Climate Change Field Course (INPA)" data-pt="Curso de Campo Amazônia e Mudanças Climáticas (INPA)">Amazonia and Climate Change Field Course (INPA)</h4>
+        <p data-en="40-hour intensive field training at the National Institute for Amazonian Research (INPA), covering forest ecology, climate monitoring, carbon flux measurements, and field sampling protocols in Central Amazonia." data-pt="Treinamento intensivo de campo de 40h no Instituto Nacional de Pesquisas da Amazônia (INPA), cobrindo ecologia florestal, monitoramento climático, medições de fluxo de carbono e protocolos de amostragem de campo na Amazônia central.">40-hour intensive field training at the National Institute for Amazonian Research (INPA), covering forest ecology, climate monitoring, carbon flux measurements, and field sampling protocols in Central Amazonia.</p>
+        <div class="act-year">INPA · Manaus · 2017</div>
+      </div>
+    </div>
+
+    <div class="act-card reveal">
+      <div class="act-icon co">🦺</div>
+      <div class="act-info">
+        <h4 data-en="Volunteer Conservation Management — Serra do Tombador Nature Reserve" data-pt="Gestão Voluntária de Conservação — Reserva Natural Serra do Tombador">Volunteer Conservation Management — Serra do Tombador Nature Reserve</h4>
+        <p data-en="Volunteer work in conservation unit management, including biodiversity monitoring, fire prevention, and environmental education activities in the Serra do Tombador Nature Reserve, Goiás State." data-pt="Voluntariado em gestão de unidade de conservação, incluindo monitoramento de biodiversidade, prevenção de incêndios e atividades de educação ambiental na Reserva Natural Serra do Tombador, Goiás.">Volunteer work in conservation unit management, including biodiversity monitoring, fire prevention, and environmental education activities in the Serra do Tombador Nature Reserve, Goiás State.</p>
+        <div class="act-year" data-en="Goiás · 2012–2013" data-pt="Goiás · 2012–2013">Goiás · 2012–2013</div>
+      </div>
+    </div>
+
+    <div class="act-card reveal">
+      <div class="act-icon ce">🏞️</div>
+      <div class="act-info">
+        <h4 data-en="Burned Area Validation — Baixada Maranhense Ramsar Site" data-pt="Validação de Área Queimada — Sítio Ramsar Baixada Maranhense">Burned Area Validation — Baixada Maranhense Ramsar Site</h4>
+        <p data-en="Field-based validation of burned area mapping using Landsat 8 imagery in the Baixada Maranhense wetland Ramsar site. Characterisation of fire scar extent, soil exposure, and vegetation recovery across wetland habitats." data-pt="Validação de campo do mapeamento de área queimada usando imagens Landsat 8 no sítio Ramsar da Baixada Maranhense. Caracterização da extensão de cicatrizes de queimadas, exposição do solo e recuperação da vegetação em habitats de várzea.">Field-based validation of burned area mapping using Landsat 8 imagery in the Baixada Maranhense wetland Ramsar site. Characterisation of fire scar extent, soil exposure, and vegetation recovery across wetland habitats.</p>
+        <div class="act-year" data-en="Maranhão · 2014" data-pt="Maranhão · 2014">Maranhão · 2014</div>
+      </div>
+    </div>
+
+  </div><!-- /activities grid -->
+
+  <!-- ── INSTRUMENTS & METHODS ─────────────────────────────────── -->
+  <div class="sec-head reveal" style="margin-top:3.5rem">
+    <span class="sec-icon">🛠️</span>
+    <span class="sec-title" data-en="Field Instruments &amp; Methods" data-pt="Instrumentos e Métodos de Campo">Field Instruments &amp; Methods</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="instruments-row">
+    <div class="inst-item reveal">
+      <span class="inst-icon">📏</span>
+      <div class="inst-name" data-en="Dendrometer / Tape" data-pt="Dendrômetro / Fita">Dendrometer / Tape</div>
+      <div class="inst-desc" data-en="DBH measurement in permanent plots" data-pt="Medição de DAP em parcelas permanentes">DBH measurement in permanent plots</div>
+    </div>
+    <div class="inst-item reveal">
+      <span class="inst-icon">📡</span>
+      <div class="inst-name">GPS / GNSS</div>
+      <div class="inst-desc" data-en="Georeferencing of sample plots and field points" data-pt="Georreferenciamento de parcelas e pontos de campo">Georeferencing of sample plots and field points</div>
+    </div>
+    <div class="inst-item reveal">
+      <span class="inst-icon">🚁</span>
+      <div class="inst-name" data-en="UAV / Drone" data-pt="VANT / Drone">UAV / Drone</div>
+      <div class="inst-desc" data-en="High-resolution canopy and terrain mapping" data-pt="Mapeamento de alta resolução do dossel e terreno">High-resolution canopy and terrain mapping</div>
+    </div>
+    <div class="inst-item reveal">
+      <span class="inst-icon">🌡️</span>
+      <div class="inst-name" data-en="Weather Station" data-pt="Estação Meteorológica">Weather Station</div>
+      <div class="inst-desc" data-en="Microclimate monitoring at plot level" data-pt="Monitoramento microclimático em nível de parcela">Microclimate monitoring at plot level</div>
+    </div>
+    <div class="inst-item reveal">
+      <span class="inst-icon">🔭</span>
+      <div class="inst-name" data-en="Hypsometer" data-pt="Hipsômetro">Hypsometer</div>
+      <div class="inst-desc" data-en="Tree height estimation in forest plots" data-pt="Estimativa de altura de árvores em parcelas florestais">Tree height estimation in forest plots</div>
+    </div>
+    <div class="inst-item reveal">
+      <span class="inst-icon">🧪</span>
+      <div class="inst-name" data-en="Soil Sampler" data-pt="Amostrador de Solo">Soil Sampler</div>
+      <div class="inst-desc" data-en="Sediment and soil carbon collection" data-pt="Coleta de sedimento e carbono do solo">Sediment and soil carbon collection</div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<footer>
+  <p>© 2026 Celso Henrique Leite Silva-Junior · <span data-en="All rights reserved" data-pt="Todos os direitos reservados">All rights reserved</span></p>
+  <p style="margin-top:.5rem"><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes</a> · <a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID</a> · <a href="https://ipam.org.br" target="_blank">IPAM</a></p>
+</footer>
+
+<script>
+let lang = 'en';
+function toggleLang(btn){
+  lang = lang==='en'?'pt':'en';
+  btn.textContent = lang==='en'?'🌐 PT':'🌐 EN';
+  document.documentElement.setAttribute('lang', lang==='en'?'en':'pt-BR');
+  document.title = lang==='en'?'Fieldwork — Celso H. L. Silva-Junior':'Campo — Celso H. L. Silva-Junior';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v = el.getAttribute('data-'+lang);
+    if(v!==null && el.children.length===0) el.textContent = v;
+  });
+}
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*65); obs.unobserve(e.target); }});
+},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
