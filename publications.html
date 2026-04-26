@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications — Celso H. L. Silva-Junior</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Slab:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#1a3a2a;--gm:#2d6a4f;--gb:#40916c;--gl:#74c69d;--gp:#d8f3dc;--am:#e9b44c;--ad:#c68b1a;--cr:#f8f5ef;--dk:#111a15;--tx:#1e2d25;--tm:#5a7a65;--wh:#ffffff;--br:rgba(45,106,79,.15);--sh:0 4px 24px rgba(26,58,42,.10)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;background:var(--cr);color:var(--tx);line-height:1.7;padding-top:64px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,58,42,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--am);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-brand{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:var(--wh);text-decoration:none;letter-spacing:.02em;flex-shrink:0}
+.nav-brand span{color:var(--am)}
+.nav-links{display:flex;gap:.1rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .6rem;border-radius:4px;transition:all .2s}
+.nav-links a:hover{color:var(--am);background:rgba(233,180,76,.1)}
+.lang-btn{background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.5);color:var(--am);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .75rem;border-radius:4px;cursor:pointer;transition:all .2s;font-family:'Roboto',sans-serif}
+.lang-btn:hover{background:var(--am);color:var(--dk)}
+.divider{height:3px;background:linear-gradient(90deg,var(--gd),var(--gb),var(--am),var(--gb),var(--gd))}
+
+/* PAGE HEADER */
+.page-header{background:var(--gd);padding:4rem 2rem 3rem;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(64,145,108,.15) 0%,transparent 70%)}
+.phc{position:relative;max-width:1200px;margin:0 auto}
+.ph-back{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.55);font-size:.78rem;font-weight:500;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s}
+.ph-back:hover{color:var(--am)}
+.ph-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.4);color:var(--am);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .85rem;border-radius:2px;margin-bottom:1.2rem}
+.ph-title{font-family:'Roboto Slab',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:var(--wh);line-height:1.15;margin-bottom:1rem}
+.ph-sub{font-size:.95rem;color:rgba(255,255,255,.6);max-width:580px;line-height:1.75}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap}
+.st-item{text-align:left}
+.st-num{font-family:'Roboto Slab',serif;font-size:1.7rem;font-weight:700;color:var(--am);display:block;line-height:1}
+.st-lbl{font-size:.65rem;color:rgba(255,255,255,.42);text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:.15rem}
+
+/* LIVE BADGE */
+.live-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(116,198,157,.12);border:1px solid rgba(116,198,157,.3);color:var(--gl);font-size:.68rem;font-weight:600;letter-spacing:.06em;padding:.3rem .85rem;border-radius:20px;margin-top:1.5rem}
+.ldot{width:7px;height:7px;border-radius:50%;background:var(--gl);animation:pls 2s infinite;flex-shrink:0}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ERROR STATE */
+.error-banner{background:rgba(233,180,76,.12);border:1px solid rgba(233,180,76,.4);border-radius:8px;padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.88rem;color:var(--tx)}
+.error-banner strong{color:var(--ad)}
+
+/* LAYOUT */
+.pub-page{max-width:1200px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:240px 1fr;gap:3rem;align-items:start}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:84px}
+.sb-sec{margin-bottom:2rem}
+.sb-lbl{font-size:.63rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--tm);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--br)}
+.sf-list{display:flex;flex-direction:column;gap:.3rem}
+.sf{background:transparent;border:1px solid transparent;color:var(--tm);font-family:'Roboto',sans-serif;font-size:.83rem;font-weight:500;padding:.5rem .75rem;border-radius:6px;cursor:pointer;text-align:left;transition:all .2s;display:flex;justify-content:space-between;align-items:center;width:100%}
+.sf:hover{background:var(--gp);color:var(--gm);border-color:rgba(45,106,79,.2)}
+.sf.act{background:var(--gm);color:var(--wh);border-color:var(--gm)}
+.sf .cnt{font-size:.7rem;opacity:.7;font-weight:400}
+.sf-link{text-decoration:none;display:block}
+
+/* SEARCH */
+.search-wrap{position:relative;margin-bottom:2rem}
+.search-wrap input{width:100%;padding:.7rem 1rem .7rem 2.4rem;border:1.5px solid var(--br);border-radius:8px;background:var(--wh);font-family:'Roboto',sans-serif;font-size:.88rem;color:var(--tx);outline:none;transition:border-color .2s}
+.search-wrap input:focus{border-color:var(--gb)}
+.search-wrap .si{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);color:var(--tm);font-size:1rem;pointer-events:none}
+
+/* SORT BAR */
+.sort-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+.pub-count{font-size:.82rem;color:var(--tm);font-weight:500}
+.pub-count strong{color:var(--gm)}
+.sort-sel{border:1.5px solid var(--br);border-radius:6px;padding:.4rem .8rem;background:var(--wh);font-family:'Roboto',sans-serif;font-size:.82rem;color:var(--tx);cursor:pointer;outline:none}
+
+/* PUB ITEMS */
+.plist{display:flex;flex-direction:column;gap:1rem}
+.pi{background:var(--wh);border:1px solid var(--br);border-radius:10px;padding:1.5rem 1.8rem;display:grid;grid-template-columns:54px 1fr;gap:1.5rem;align-items:start;transition:all .25s;position:relative}
+.pi:hover{border-color:var(--gl);box-shadow:var(--sh);transform:translateY(-2px)}
+.pi.hidden{display:none}
+.py{font-family:'Roboto Slab',serif;font-size:1.2rem;font-weight:700;color:var(--gl);padding-top:.2rem;line-height:1}
+.pj-tag{display:inline-flex;align-items:center;background:var(--gp);color:var(--gm);font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px;margin-bottom:.45rem;max-width:100%}
+.pj-tag.nature-cat{background:#e8f4f8;color:#1a6a8a}
+.pj-tag.science-cat{background:#fef3e2;color:#8a4a00}
+.ptit{font-size:.94rem;font-weight:600;color:var(--gd);line-height:1.5;margin-bottom:.4rem}
+.pau{font-size:.79rem;color:var(--tm);line-height:1.5;margin-bottom:.4rem}
+.pmeta{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-top:.35rem}
+.cit-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:700;color:var(--ad);background:rgba(233,180,76,.1);padding:.22rem .65rem;border-radius:12px}
+.cit-badge .ci{font-size:.69rem;font-weight:400;color:var(--tm)}
+.top-badge{position:absolute;top:1rem;right:1rem;background:var(--am);color:var(--dk);font-size:.58rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:.22rem .55rem;border-radius:2px}
+.doi-link{font-size:.72rem;color:var(--gb);font-weight:600;text-decoration:none}
+.doi-link:hover{color:var(--gd)}
+
+/* LAST UPDATED */
+.upd-row{text-align:center;font-size:.72rem;color:var(--tm);margin-top:2rem;display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.upd-row a{color:var(--gb);font-weight:600}
+
+/* EMPTY / LOADING */
+.placeholder{text-align:center;padding:3rem;color:var(--tm)}
+.placeholder .ico{font-size:2rem;margin-bottom:.75rem}
+
+footer{background:var(--dk);padding:2rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.06);margin-top:4rem}
+footer a{color:rgba(255,255,255,.45);text-decoration:none}
+
+@media(max-width:860px){.pub-page{grid-template-columns:1fr}.sidebar{position:static}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><span>CHL</span> Silva-Junior</a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="← Home" data-pt="← Início">← Home</a></li>
+    <li><a href="index.html#research" data-en="Research" data-pt="Pesquisa">Research</a></li>
+    <li><a href="index.html#projects" data-en="Projects" data-pt="Projetos">Projects</a></li>
+    <li><a href="fieldwork.html" data-en="Fieldwork" data-pt="Campo">Fieldwork</a></li>
+    <li><a href="index.html#students" data-en="Students" data-pt="Orientandos">Students</a></li>
+    <li><a href="index.html#contact" data-en="Contact" data-pt="Contato">Contact</a></li>
+    <li><button class="lang-btn" onclick="toggleLang(this)">🌐 PT</button></li>
+  </ul>
+</nav>
+<div class="divider"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="phc">
+    <a href="index.html" class="ph-back" data-en="← Back to home" data-pt="← Voltar ao início">← Back to home</a>
+    <div class="ph-tag">📚 <span data-en="Scientific Output" data-pt="Produção Científica">Scientific Output</span></div>
+    <h1 class="ph-title" data-en="Publications" data-pt="Publicações">Publications</h1>
+    <p class="ph-sub" data-en="Complete list of journal articles ranked by citations. Data pulled directly from Google Scholar via SerpAPI and updated weekly." data-pt="Lista completa de artigos em periódicos ordenados por citações. Dados obtidos diretamente do Google Scholar via SerpAPI e atualizados semanalmente.">Complete list of journal articles ranked by citations. Data pulled directly from Google Scholar via SerpAPI and updated weekly.</p>
+
+    <div class="stats-row">
+      <div class="st-item"><span class="st-num" id="stat-cit">—</span><span class="st-lbl" data-en="Total citations" data-pt="Citações totais">Total citations</span></div>
+      <div class="st-item"><span class="st-num" id="stat-h">—</span><span class="st-lbl">h-index</span></div>
+      <div class="st-item"><span class="st-num" id="stat-i10">—</span><span class="st-lbl">i10-index</span></div>
+      <div class="st-item"><span class="st-num" id="stat-n">—</span><span class="st-lbl" data-en="Articles loaded" data-pt="Artigos carregados">Articles loaded</span></div>
+    </div>
+
+    <div class="live-badge">
+      <span class="ldot"></span>
+      <span data-en="Data from Google Scholar via SerpAPI · Weekly refresh" data-pt="Dados do Google Scholar via SerpAPI · Atualização semanal">Data from Google Scholar via SerpAPI · Weekly refresh</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="pub-page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="search-wrap">
+      <span class="si">🔍</span>
+      <input type="text" id="search-in" placeholder="Search title, journal, year…"
+             oninput="applyFilters()"
+             data-en-ph="Search title, journal, year…"
+             data-pt-ph="Buscar título, periódico, ano…">
+    </div>
+
+    <div class="sb-sec">
+      <div class="sb-lbl" data-en="Filter by journal" data-pt="Filtrar por periódico">Filter by journal</div>
+      <div class="sf-list">
+        <button class="sf act" onclick="setFilter('all',this)" data-en="All publications" data-pt="Todas as publicações">All publications <span class="cnt" id="cnt-all"></span></button>
+        <button class="sf" onclick="setFilter('nature',this)">Nature Portfolio <span class="cnt" id="cnt-nature"></span></button>
+        <button class="sf" onclick="setFilter('science',this)">Science <span class="cnt" id="cnt-science"></span></button>
+        <button class="sf" onclick="setFilter('other',this)" data-en="Other journals" data-pt="Outros periódicos">Other journals <span class="cnt" id="cnt-other"></span></button>
+      </div>
+    </div>
+
+    <div class="sb-sec">
+      <div class="sb-lbl" data-en="Quick links" data-pt="Links rápidos">Quick links</div>
+      <div class="sf-list">
+        <a class="sf-link" href="https://scholar.google.com/citations?user=UEWx5SkAAAAJ&hl" target="_blank"><button class="sf">📚 Google Scholar ↗</button></a>
+        <a class="sf-link" href="https://orcid.org/0000-0002-1052-5551" target="_blank"><button class="sf">🔬 ORCID ↗</button></a>
+        <a class="sf-link" href="http://lattes.cnpq.br/0506851271452550" target="_blank"><button class="sf">📋 Lattes CNPq ↗</button></a>
+        <a class="sf-link" href="https://github.com/celsohlsj" target="_blank"><button class="sf">💻 GitHub ↗</button></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div id="error-box" style="display:none" class="error-banner">
+      <strong data-en="⚠ Data files not found." data-pt="⚠ Arquivos de dados não encontrados.">⚠ Data files not found.</strong>
+      <span data-en=" Run fetch_scholar.py to generate data/scholar_papers.json and data/scholar_data.json, then deploy the data/ folder alongside this page." data-pt=" Execute fetch_scholar.py para gerar data/scholar_papers.json e data/scholar_data.json, depois faça o deploy da pasta data/ junto com esta página."> Run fetch_scholar.py to generate data/scholar_papers.json and data/scholar_data.json, then deploy the data/ folder alongside this page.</span>
+    </div>
+
+    <div class="sort-bar">
+      <div class="pub-count" id="pub-count"><strong>—</strong> <span data-en="publications" data-pt="publicações">publications</span></div>
+      <select class="sort-sel" id="sort-sel" onchange="applyFilters()">
+        <option value="cit"  data-en="Sort: Most cited first" data-pt="Ordenar: Mais citados">Sort: Most cited first</option>
+        <option value="year" data-en="Sort: Newest first"    data-pt="Ordenar: Mais recentes">Sort: Newest first</option>
+        <option value="alpha"data-en="Sort: A → Z (title)"   data-pt="Ordenar: A → Z (título)">Sort: A → Z (title)</option>
+      </select>
+    </div>
+
+    <div class="plist" id="pub-list">
+      <div class="placeholder">
+        <div class="ico">⏳</div>
+        <div data-en="Loading publications from Google Scholar…" data-pt="Carregando publicações do Google Scholar…">Loading publications from Google Scholar…</div>
+      </div>
+    </div>
+
+    <div class="upd-row" id="upd-row"></div>
+  </main>
+</div>
+
+<footer>
+  <p>© 2026 Celso Henrique Leite Silva-Junior · <span data-en="All rights reserved" data-pt="Todos os direitos reservados">All rights reserved</span></p>
+  <p style="margin-top:.5rem"><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes</a> · <a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID</a> · <a href="https://ipam.org.br" target="_blank">IPAM</a></p>
+</footer>
+
+<script>
+/* ============================================================
+   STATE
+   ============================================================ */
+let lang          = 'en';
+let allPapers     = [];   // raw from scholar_papers.json
+let authorData    = {};   // from scholar_data.json
+let currentFilter = 'all';
+let currentSort   = 'cit';
+let currentSearch = '';
+
+/* ============================================================
+   JOURNAL CATEGORISATION  (mirrors Python logic)
+   ============================================================ */
+const NATURE_KWORDS = [
+  'nature','communications earth','scientific reports','scientific data','npj'
+];
+const SCIENCE_KWORDS = [
+  'science','science advances'
+];
+
+function categorise(journal=''){
+  const j = journal.toLowerCase();
+  // "science of the total environment" should NOT be Science category
+  if(j.includes('science of the total')) return 'other';
+  for(const k of NATURE_KWORDS) if(j.includes(k)) return 'nature';
+  for(const k of SCIENCE_KWORDS) if(j.includes(k)) return 'science';
+  return 'other';
+}
+
+/* ============================================================
+   HIGHLIGHT OWN NAME in author strings
+   ============================================================ */
+const AUTHOR_VARIANTS = [
+  'silva-junior, celso','silva junior, celso',
+  'silva júnior, celso','silva-júnior, celso',
+  'junior, celso h','junior, celso h. l',
+  'silva, celso h','celso h. l. silva','celso henrique leite silva'
+];
+
+function highlightAuthor(authStr=''){
+  if(!authStr) return authStr;
+  // Step 1: normalise any "Silva Junior" (no hyphen) -> "Silva-Junior"
+  authStr = authStr.replace(/Silva\s+Junior/gi, 'Silva-Junior');
+  const low = authStr.toLowerCase();
+  for(const v of AUTHOR_VARIANTS){
+    if(low.includes(v)){
+      // Step 2: bold every occurrence of the name
+      return authStr.replace(
+        /Silva-Junior[^,;<]*|Celso[^,;<]*Silva-Junior[^,;<]*/gi,
+        m=>`<strong>${m}</strong>`
+      );
+    }
+  }
+  return authStr;
+}
+
+/* ============================================================
+   LOAD DATA FILES
+   ============================================================ */
+async function loadData(){
+  let statsOk  = false;
+  let papersOk = false;
+
+  try{
+    const r = await fetch('data/scholar_data.json');
+    if(r.ok){
+      authorData = await r.json();
+      statsOk    = true;
+    }
+  }catch(e){}
+
+  try{
+    const r = await fetch('data/scholar_papers.json');
+    if(r.ok){
+      const raw = await r.json();
+      // Ensure category is set (re-run in JS in case Python categorisation differs)
+      allPapers  = raw.map(p=>({...p, category: p.category || categorise(p.journal||'')}));
+      papersOk   = true;
+    }
+  }catch(e){}
+
+  if(!statsOk && !papersOk){
+    document.getElementById('error-box').style.display = 'block';
+    document.getElementById('pub-list').innerHTML = '';
+    return;
+  }
+
+  if(statsOk) renderStats();
+  if(papersOk) applyFilters();
+}
+
+/* ============================================================
+   RENDER STATS
+   ============================================================ */
+function renderStats(){
+  const s = authorData;
+  const fmt = n => n != null ? Number(n).toLocaleString('en') : '—';
+  document.getElementById('stat-cit').textContent = fmt(s.citedby);
+  document.getElementById('stat-h').textContent   = fmt(s.h_index);
+  document.getElementById('stat-i10').textContent = fmt(s.i10_index);
+
+  if(s.updated_at){
+    const d   = new Date(s.updated_at);
+    const upd = document.getElementById('upd-row');
+    if(upd) upd.innerHTML = `🔄 <span>${lang==='en'?'Google Scholar data last updated:':'Dados atualizados em:'} <strong>${d.toLocaleDateString(lang==='en'?'en-GB':'pt-BR')}</strong></span>`;
+  }
+}
+
+/* ============================================================
+   APPLY FILTERS + SORT + RENDER
+   ============================================================ */
+function applyFilters(){
+  currentFilter = document.querySelector('.sf.act')?.dataset?.filter || currentFilter;
+  currentSort   = document.getElementById('sort-sel')?.value || 'cit';
+  currentSearch = document.getElementById('search-in')?.value?.toLowerCase().trim() || '';
+
+  let papers = allPapers.filter(p=>{
+    const matchCat = currentFilter==='all' || (p.category||categorise(p.journal||''))===currentFilter;
+    const matchQ   = !currentSearch
+      || (p.title ||'').toLowerCase().includes(currentSearch)
+      || (p.journal||'').toLowerCase().includes(currentSearch)
+      || (p.authors||'').toLowerCase().includes(currentSearch)
+      || String(p.year||'').includes(currentSearch);
+    return matchCat && matchQ;
+  });
+
+  if(currentSort==='cit')   papers.sort((a,b)=>(b.cited_by||0)-(a.cited_by||0));
+  if(currentSort==='year')  papers.sort((a,b)=>(b.year||0)-(a.year||0));
+  if(currentSort==='alpha') papers.sort((a,b)=>(a.title||'').localeCompare(b.title||''));
+
+  // Update counters
+  const countFor = cat => allPapers.filter(p=>cat==='all'||(p.category||categorise(p.journal||''))===cat).length;
+  ['all','nature','science','other'].forEach(c=>{
+    const el = document.getElementById('cnt-'+c);
+    if(el) el.textContent = countFor(c);
+  });
+
+  document.getElementById('stat-n').textContent = allPapers.length || '—';
+
+  const countEl = document.getElementById('pub-count');
+  if(countEl) countEl.innerHTML = `<strong>${papers.length}</strong> ${lang==='en'?'publications':'publicações'}`;
+
+  renderList(papers);
+}
+
+function setFilter(cat, btn){
+  currentFilter = cat;
+  document.querySelectorAll('.sf[onclick]').forEach(b=>b.classList.remove('act'));
+  btn.classList.add('act');
+  btn.dataset.filter = cat;
+  applyFilters();
+}
+
+/* ============================================================
+   RENDER LIST
+   ============================================================ */
+function renderList(papers){
+  const container = document.getElementById('pub-list');
+
+  if(!papers.length){
+    container.innerHTML=`<div class="placeholder"><div class="ico">🔍</div><div>${lang==='en'?'No publications match your search.':'Nenhuma publicação corresponde à busca.'}</div></div>`;
+    return;
+  }
+
+  // Determine global top-10 by citations (from all papers, not filtered)
+  const top10ids = new Set(
+    [...allPapers]
+      .filter(p=>p.cited_by)
+      .sort((a,b)=>(b.cited_by||0)-(a.cited_by||0))
+      .slice(0,10)
+      .map(p=>p.citation_id||p.title)
+  );
+
+  const jClass = cat => cat==='nature'?'pj-tag nature-cat':cat==='science'?'pj-tag science-cat':'pj-tag';
+
+  container.innerHTML = papers.map(p=>{
+    const cat      = p.category || categorise(p.journal||'');
+    const isTop10  = top10ids.has(p.citation_id||p.title);
+    const citLabel = lang==='en'?'citations':'citações';
+
+    const citHtml  = (p.cited_by != null && p.cited_by > 0)
+      ? `<span class="cit-badge">★ ${Number(p.cited_by).toLocaleString('en')} <span class="ci">${citLabel}</span></span>`
+      : (p.cited_by===0?`<span style="font-size:.73rem;color:#bbb">${lang==='en'?'No citations yet':'Sem citações'}</span>`:'');
+
+    const doiHtml  = p.link
+      ? `<a href="${p.link}" target="_blank" class="doi-link" rel="noopener">Scholar ↗</a>`
+      : '';
+
+    return `<div class="pi">
+      ${isTop10?`<div class="top-badge" data-en="Top 10" data-pt="Top 10">Top 10</div>`:''}
+      <div class="py">${p.year||'—'}</div>
+      <div>
+        <span class="${jClass(cat)}">${escHtml(p.journal||'')}</span>
+        <div class="ptit">${escHtml(p.title||'')}</div>
+        <div class="pau">${highlightAuthor(escHtml(p.authors||''))}</div>
+        <div class="pmeta">${citHtml}${doiHtml}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function escHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ============================================================
+   LANGUAGE TOGGLE
+   ============================================================ */
+function toggleLang(btn){
+  lang = lang==='en'?'pt':'en';
+  btn.textContent = lang==='en'?'🌐 PT':'🌐 EN';
+  document.documentElement.setAttribute('lang', lang==='en'?'en':'pt-BR');
+  document.title = lang==='en'
+    ? 'Publications — Celso H. L. Silva-Junior'
+    : 'Publicações — Celso H. L. Silva-Junior';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v = el.getAttribute('data-'+lang);
+    if(v!==null && el.children.length===0) el.textContent=v;
+  });
+  const inp = document.getElementById('search-in');
+  if(inp) inp.placeholder = inp.getAttribute('data-'+lang+'-ph') || inp.placeholder;
+  document.querySelectorAll('#sort-sel option').forEach(o=>{
+    const v = o.getAttribute('data-'+lang);
+    if(v) o.textContent=v;
+  });
+  if(authorData.updated_at) renderStats();
+  applyFilters();
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', loadData);
+</script>
+</body>
+</html>

@@ -1,1186 +1,595 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Celso H. L. Silva-Junior | Environmental Scientist</title>
-  <meta name="description" content="Researcher at IPAM, specialist in tropical forest carbon dynamics, remote sensing, and climate change in Brazilian biomes.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink:        #111418;
-      --deep:       #1c2733;
-      --navy:       #243447;
-      --slate:      #3a5068;
-      --steel:      #5b7b96;
-      --mist:       #dde6ed;
-      --fog:        #f2f5f8;
-      --paper:      #fafbfc;
-      --white:      #ffffff;
-      --amber:      #b87333;
-      --amber-lt:   #d4904d;
-      --amber-pale: #f0d9c0;
-      --gray:       #6b7e8f;
-      --gray-lt:    #94a3b0;
-      --serif:      'Source Serif 4', Georgia, serif;
-      --mono:       'IBM Plex Mono', monospace;
-      --sans:       'IBM Plex Sans', system-ui, sans-serif;
-      --radius:     2px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--sans); background: var(--fog); color: var(--ink); overflow-x: hidden; }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--fog); }
-    ::-webkit-scrollbar-thumb { background: var(--slate); }
-
-    /* ══════════ NAV ══════════ */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 3.5rem;
-      background: rgba(250,251,252,0.93);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(58,80,104,0.12);
-      transition: padding 0.3s;
-    }
-    .nav-logo {
-      font-family: var(--serif); font-size: 1rem; font-weight: 600;
-      color: var(--deep); letter-spacing: 0.01em;
-    }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gray); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--navy); }
-
-    /* ══════════ HERO ══════════ */
-    .hero {
-      min-height: 100vh; display: grid; grid-template-columns: 5fr 7fr;
-      position: relative; overflow: hidden;
-    }
-    .hero-left {
-      background: var(--deep);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 8rem 3.5rem 4.5rem;
-      position: relative; overflow: hidden;
-    }
-    .hero-left::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(184,115,51,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(91,123,150,0.1) 0%, transparent 70%);
-    }
-    /* subtle grid texture */
-    .hero-left::after {
-      content: '';
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--amber); margin-bottom: 1.6rem;
-      position: relative; z-index: 1;
-    }
-    .hero-name {
-      font-family: var(--serif); font-size: clamp(2.6rem, 4vw, 4.2rem);
-      font-weight: 300; line-height: 1.08; color: var(--white);
-      margin-bottom: 0.4rem; position: relative; z-index: 1;
-    }
-    .hero-name em { font-style: italic; color: var(--amber-lt); }
-    .hero-title {
-      font-family: var(--serif); font-size: 1rem; font-weight: 300;
-      color: rgba(255,255,255,0.45); margin-bottom: 2.5rem;
-      font-style: italic; position: relative; z-index: 1; line-height: 1.5;
-    }
-    .hero-tags {
-      display: flex; flex-wrap: wrap; gap: 0.45rem;
-      margin-bottom: 3rem; position: relative; z-index: 1;
-    }
-    .tag {
-      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.3rem 0.7rem;
-      border: 1px solid rgba(184,115,51,0.35); color: var(--amber-lt);
-      border-radius: var(--radius);
-    }
-    .hero-metrics {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
-      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);
-      position: relative; z-index: 1;
-    }
-    .metric-val {
-      font-family: var(--serif); font-size: 2rem; font-weight: 600;
-      color: var(--white); line-height: 1;
-    }
-    .metric-label {
-      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(255,255,255,0.38); margin-top: 0.3rem;
-    }
-    .metric-note {
-      font-family: var(--mono); font-size: 0.54rem;
-      color: rgba(255,255,255,0.22); margin-top: 0.15rem;
-    }
-
-    .hero-right {
-      background: var(--paper); display: flex; flex-direction: column;
-      justify-content: center; padding: 8rem 4rem 4.5rem;
-      position: relative; overflow: hidden;
-    }
-    .hero-right::before {
-      content: ''; position: absolute; top: -100px; right: -100px;
-      width: 420px; height: 420px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(58,80,104,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-bio {
-      font-family: var(--serif); font-size: 1.25rem; font-weight: 300;
-      line-height: 1.75; color: var(--deep); margin-bottom: 2rem;
-      position: relative; z-index: 1;
-    }
-    .hero-bio strong { font-weight: 600; color: var(--navy); }
-
-    .hero-affiliations { position: relative; z-index: 1; }
-    .affil-label {
-      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--gray); margin-bottom: 1rem;
-    }
-    .affil-list { display: flex; flex-direction: column; gap: 0.55rem; }
-    .affil-item {
-      display: flex; align-items: flex-start; gap: 0.8rem;
-      font-size: 0.88rem; color: var(--deep); line-height: 1.4;
-    }
-    .affil-dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--amber); flex-shrink: 0; margin-top: 0.45rem;
-    }
-
-    .hero-cta {
-      display: flex; gap: 1rem; margin-top: 2.5rem; position: relative; z-index: 1;
-    }
-    .btn-primary {
-      padding: 0.75rem 1.8rem; background: var(--navy); color: var(--white);
-      font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.13em;
-      text-transform: uppercase; text-decoration: none; border: none; cursor: pointer;
-      border-radius: var(--radius); transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--slate); transform: translateY(-1px); }
-    .btn-secondary {
-      padding: 0.75rem 1.8rem; background: transparent; color: var(--navy);
-      font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.13em;
-      text-transform: uppercase; text-decoration: none;
-      border: 1px solid var(--slate); cursor: pointer;
-      border-radius: var(--radius); transition: background 0.2s, transform 0.15s;
-    }
-    .btn-secondary:hover { background: rgba(58,80,104,0.07); transform: translateY(-1px); }
-
-    /* ══════════ SECTION COMMONS ══════════ */
-    section { padding: 5.5rem 0; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 3.5rem; }
-    .section-label {
-      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--amber); margin-bottom: 0.7rem;
-    }
-    .section-title {
-      font-family: var(--serif); font-size: clamp(1.9rem, 2.8vw, 2.8rem);
-      font-weight: 300; color: var(--deep); line-height: 1.18; margin-bottom: 3rem;
-    }
-    .section-title em { font-style: italic; color: var(--slate); }
-
-    /* ══════════ ABOUT ══════════ */
-    .about { background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .about-text p {
-      font-family: var(--serif); font-size: 1.05rem; line-height: 1.82;
-      color: var(--ink); margin-bottom: 1.3rem; font-weight: 300;
-    }
-
-    .timeline { display: flex; flex-direction: column; }
-    .timeline-item { display: grid; grid-template-columns: 100px 1fr; gap: 1.2rem; padding-bottom: 1.6rem; position: relative; }
-    .timeline-item:not(:last-child)::after {
-      content: ''; position: absolute; left: 48px; top: 1.4rem; bottom: 0;
-      width: 1px; background: rgba(58,80,104,0.15);
-    }
-    .timeline-year {
-      font-family: var(--mono); font-size: 0.68rem; color: var(--amber);
-      padding-top: 0.18rem; text-align: right; letter-spacing: 0.05em;
-    }
-    .timeline-content { padding-left: 1rem; border-left: 2px solid var(--slate); }
-    .timeline-place { font-family: var(--sans); font-weight: 500; font-size: 0.88rem; color: var(--navy); }
-    .timeline-desc { font-family: var(--sans); font-size: 0.8rem; color: var(--gray); margin-top: 0.2rem; line-height: 1.5; }
-
-    /* ══════════ RESEARCH ══════════ */
-    .research { background: var(--fog); }
-    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--mist); }
-    .research-card {
-      background: var(--white); padding: 2.3rem;
-      position: relative; overflow: hidden; transition: transform 0.22s;
-    }
-    .research-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--slate), var(--amber));
-      transform: scaleX(0); transform-origin: left; transition: transform 0.28s;
-    }
-    .research-card:hover::after { transform: scaleX(1); }
-    .research-card:hover { transform: translateY(-2px); }
-    .research-icon { font-size: 1.6rem; margin-bottom: 1.3rem; display: block; }
-    .research-card h3 {
-      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
-      color: var(--navy); margin-bottom: 0.7rem; line-height: 1.3;
-    }
-    .research-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.72; }
-
-    /* ══════════ PUBLICATIONS ══════════ */
-    .publications { background: var(--deep); color: var(--white); }
-    .publications .section-title { color: var(--white); }
-    .publications .section-title em { color: var(--amber-lt); }
-
-    .pub-controls {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;
-    }
-    .pub-filter { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-    .filter-btn {
-      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.38rem 0.9rem;
-      background: transparent; border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.5); cursor: pointer; border-radius: var(--radius);
-      transition: all 0.18s;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--amber); border-color: var(--amber); color: var(--deep);
-    }
-
-    .pub-sort-label {
-      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,255,255,0.35);
-    }
-
-    .pub-list { display: flex; flex-direction: column; }
-    .pub-item {
-      display: grid; grid-template-columns: 70px 1fr 120px;
-      gap: 1.8rem; align-items: center;
-      padding: 1.35rem 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      transition: background 0.2s, padding 0.2s; border-radius: var(--radius);
-    }
-    .pub-item:hover { background: rgba(255,255,255,0.04); padding-left: 1rem; }
-    .pub-year { font-family: var(--mono); font-size: 0.7rem; color: var(--amber); }
-    .pub-info h4 {
-      font-family: var(--serif); font-size: 1rem; font-weight: 400;
-      color: var(--white); line-height: 1.42; margin-bottom: 0.28rem;
-    }
-    .pub-meta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-    .pub-journal { font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.4); }
-    .pub-cit {
-      font-family: var(--mono); font-size: 0.6rem;
-      color: var(--amber); border: 1px solid rgba(184,115,51,0.3);
-      padding: 0.1rem 0.45rem; border-radius: 20px;
-    }
-    .pub-if-col { text-align: right; }
-    .pub-if-val {
-      font-family: var(--mono); font-size: 0.72rem;
-      color: var(--amber-lt); font-weight: 500;
-    }
-    .pub-if-name { font-family: var(--mono); font-size: 0.58rem; color: rgba(255,255,255,0.25); margin-top: 0.15rem; }
-    .if-note {
-      font-family: var(--mono); font-size: 0.6rem; color: rgba(255,255,255,0.22);
-      margin-top: 0.5rem; text-align: right;
-    }
-
-    .show-more { margin-top: 2.5rem; text-align: center; }
-
-    /* ══════════ AWARDS ══════════ */
-    .awards { background: var(--white); }
-    .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .award-card {
-      border: 1px solid var(--mist); padding: 2rem;
-      border-radius: var(--radius); transition: border-color 0.22s, box-shadow 0.22s;
-    }
-    .award-card:hover {
-      border-color: var(--amber-pale);
-      box-shadow: 0 6px 24px rgba(28,39,51,0.07);
-    }
-    .award-year {
-      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em;
-      color: var(--amber); margin-bottom: 0.9rem;
-    }
-    .award-card h3 {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
-      color: var(--navy); margin-bottom: 0.5rem; line-height: 1.35;
-    }
-    .award-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
-
-    /* ══════════ PROJECTS ══════════ */
-    .projects { background: var(--fog); }
-    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .project-card {
-      background: var(--white); border: 1px solid var(--mist); padding: 2.3rem;
-      border-radius: var(--radius); position: relative;
-      transition: border-color 0.22s, box-shadow 0.22s;
-    }
-    .project-card:hover {
-      border-color: var(--steel);
-      box-shadow: 0 8px 28px rgba(28,39,51,0.09);
-    }
-    .project-status {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--amber);
-      margin-bottom: 1.3rem;
-    }
-    .status-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--amber); animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-    .project-card h3 {
-      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
-      color: var(--navy); margin-bottom: 0.9rem; line-height: 1.38;
-    }
-    .project-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.72; margin-bottom: 1.4rem; }
-    .project-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid var(--mist); padding-top: 1rem; flex-wrap: wrap; gap: 0.5rem;
-    }
-    .project-funder {
-      font-family: var(--mono); font-size: 0.63rem; color: var(--slate); letter-spacing: 0.05em;
-    }
-    .project-role {
-      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.2rem 0.6rem;
-      background: var(--fog); color: var(--gray); border-radius: 20px;
-    }
-
-    /* ══════════ CONTACT ══════════ */
-    .contact { background: var(--ink); color: var(--white); padding: 5rem 0; }
-    .contact .section-title { color: var(--white); }
-    .contact .section-title em { color: var(--amber-lt); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    .contact-text {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: 300;
-      line-height: 1.82; color: rgba(255,255,255,0.6);
-    }
-    .contact-links { display: flex; flex-direction: column; gap: 0.9rem; }
-    .contact-link {
-      display: flex; align-items: center; gap: 1rem; text-decoration: none;
-      color: var(--white); padding: 1rem 1.3rem;
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: var(--radius); transition: border-color 0.2s, background 0.2s;
-    }
-    .contact-link:hover { border-color: var(--amber); background: rgba(184,115,51,0.06); }
-    .contact-link-icon { font-size: 1rem; flex-shrink: 0; }
-    .contact-link-label {
-      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--amber); margin-bottom: 0.18rem;
-    }
-    .contact-link-value { font-size: 0.88rem; color: rgba(255,255,255,0.75); }
-
-    /* ══════════ FOOTER ══════════ */
-    footer {
-      background: var(--ink); border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 1.8rem 3.5rem; display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-text {
-      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* ══════════ SCROLL ANIMATION ══════════ */
-    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
-    .fade-up { opacity:0; animation: fadeUp 0.65s ease forwards; }
-    .fade-up:nth-child(1){animation-delay:0.1s}
-    .fade-up:nth-child(2){animation-delay:0.25s}
-    .fade-up:nth-child(3){animation-delay:0.4s}
-    .fade-up:nth-child(4){animation-delay:0.55s}
-    .fade-up:nth-child(5){animation-delay:0.7s}
-
-    /* ══════════ RESPONSIVE ══════════ */
-    @media (max-width: 960px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { min-height: 60vh; padding: 6rem 1.8rem 3rem; }
-      .hero-right { padding: 3rem 1.8rem; }
-      .about-grid, .contact-grid, .projects-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .research-grid { grid-template-columns: 1fr; }
-      .awards-grid { grid-template-columns: 1fr; }
-      .container { padding: 0 1.5rem; }
-      .pub-item { grid-template-columns: 60px 1fr; }
-      .pub-if-col, .pub-controls .pub-sort-label { display: none; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celso H. L. Silva-Junior | Environmental Scientist | IPAM</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Slab:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#1a3a2a;--gm:#2d6a4f;--gb:#40916c;--gl:#74c69d;--gp:#d8f3dc;--am:#e9b44c;--ad:#c68b1a;--cr:#f8f5ef;--dk:#111a15;--tx:#1e2d25;--tm:#5a7a65;--wh:#ffffff;--br:rgba(45,106,79,.15);--sh:0 4px 24px rgba(26,58,42,.10)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;background:var(--cr);color:var(--tx);line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,58,42,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--am);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-brand{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:var(--wh);letter-spacing:.02em;flex-shrink:0}
+.nav-brand span{color:var(--am)}
+.nav-links{display:flex;gap:.1rem;list-style:none;align-items:center;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .6rem;border-radius:4px;transition:all .2s}
+.nav-links a:hover{color:var(--am);background:rgba(233,180,76,.1)}
+.lang-btn{background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.5);color:var(--am);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .75rem;border-radius:4px;cursor:pointer;transition:all .2s;font-family:'Roboto',sans-serif}
+.lang-btn:hover{background:var(--am);color:var(--dk)}
+section{padding:6rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.slbl{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gm);margin-bottom:.75rem;display:flex;align-items:center;gap:.75rem}
+.slbl::after{content:'';display:block;height:1px;width:40px;background:var(--gm)}
+.stit{font-family:'Roboto Slab',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:var(--gd);line-height:1.2;margin-bottom:1rem}
+.ssub{font-size:.97rem;color:var(--tm);max-width:640px;margin-bottom:3rem}
+#hero{min-height:100vh;background:var(--gd);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:64px}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(64,145,108,.18) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(116,198,157,.10) 0%,transparent 60%)}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(116,198,157,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(116,198,157,.04) 1px,transparent 1px);background-size:60px 60px}
+.hcont{position:relative;max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 390px;gap:4rem;align-items:center}
+.htag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.4);color:var(--am);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .9rem;border-radius:2px;margin-bottom:1.5rem}
+.hname{font-family:'Roboto Slab',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;color:var(--wh);line-height:1.1;margin-bottom:.5rem}
+.hname .acc{color:var(--gl)}
+.htitle{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.6);letter-spacing:.04em;margin-bottom:2rem}
+.hbio{font-size:.93rem;color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:2.5rem}
+.hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;margin-bottom:2.5rem}
+.hst{background:rgba(26,58,42,.6);padding:1.2rem;text-align:center}
+.hst .num{font-family:'Roboto Slab',serif;font-size:1.7rem;font-weight:700;color:var(--am);display:block;line-height:1}
+.hst .lbl{font-size:.63rem;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:.07em;margin-top:.3rem;display:block}
+.ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btp{background:var(--am);color:var(--dk);padding:.72rem 1.7rem;border-radius:4px;font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:all .2s;border:2px solid var(--am);display:inline-block}
+.btp:hover{background:transparent;color:var(--am)}
+.bto{border:2px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);padding:.72rem 1.7rem;border-radius:4px;font-weight:500;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:all .2s;display:inline-block}
+.bto:hover{border-color:var(--wh);color:var(--wh)}
+.hcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:2rem;backdrop-filter:blur(8px)}
+.affi{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.affi:last-of-type{border-bottom:none}
+.affi-ic{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.affi-role{font-size:.68rem;font-weight:700;color:var(--am);text-transform:uppercase;letter-spacing:.08em}
+.affi-inst{font-size:.86rem;color:var(--wh);font-weight:500;margin-top:.1rem;line-height:1.35}
+.affi-det{font-size:.74rem;color:rgba(255,255,255,.4);margin-top:.1rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08)}
+.badge{background:rgba(64,145,108,.25);border:1px solid rgba(64,145,108,.4);color:var(--gl);font-size:.65rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.28rem .6rem;border-radius:2px}
+.rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:1.5rem}
+.rc{background:var(--cr);border:1px solid var(--br);border-radius:10px;padding:1.8rem;position:relative;overflow:hidden;transition:all .3s}
+.rc::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gb);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.rc:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.rc:hover::before{transform:scaleY(1)}
+.rci{font-size:2rem;margin-bottom:1rem}
+.rc h3{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:600;color:var(--gd);margin-bottom:.6rem}
+.rc p{font-size:.84rem;color:var(--tm);line-height:1.65}
+.pfilt{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.fb{padding:.4rem 1rem;border-radius:20px;border:1.5px solid var(--br);background:transparent;color:var(--tm);font-family:'Roboto',sans-serif;font-size:.79rem;font-weight:500;cursor:pointer;transition:all .2s}
+.fb.act,.fb:hover{background:var(--gm);border-color:var(--gm);color:var(--wh)}
+.plist{display:flex;flex-direction:column;gap:1rem}
+.pi{background:var(--wh);border:1px solid var(--br);border-radius:8px;padding:1.5rem 1.8rem;display:grid;grid-template-columns:52px 1fr;gap:1.5rem;align-items:start;transition:all .2s}
+.pi:hover{border-color:var(--gl);box-shadow:var(--sh)}
+.pi.hidden{display:none}
+.py{font-family:'Roboto Slab',serif;font-size:1.25rem;font-weight:700;color:var(--gl);padding-top:.2rem}
+.pj{display:inline-flex;align-items:center;background:var(--gp);color:var(--gm);font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2px;margin-bottom:.5rem}
+.ptit{font-size:.94rem;font-weight:500;color:var(--gd);line-height:1.5;margin-bottom:.4rem}
+.pau{font-size:.79rem;color:var(--tm)}
+.pau strong{color:var(--gm)}
+.pmeta{display:flex;gap:1rem;margin-top:.5rem;flex-wrap:wrap}
+.pcit{font-size:.74rem;color:var(--ad);font-weight:600}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:1rem}
+.sc{background:var(--wh);border:1px solid var(--br);border-radius:8px;padding:1.3rem;display:flex;gap:1rem;align-items:flex-start;transition:all .2s}
+.sc:hover{border-color:var(--gl);box-shadow:var(--sh)}
+.sav{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gm),var(--gb));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;flex-shrink:0}
+.sav.done{background:linear-gradient(135deg,#7a8f83,#a0b8ab)}
+.sn{font-size:.9rem;font-weight:600;color:var(--gd);line-height:1.3}
+.sd{font-size:.71rem;color:var(--gb);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:.15rem}
+.st{font-size:.77rem;color:var(--tm);margin-top:.3rem;line-height:1.4}
+.ss{font-size:.69rem;color:rgba(90,122,101,.55);margin-top:.3rem}
+.ssec{margin-bottom:3rem}
+.ssec h3{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:600;color:var(--gd);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--gp)}
+.tl{position:relative;padding-left:2.5rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gp)}
+.tli{position:relative;padding-bottom:2.5rem}
+.tli::before{content:'';position:absolute;left:-2.5rem;top:.3rem;width:14px;height:14px;border-radius:50%;background:var(--gb);border:3px solid var(--wh);box-shadow:0 0 0 2px var(--gb);transform:translateX(-50%)}
+.tly{font-size:.71rem;font-weight:700;letter-spacing:.1em;color:var(--gb);text-transform:uppercase;margin-bottom:.3rem}
+.tltt{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:600;color:var(--gd);margin-bottom:.2rem}
+.tlin{font-size:.84rem;color:var(--tm)}
+.tldt{font-size:.77rem;color:rgba(90,122,101,.68);font-style:italic;margin-top:.2rem;line-height:1.5}
+.cvcols{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.awk{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1rem;margin-bottom:3rem}
+.aw{background:var(--gp);border:1px solid rgba(45,106,79,.2);border-radius:8px;padding:1.3rem}
+.awy{font-size:.71rem;font-weight:700;color:var(--gm);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+.awn{font-size:.91rem;font-weight:600;color:var(--gd);margin-bottom:.2rem;line-height:1.4}
+.awo{font-size:.77rem;color:var(--tm)}
+.eg{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:1rem;margin-bottom:2rem}
+.ei{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;transition:all .2s}
+.ei:hover{border-color:var(--gb)}
+.er{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--wh);background:var(--gm);padding:.2rem .5rem;border-radius:2px;flex-shrink:0;white-space:nowrap}
+.er.ed{background:var(--ad)}
+.ej{font-size:.83rem;font-weight:500;color:var(--tx);line-height:1.3}
+#contact{background:var(--gd)}
+#contact .slbl{color:var(--gl)}
+#contact .slbl::after{background:var(--gl)}
+#contact .stit{color:var(--wh)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.clist{list-style:none;display:flex;flex-direction:column;gap:1.2rem}
+.clist li{display:flex;align-items:flex-start;gap:1rem;color:rgba(255,255,255,.7);font-size:.9rem}
+.ico{font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
+.clist a{color:var(--gl);text-decoration:none}
+.clist a:hover{color:var(--am)}
+.socials{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2rem}
+.sl{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:.6rem 1.1rem;border-radius:6px;font-size:.77rem;font-weight:600;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.sl:hover{background:var(--gm);color:var(--wh);border-color:var(--gm)}
+footer{background:var(--dk);padding:2rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.06)}
+footer a{color:rgba(255,255,255,.45);text-decoration:none}
+.divider{height:4px;background:linear-gradient(90deg,var(--gd),var(--gb),var(--am),var(--gb),var(--gd))}
+.dksec .slbl{color:var(--gl)}
+.dksec .slbl::after{background:var(--gl)}
+.dksec .stit{color:var(--wh)}
+.dksec .ssub{color:rgba(255,255,255,.5)}
+.prow{display:flex;flex-direction:column;gap:1rem;margin-bottom:3rem}
+.prow-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:1.5rem 2rem;display:flex;gap:1.5rem;align-items:flex-start}
+.prow-item.done{opacity:.72}
+.pst{font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;min-width:82px;padding-top:.2rem;flex-shrink:0}
+.pst.on{color:var(--gl);display:flex;align-items:center;gap:.4rem}
+.pst.on::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gl);animation:pls 2s infinite;display:inline-block}
+.pst.cl{color:rgba(255,255,255,.38)}
+.pname{font-family:'Roboto Slab',serif;font-size:.97rem;font-weight:600;color:var(--wh);margin-bottom:.3rem;line-height:1.4}
+.pmeta2{font-size:.76rem;color:rgba(255,255,255,.42)}
+.preview-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pcard{border-radius:10px;padding:2rem;color:white}
+.pcard h3{font-family:'Roboto Slab',serif;font-size:.97rem;font-weight:600;margin-bottom:.5rem}
+.pcard p{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.6}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.4}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.4}}
+@media(max-width:960px){.hcont{grid-template-columns:1fr;gap:2.5rem}.cvcols{grid-template-columns:1fr;gap:2.5rem}.cgrid{grid-template-columns:1fr;gap:2.5rem}.preview-cards{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">Celso H. L. Silva-Junior</div>
+  <div class="nav-brand"><span>CHL</span> Silva-Junior</div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#hero" data-en="Home" data-pt="Início">Home</a></li>
+    <li><a href="#research" data-en="Research" data-pt="Pesquisa">Research</a></li>
+    <li><a href="#publications" data-en="Publications" data-pt="Publicações">Publications</a></li>
+    <li><a href="#projects" data-en="Projects" data-pt="Projetos">Projects</a></li>
+    <li><a href="#fieldwork" data-en="Fieldwork" data-pt="Campo">Fieldwork</a></li>
+    <li><a href="#students" data-en="Students" data-pt="Orientandos">Students</a></li>
+    <li><a href="#cv" data-en="Background" data-pt="Trajetória">Background</a></li>
+    <li><a href="#editorial" data-en="Editorial" data-pt="Editorial">Editorial</a></li>
+    <li><a href="#contact" data-en="Contact" data-pt="Contato">Contact</a></li>
+    <li><button class="lang-btn" onclick="toggleLang(this)">🌐 PT</button></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-left">
-    <div class="fade-up">
-      <div class="hero-eyebrow">Environmental Scientist · Remote Sensing · Carbon Science</div>
-    </div>
-    <div class="fade-up">
-      <h1 class="hero-name">Celso H. L.<br><em>Silva-Junior</em></h1>
-      <p class="hero-title">Researcher, Instituto de Pesquisa Ambiental da Amazônia (IPAM)</p>
-    </div>
-    <div class="hero-tags fade-up">
-      <span class="tag">Tropical Forests</span>
-      <span class="tag">Carbon Dynamics</span>
-      <span class="tag">Remote Sensing</span>
-      <span class="tag">Climate Change</span>
-      <span class="tag">Fire Ecology</span>
-      <span class="tag">GEE · Python · R</span>
-    </div>
-    <div class="hero-metrics fade-up">
-      <div>
-        <div class="metric-val" id="metric-citations">5,100+</div>
-        <div class="metric-label">Citations</div>
-        <div class="metric-note" id="metric-source">Google Scholar · Mar 2026</div>
+<section id="hero">
+  <div class="hbg"></div><div class="hgrid"></div>
+  <div class="hcont">
+    <div>
+      <div class="htag">🌿 <span data-en="Researcher · Environmental Scientist · IPAM · CNPq Research Fellow Level C" data-pt="Pesquisador · Cientista Ambiental · IPAM · Bolsista CNPq Nível C">Researcher · Environmental Scientist · IPAM · CNPq Research Fellow Level C</span></div>
+      <h1 class="hname">Celso H. L.<br><span class="acc">Silva-Junior</span></h1>
+      <p class="htitle" data-en="Remote Sensing · Forest Carbon · Fire in Tropical Ecosystems" data-pt="Sensoriamento Remoto · Carbono Florestal · Fogo em Ecossistemas Tropicais">Remote Sensing · Forest Carbon · Fire in Tropical Ecosystems</p>
+      <p class="hbio" data-en="Environmental engineer, PhD in Remote Sensing from the Instituto Nacional de Pesquisas Espaciais (INPE), and postdoctoral researcher at the University of California, Los Angeles (UCLA), with affiliation at the Jet Propulsion Laboratory, NASA (JPL/NASA). Researcher at the Instituto de Pesquisa Ambiental da Amazônia (IPAM), permanent professor at the Graduate Program in Biodiversity and Conservation (PPGBC) at the Universidade Federal do Maranhão (UFMA), CNPq Research Productivity Fellow (Level C), and Affiliate Member of the Academia Brasileira de Ciências (ABC). Research focuses on spatio-temporal quantification of CO₂ emissions and removals by Brazilian forests, with emphasis on fire dynamics, forest fragmentation, and ecological restoration." data-pt="Engenheiro ambiental, doutor em Sensoriamento Remoto pelo Instituto Nacional de Pesquisas Espaciais (INPE) e pós-doutor pela University of California, Los Angeles (UCLA), com atuação como pesquisador afiliado no Laboratório de Propulsão a Jato da NASA (JPL/NASA). Pesquisador do Instituto de Pesquisa Ambiental da Amazônia (IPAM), professor permanente do Programa de Pós-Graduação em Biodiversidade e Conservação (PPGBC) da Universidade Federal do Maranhão (UFMA), Bolsista de Produtividade em Pesquisa do CNPq Nível C e Membro Afiliado da Academia Brasileira de Ciências (ABC). Pesquisa focada na quantificação espaço-temporal de emissões e remoções de CO₂ pelas florestas brasileiras, com ênfase em dinâmica do fogo, fragmentação florestal e restauração ecológica.">Environmental engineer, PhD in Remote Sensing from the Instituto Nacional de Pesquisas Espaciais (INPE), and postdoctoral researcher at the University of California, Los Angeles (UCLA), with affiliation at the Jet Propulsion Laboratory, NASA (JPL/NASA). Researcher at the Instituto de Pesquisa Ambiental da Amazônia (IPAM), permanent professor at the Graduate Program in Biodiversity and Conservation (PPGBC) at the Universidade Federal do Maranhão (UFMA), CNPq Research Productivity Fellow (Level C), and Affiliate Member of the Academia Brasileira de Ciências (ABC).</p>
+      <div class="hstats">
+        <div class="hst"><span class="num">+5,100</span><span class="lbl" data-en="Citations · Google Scholar · Mar/2026" data-pt="Citações · Google Scholar · Mar/2026">Citations · Google Scholar · Mar/2026</span></div>
+        <div class="hst"><span class="num">77+</span><span class="lbl" data-en="Journal Articles" data-pt="Artigos em Periódicos">Journal Articles</span></div>
+        <div class="hst"><span class="num">130+</span><span class="lbl" data-en="Works (Google Scholar)" data-pt="Trabalhos (Google Scholar)">Works (Google Scholar)</span></div>
       </div>
-      <div>
-        <div class="metric-val" id="metric-hindex">h = 30</div>
-        <div class="metric-label">h-index</div>
-      </div>
-      <div>
-        <div class="metric-val" id="metric-articles">75+</div>
-        <div class="metric-label">Articles</div>
+      <div class="ctas">
+        <a href="#publications" class="btp" data-en="View Publications" data-pt="Ver Publicações">View Publications</a>
+        <a href="#contact" class="bto" data-en="Contact" data-pt="Contato">Contact</a>
+        <a href="http://lattes.cnpq.br/0506851271452550" target="_blank" class="bto">Lattes ↗</a>
       </div>
     </div>
-  </div>
-
-  <div class="hero-right">
-    <p class="hero-bio fade-up">
-      I investigate the <strong>carbon cycle of tropical ecosystems</strong> — how deforestation, fire, forest degradation, and regeneration shape greenhouse gas fluxes across Brazilian biomes.
-    </p>
-    <p class="hero-bio fade-up" style="font-size:1rem; margin-bottom:2rem; color:var(--slate);">
-      My work bridges field measurements, satellite data, and machine learning to produce evidence that informs climate policy, conservation strategies, and national greenhouse gas inventories.
-    </p>
-    <div class="hero-affiliations fade-up">
-      <div class="affil-label">Current Affiliations</div>
-      <div class="affil-list">
-        <div class="affil-item"><span class="affil-dot"></span>Instituto de Pesquisa Ambiental da Amazônia (IPAM)</div>
-        <div class="affil-item"><span class="affil-dot"></span>Universidade Federal do Maranhão (UFMA) — Permanent Faculty, Graduate Program in Biodiversity and Conservation</div>
-        <div class="affil-item"><span class="affil-dot"></span>University of Manchester — Honorary Research Fellow</div>
-      </div>
-    </div>
-    <div class="hero-cta fade-up">
-      <a href="#publications" class="btn-primary">View Publications</a>
-      <a href="#contact" class="btn-secondary">Get in Touch</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="section-label">Background</div>
-        <h2 class="section-title">From the mangroves of<br><em>São Luís to global science</em></h2>
-        <p>
-          Born and raised in São Luís, Maranhão, I developed an early fascination with the ecological complexity of tropical ecosystems — particularly the coastal mangroves and the Amazon-Cerrado transition forests that define the landscape of my home state.
-        </p>
-        <p>
-          That curiosity led me from Environmental Engineering to the Instituto Nacional de Pesquisas Espaciais (INPE), where I completed my M.Sc. and Ph.D. in Remote Sensing, and then to a postdoctoral fellowship at the University of California, Los Angeles (UCLA).
-        </p>
-        <p>
-          Today I am a researcher at IPAM and permanent faculty at UFMA, a CNPq Research Productivity Fellow (Level C), and an Affiliate Member of the Academia Brasileira de Ciências (ABC). I have published more than 75 scientific articles, with work appearing in <em>Nature</em>, <em>Science</em>, <em>Nature Climate Change</em>, <em>Nature Ecology &amp; Evolution</em>, <em>Nature Communications</em>, <em>Science Advances</em>, and <em>Nature Geoscience</em>, accumulating more than 5,100 citations on Google Scholar.
-        </p>
-        <p>
-          I am also a member of the Scientific Panel for the Amazon (SPA/SDSN) and have contributed to the 5th National Greenhouse Gas Inventory of Brazil.
-        </p>
-      </div>
-
-      <div>
-        <div class="section-label">Academic Journey</div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2023–present</div>
-            <div class="timeline-content">
-              <div class="timeline-place">Instituto de Pesquisa Ambiental da Amazônia (IPAM)</div>
-              <div class="timeline-desc">Researcher — Carbon, Land Use, and Climate Science</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2022–present</div>
-            <div class="timeline-content">
-              <div class="timeline-place">Universidade Federal do Maranhão (UFMA)</div>
-              <div class="timeline-desc">Permanent Faculty — PPG Biodiversity &amp; Conservation</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2022–2023</div>
-            <div class="timeline-content">
-              <div class="timeline-place">University of California, Los Angeles (UCLA)</div>
-              <div class="timeline-desc">Postdoctoral Fellow — Tropical Forest Monitoring</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2022–2023</div>
-            <div class="timeline-content">
-              <div class="timeline-place">NASA Jet Propulsion Laboratory (JPL)</div>
-              <div class="timeline-desc">Researcher Affiliate</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2018–2022</div>
-            <div class="timeline-content">
-              <div class="timeline-place">Instituto Nacional de Pesquisas Espaciais (INPE)</div>
-              <div class="timeline-desc">Ph.D. in Remote Sensing · Advisor: Luiz E. O. C. Aragão</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2016–2018</div>
-            <div class="timeline-content">
-              <div class="timeline-place">Instituto Nacional de Pesquisas Espaciais (INPE)</div>
-              <div class="timeline-desc">M.Sc. in Remote Sensing</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2009–2014</div>
-            <div class="timeline-content">
-              <div class="timeline-place">Universidade Ceuma (UniCEUMA)</div>
-              <div class="timeline-desc">B.Sc. Environmental Engineering (ProUni Scholar)</div>
-            </div>
-          </div>
+    <div class="hcard">
+      <div class="affi">
+        <div class="affi-ic" style="background:rgba(233,180,76,.15);">🌿</div>
+        <div>
+          <div class="affi-role" data-en="Researcher" data-pt="Pesquisador">Researcher</div>
+          <div class="affi-inst">Instituto de Pesquisa Ambiental da Amazônia (IPAM)</div>
+          <div class="affi-det" data-en="Science Directorate · Since 2023" data-pt="Diretoria de Ciência · Desde 2023">Science Directorate · Since 2023</div>
         </div>
       </div>
+      <div class="affi">
+        <div class="affi-ic" style="background:rgba(116,198,157,.15);">🎓</div>
+        <div>
+          <div class="affi-role" data-en="Permanent Professor" data-pt="Professor Permanente">Permanent Professor</div>
+          <div class="affi-inst">Universidade Federal do Maranhão (UFMA)</div>
+          <div class="affi-det" data-en="Graduate Program in Biodiversity and Conservation (PPGBC/CCBS) · Since 2022" data-pt="Programa de Pós-Graduação em Biodiversidade e Conservação (PPGBC/CCBS) · Desde 2022">Graduate Program in Biodiversity and Conservation (PPGBC/CCBS) · Since 2022</div>
+        </div>
+      </div>
+      <div class="affi">
+        <div class="affi-ic" style="background:rgba(255,255,255,.07);">🔬</div>
+        <div>
+          <div class="affi-role" data-en="Research Associate" data-pt="Pesquisador Colaborador">Research Associate</div>
+          <div class="affi-inst">Instituto Nacional de Pesquisas Espaciais (INPE)</div>
+          <div class="affi-det" data-en="OBT/DSR · Since 2016" data-pt="OBT/DSR · Desde 2016">OBT/DSR · Since 2016</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge">CNPq Level C Fellow</span>
+        <span class="badge">ABC Affiliate Member</span>
+        <span class="badge">GEE · R · Python</span>
+        <span class="badge">ORCID 0000-0002-1052-5551</span>
+      </div>
     </div>
   </div>
 </section>
+<div class="divider"></div>
 
 <!-- RESEARCH -->
-<section class="research" id="research">
+<section id="research" style="background:var(--wh)">
   <div class="container">
-    <div class="section-label">Research Areas</div>
-    <h2 class="section-title">Investigating the carbon–climate–<br><em>land use nexus</em></h2>
-    <div class="research-grid">
-      <div class="research-card">
-        <span class="research-icon">🌿</span>
-        <h3>Forest Carbon Dynamics</h3>
-        <p>Quantifying above- and below-ground biomass stocks, carbon losses from deforestation and fragmentation, and recovery rates in secondary forests across Brazilian biomes using LiDAR, hyperspectral, and optical satellite data.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🔥</span>
-        <h3>Fire Ecology &amp; Emissions</h3>
-        <p>Mapping burned areas and analyzing fire regimes across Amazonia, Cerrado, and Caatinga. Estimating CO₂, CH₄, and N₂O emissions and developing near-real-time detection systems for land managers and government agencies.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🛰️</span>
-        <h3>Remote Sensing &amp; Machine Learning</h3>
-        <p>Developing deep-learning pipelines (Planet NICFI, GEDI, Sentinel) for forest degradation mapping, secondary vegetation age tracking, and multi-sensor data fusion for ecosystem monitoring at continental scales.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🌍</span>
-        <h3>Climate Policy &amp; REDD+</h3>
-        <p>Assessing Brazil's compliance with its Forest Reference Emission Levels, analyzing the effectiveness of protected areas and indigenous territories, and providing scientific evidence for international climate negotiations.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🪴</span>
-        <h3>Secondary Forest Regeneration</h3>
-        <p>Modelling growth trajectories, carbon debt accumulation, and climate benefits of secondary forests — with projections to 2100 under contrasting fire-legacy scenarios using Chapman-Richards growth modelling.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-icon">🌊</span>
-        <h3>Coastal &amp; Wetland Ecosystems</h3>
-        <p>Investigating mangrove carbon stocks, sea-level rise vulnerability, and flooded forest dynamics in Eastern Amazonia, including post-fire carbon emission estimates for Amazonian igapó and várzea forests.</p>
-      </div>
+    <div class="slbl reveal" data-en="Research Lines" data-pt="Linhas de Pesquisa">Research Lines</div>
+    <h2 class="stit reveal" data-en="Scientific Areas" data-pt="Áreas de Atuação Científica">Scientific Areas</h2>
+    <p class="ssub reveal" data-en="Integrating remote sensing, spatial modelling, and field data to understand forest dynamics across Brazilian biomes." data-pt="Integrando sensoriamento remoto, modelagem espacial e dados de campo para compreender a dinâmica florestal nos biomas brasileiros.">Integrating remote sensing, spatial modelling, and field data to understand forest dynamics across Brazilian biomes.</p>
+    <div class="rg">
+      <div class="rc reveal"><div class="rci">🔥</div><h3 data-en="Fire Dynamics in Tropical Ecosystems" data-pt="Dinâmica do Fogo em Ecossistemas Tropicais">Fire Dynamics in Tropical Ecosystems</h3><p data-en="Fire mapping, burned area analysis, fire probability modelling, and fire impacts on carbon stocks across the Amazon and Cerrado." data-pt="Mapeamento de incêndios, análise de área queimada, modelagem de probabilidade de fogo e impactos nos estoques de carbono na Amazônia e Cerrado.">Fire mapping, burned area analysis, fire probability modelling, and fire impacts on carbon stocks across the Amazon and Cerrado.</p></div>
+      <div class="rc reveal"><div class="rci">🌲</div><h3 data-en="Forest Carbon Cycle &amp; GHG Emissions" data-pt="Ciclo do Carbono Florestal e Emissões de GEE">Forest Carbon Cycle &amp; GHG Emissions</h3><p data-en="Spatio-temporal quantification of emissions from deforestation, fragmentation and degradation, and carbon removals by secondary forest growth." data-pt="Quantificação espaço-temporal de emissões por desmatamento, fragmentação e degradação florestal, e remoções pelo crescimento de florestas secundárias.">Spatio-temporal quantification of emissions from deforestation, fragmentation and degradation, and carbon removals by secondary forest growth.</p></div>
+      <div class="rc reveal"><div class="rci">🛰️</div><h3 data-en="Remote Sensing &amp; Geospatial Technologies" data-pt="Sensoriamento Remoto e Geotecnologias">Remote Sensing &amp; Geospatial Technologies</h3><p data-en="GEE pipelines, LiDAR, and multi-sensor data (MODIS, VIIRS, Landsat, Sentinel, GEDI) for large-scale forest monitoring." data-pt="Pipelines GEE, LiDAR e dados multisensor (MODIS, VIIRS, Landsat, Sentinel, GEDI) para monitoramento florestal em larga escala.">GEE pipelines, LiDAR, and multi-sensor data (MODIS, VIIRS, Landsat, Sentinel, GEDI) for large-scale forest monitoring.</p></div>
+      <div class="rc reveal"><div class="rci">🗺️</div><h3 data-en="Land Use and Land Cover Change" data-pt="Uso e Cobertura da Terra">Land Use and Land Cover Change</h3><p data-en="Forest fragmentation, edge effects, and deforestation dynamics across the Amazon, Cerrado, and Atlantic Forest biomes." data-pt="Fragmentação florestal, efeito de borda e dinâmica do desmatamento na Amazônia, Cerrado e Mata Atlântica.">Forest fragmentation, edge effects, and deforestation dynamics across the Amazon, Cerrado, and Atlantic Forest biomes.</p></div>
+      <div class="rc reveal"><div class="rci">🌡️</div><h3 data-en="Climate Change in the Tropics" data-pt="Mudanças Climáticas na Região Tropical">Climate Change in the Tropics</h3><p data-en="Rainfall and temperature trend analysis, extreme drought events, and their relationships with forest cover and fire occurrence." data-pt="Análise de tendências de precipitação e temperatura, eventos extremos de seca e suas relações com cobertura florestal e ocorrência de incêndios.">Rainfall and temperature trend analysis, extreme drought events, and their relationships with forest cover and fire occurrence.</p></div>
+      <div class="rc reveal"><div class="rci">🌱</div><h3 data-en="Forest Restoration" data-pt="Restauração Florestal">Forest Restoration</h3><p data-en="Secondary forests, carbon sequestration potential, biomass recovery modelling, and prioritisation of areas for ecological restoration." data-pt="Florestas secundárias, potencial de sequestro de carbono, modelagem da recuperação de biomassa e priorização de áreas para restauração ecológica.">Secondary forests, carbon sequestration potential, biomass recovery modelling, and prioritisation of areas for ecological restoration.</p></div>
     </div>
   </div>
 </section>
+<div class="divider"></div>
 
 <!-- PUBLICATIONS -->
-<section class="publications" id="publications">
+<section id="publications">
   <div class="container">
-    <div class="section-label" style="color:var(--amber)">Selected Publications</div>
-    <h2 class="section-title">High-impact work in<br><em>global scientific journals</em></h2>
+    <div class="slbl reveal" data-en="Scientific Output" data-pt="Produção Científica">Scientific Output</div>
+    <h2 class="stit reveal" data-en="Top 10 Most Cited Publications" data-pt="10 Publicações Mais Citadas">Top 10 Most Cited Publications</h2>
+    <p class="ssub reveal" data-en="Ranked by citation count, updated weekly via Semantic Scholar. Visit the full publications page for the complete list with filters." data-pt="Ordenadas por número de citações, atualizadas semanalmente via Semantic Scholar. Acesse a página completa de publicações para a lista completa com filtros.">Ranked by citation count, updated weekly via Semantic Scholar. Visit the full publications page for the complete list with filters.</p>
 
-    <div class="pub-controls">
-      <div class="pub-filter">
-        <button class="filter-btn active" onclick="filterPubs('all',this)">All</button>
-        <button class="filter-btn" onclick="filterPubs('nature',this)">Nature Family</button>
-        <button class="filter-btn" onclick="filterPubs('science',this)">Science</button>
-        <button class="filter-btn" onclick="filterPubs('remote',this)">Remote Sensing</button>
-        <button class="filter-btn" onclick="filterPubs('other',this)">Other</button>
+    <!-- Live sync indicator -->
+    <div class="reveal" style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:var(--gp);border:1px solid rgba(45,106,79,.2);color:var(--gm);font-size:.7rem;font-weight:600;letter-spacing:.06em;padding:.3rem .85rem;border-radius:20px">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--gb);animation:pls 2s infinite;display:inline-block"></span>
+        <span data-en="Citations synced via Semantic Scholar API" data-pt="Citações sincronizadas via Semantic Scholar API">Citations synced via Semantic Scholar API</span>
       </div>
-      <div class="pub-sort-label">Sorted by citations ↓</div>
+      <span id="home-last-upd" style="font-size:.72rem;color:var(--tm)"></span>
     </div>
 
-    <div class="pub-list" id="pubList">
-      <!-- Ranked by citations from Lattes data -->
-
-      <div class="pub-item" data-cat="nature" data-cit="615">
-        <div class="pub-year">2018</div>
-        <div class="pub-info">
-          <h4>21st Century drought-related fires counteract the decline of Amazon deforestation carbon emissions</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Nature Communications</span>
-            <span class="pub-cit">615 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 14.7</div>
-          <div class="pub-if-name">Nat. Communications</div>
-        </div>
+    <div class="plist" id="home-pub-list">
+      <div style="text-align:center;padding:2rem;color:var(--tm)">
+        <span style="font-size:1.5rem">⏳</span>
+        <div style="margin-top:.5rem;font-size:.88rem" data-en="Loading top publications…" data-pt="Carregando publicações…">Loading top publications…</div>
       </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="401">
-        <div class="pub-year">2023</div>
-        <div class="pub-info">
-          <h4>The drivers and impacts of Amazon forest degradation</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Science</span>
-            <span class="pub-cit">401 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 44.7</div>
-          <div class="pub-if-name">Science</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="306">
-        <div class="pub-year">2020</div>
-        <div class="pub-info">
-          <h4>The Brazilian Amazon deforestation rate in 2020 is the greatest of the decade</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Nature Ecology &amp; Evolution</span>
-            <span class="pub-cit">306 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 13.9</div>
-          <div class="pub-if-name">Nat. Ecol. Evol.</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="201">
-        <div class="pub-year">2021</div>
-        <div class="pub-info">
-          <h4>Large carbon sink potential of Secondary Forests in the Brazilian Amazon to mitigate climate change</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Nature Communications</span>
-            <span class="pub-cit">201 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 14.7</div>
-          <div class="pub-if-name">Nat. Communications</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="131">
-        <div class="pub-year">2020</div>
-        <div class="pub-info">
-          <h4>Persistent collapse of biomass in Amazonian forest edges following deforestation leads to unaccounted carbon losses</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Science Advances</span>
-            <span class="pub-cit">131 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 11.7</div>
-          <div class="pub-if-name">Science Advances</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="121">
-        <div class="pub-year">2023</div>
-        <div class="pub-info">
-          <h4>The carbon sink of secondary and degraded humid tropical forests</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Nature</span>
-            <span class="pub-cit">121 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 50.5</div>
-          <div class="pub-if-name">Nature</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="96">
-        <div class="pub-year">2018</div>
-        <div class="pub-info">
-          <h4>Deforestation-Induced Fragmentation Increases Forest Fire Occurrence in Central Brazilian Amazonia</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Forests</span>
-            <span class="pub-cit">96 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 2.9</div>
-          <div class="pub-if-name">Forests</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="67">
-        <div class="pub-year">2020</div>
-        <div class="pub-info">
-          <h4>Benchmark maps of 33 years of secondary forest age for Brazil</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Scientific Data</span>
-            <span class="pub-cit">67 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 9.8</div>
-          <div class="pub-if-name">Scientific Data</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="remote" data-cit="63">
-        <div class="pub-year">2023</div>
-        <div class="pub-info">
-          <h4>Mapping tropical forest degradation with deep learning and Planet NICFI data</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Remote Sensing of Environment</span>
-            <span class="pub-cit">63 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 11.1</div>
-          <div class="pub-if-name">Rem. Sens. Environ.</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="remote" data-cit="61">
-        <div class="pub-year">2019</div>
-        <div class="pub-info">
-          <h4>Fire Responses to the 2010 and 2015/2016 Amazonian Droughts</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Frontiers in Earth Science</span>
-            <span class="pub-cit">61 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 3.7</div>
-          <div class="pub-if-name">Front. Earth Science</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="remote" data-cit="60">
-        <div class="pub-year">2022</div>
-        <div class="pub-info">
-          <h4>Large scale multi-layer fuel load characterization in tropical savanna using GEDI spaceborne lidar data</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Remote Sensing of Environment</span>
-            <span class="pub-cit">60 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 11.1</div>
-          <div class="pub-if-name">Rem. Sens. Environ.</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="57">
-        <div class="pub-year">2022</div>
-        <div class="pub-info">
-          <h4>Amazon fires in the 21st century: The year of 2020 in evidence</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Global Ecology and Biogeography</span>
-            <span class="pub-cit">57 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 6.4</div>
-          <div class="pub-if-name">Glob. Ecol. Biogeogr.</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="55">
-        <div class="pub-year">2021</div>
-        <div class="pub-info">
-          <h4>Beyond trees: mapping total aboveground biomass density in the Brazilian savanna using high-density UAV-lidar data</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Forest Ecology and Management</span>
-            <span class="pub-cit">55 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 3.7</div>
-          <div class="pub-if-name">For. Ecol. Manage.</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other" data-cit="49">
-        <div class="pub-year">2020</div>
-        <div class="pub-info">
-          <h4>Amazon forest on the edge of collapse in the Maranhão State, Brazil</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Land Use Policy</span>
-            <span class="pub-cit">49 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 6.0</div>
-          <div class="pub-if-name">Land Use Policy</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="48">
-        <div class="pub-year">2021</div>
-        <div class="pub-info">
-          <h4>Amazonian forest degradation must be incorporated into the COP26 agenda</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Nature Geoscience</span>
-            <span class="pub-cit">48 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 15.7</div>
-          <div class="pub-if-name">Nature Geoscience</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="48">
-        <div class="pub-year">2023</div>
-        <div class="pub-info">
-          <h4>Brazilian Amazon indigenous territories under deforestation pressure</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Scientific Reports</span>
-            <span class="pub-cit">48 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 4.6</div>
-          <div class="pub-if-name">Scientific Reports</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="science" data-cit="11">
-        <div class="pub-year">2022</div>
-        <div class="pub-info">
-          <h4>Brazil's mangroves: Natural carbon storage</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Science</span>
-            <span class="pub-cit">11 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 44.7</div>
-          <div class="pub-if-name">Science</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="science" data-cit="11">
-        <div class="pub-year">2021</div>
-        <div class="pub-info">
-          <h4>Northeast Brazil's imperiled Cerrado</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Science</span>
-            <span class="pub-cit">11 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 44.7</div>
-          <div class="pub-if-name">Science</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="science" data-cit="—">
-        <div class="pub-year">2024</div>
-        <div class="pub-info">
-          <h4>Roots in Brazil's Amazon mangroves</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Science</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 44.7</div>
-          <div class="pub-if-name">Science</div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="nature" data-cit="16">
-        <div class="pub-year">2025</div>
-        <div class="pub-info">
-          <h4>Protect young secondary forests for optimum carbon removal</h4>
-          <div class="pub-meta">
-            <span class="pub-journal">Nature Climate Change</span>
-            <span class="pub-cit">16 citations</span>
-          </div>
-        </div>
-        <div class="pub-if-col">
-          <div class="pub-if-val">IF 29.6</div>
-          <div class="pub-if-name">Nat. Climate Change</div>
-        </div>
-      </div>
-
     </div>
 
-    <div class="if-note">Impact factors are approximate and subject to annual revision by Clarivate.</div>
-
-    <div class="show-more">
-      <a href="https://scholar.google.com/citations?user=UEWx5SkAAAAJ&hl=en" target="_blank"
-         class="btn-secondary" style="display:inline-block; border-color:rgba(255,255,255,0.25); color:rgba(255,255,255,0.65);">
-        Full publication list on Google Scholar →
-      </a>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="publications.html" class="btp" data-en="View all publications with live citations →" data-pt="Ver todas as publicações com citações ao vivo →">View all publications with live citations →</a>
     </div>
   </div>
 </section>
-
-<!-- AWARDS & RECOGNITION -->
-<section class="awards" id="awards">
-  <div class="container">
-    <div class="section-label">Recognition</div>
-    <h2 class="section-title">Awards, fellowships &amp;<br><em>distinctions</em></h2>
-    <div class="awards-grid">
-      <div class="award-card">
-        <div class="award-year">2026</div>
-        <h3>Affiliate Member — Academia Brasileira de Ciências (ABC)</h3>
-        <p>Elected Affiliate Member of the Brazilian Academy of Sciences in recognition of scientific contributions to environmental research.</p>
-      </div>
-      <div class="award-card">
-        <div class="award-year">2023–present</div>
-        <h3>CNPq Research Productivity Fellow — Level C</h3>
-        <p>Research productivity grant awarded by the Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) to active researchers with outstanding scientific output.</p>
-      </div>
-      <div class="award-card">
-        <div class="award-year">2023</div>
-        <h3>5th MapBiomas Award — Honourable Mention</h3>
-        <p>Awarded by MapBiomas / Instituto Ciência Hoje for contributions to land use and land cover science in Brazil.</p>
-      </div>
-      <div class="award-card">
-        <div class="award-year">2021</div>
-        <h3>Remote Sensing Young Investigator Award</h3>
-        <p>Awarded by MDPI Remote Sensing to researchers under 35 with outstanding contributions to remote sensing science.</p>
-      </div>
-      <div class="award-card">
-        <div class="award-year">2021</div>
-        <h3>Member — Scientific Panel for the Amazon (SPA)</h3>
-        <p>Selected as a member of the Science Panel for the Amazon (SPA), hosted by the United Nations Sustainable Development Solutions Network (SDSN).</p>
-      </div>
-      <div class="award-card">
-        <div class="award-year">2017</div>
-        <h3>Best Poster Award — XVIII Brazilian Remote Sensing Symposium</h3>
-        <p>"The role of fragmentation and edge effects on the occurrence and intensity of forest fires in Amazonia." Awarded at the XVIII Simpósio Brasileiro de Sensoriamento Remoto, Santos.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="divider"></div>
 
 <!-- PROJECTS -->
-<section class="projects" id="projects">
+<section id="projects" style="background:var(--gd)" class="dksec">
   <div class="container">
-    <div class="section-label">Current Projects</div>
-    <h2 class="section-title">Leading science with<br><em>real-world impact</em></h2>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-status"><span class="status-dot"></span>Active · 2023–present</div>
-        <h3>YBYRÁ-BR: Spatio-temporal Quantification of CO₂ Emissions and Removals by Brazilian Forests</h3>
-        <p>National-scale effort integrating optical, radar, and LiDAR satellite data with artificial intelligence to disentangle gross emissions (deforestation, fire, degradation) from removals (secondary forest growth), feeding directly into Brazil's Paris Agreement reporting.</p>
-        <div class="project-footer">
-          <span class="project-funder">Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq/MCTI)</span>
-          <span class="project-role">Principal Investigator</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-status"><span class="status-dot"></span>Active · 2024–present</div>
-        <h3>Amazonian BioTechQuilombo: Biodiversity Monitoring in Quilombola Territories</h3>
-        <p>Combining advanced remote sensing with participatory science, mobile technology, and traditional ecological knowledge to support autonomous territorial monitoring and biodiversity conservation in quilombola communities across the Brazilian Amazon.</p>
-        <div class="project-footer">
-          <span class="project-funder">Amazônia +10 Programme</span>
-          <span class="project-role">Principal Investigator</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-status"><span class="status-dot"></span>Active · 2024–present</div>
-        <h3>Enabling Large-Scale and Climate-Resilient Forest Restoration in the Eastern Amazon</h3>
-        <p>International collaboration focused on large-scale tropical forest restoration in Pará state, maximizing co-benefits for climate, biodiversity, and local communities through advanced spatial modelling and stakeholder co-creation.</p>
-        <div class="project-footer">
-          <span class="project-funder">Department for Environment, Food &amp; Rural Affairs (DEFRA) / Global Centre on Biodiversity for Climate</span>
-          <span class="project-role">Collaborator</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-status"><span class="status-dot"></span>Active · 2024–present</div>
-        <h3>Resilience of Biodiversity in the Gurupi Biological Reserve — PELD Phase II</h3>
-        <p>Long-term ecological research (PELD network) investigating natural regeneration trajectories after fire and past disturbance, addressing key questions on carbon stocks, fauna, and the role of topography in Amazonian ecosystem resilience.</p>
-        <div class="project-footer">
-          <span class="project-funder">Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)</span>
-          <span class="project-role">Coordinator</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-status"><span class="status-dot"></span>Active · 2022–present</div>
-        <h3>MAP-Fire: Carbon Balance Platform for Emissions and Secondary Forest Removals in Maranhão</h3>
-        <p>An open online platform translating remote sensing science into accessible dashboards for decision-makers in Maranhão, integrating fire emissions, secondary forest growth, and deforestation data at municipal and property scales.</p>
-        <div class="project-footer">
-          <span class="project-funder">Fundação de Amparo à Pesquisa do Estado de São Paulo (FAPESP)</span>
-          <span class="project-role">Collaborator</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-status"><span class="status-dot"></span>Active · 2023–present</div>
-        <h3>University of Manchester Collaboration on Forest Fragmentation in the Amazon–Cerrado Transition</h3>
-        <p>Generation of forest fragmentation maps (1990–2021) for the entire Amazon rainforest including the Amazon–Cerrado transition zone, with re-measurement of permanent carbon stock plots to validate satellite estimates.</p>
-        <div class="project-footer">
-          <span class="project-funder">University of Manchester (UK)</span>
-          <span class="project-role">Honorary Research Fellow</span>
-        </div>
-      </div>
-
+    <div class="slbl reveal" data-en="Research Projects" data-pt="Projetos de Pesquisa">Research Projects</div>
+    <h2 class="stit reveal" data-en="Active &amp; Completed Projects" data-pt="Projetos em Andamento e Concluídos">Active &amp; Completed Projects</h2>
+    <p class="ssub reveal" data-en="Funded by national and international agencies. Visit the dedicated page for full descriptions, team members, and related publications." data-pt="Financiados por agências nacionais e internacionais. Visite a página dedicada para descrições completas, equipe e publicações relacionadas.">Funded by national and international agencies. Visit the dedicated page for full descriptions, team members, and related publications.</p>
+    <div class="prow">
+      <div class="prow-item reveal"><div class="pst on" data-en="Ongoing" data-pt="Em andamento">Ongoing</div><div><div class="pname">YBYRÁ-BR: Spatio-temporal Quantification of CO₂ Emissions and Removals by Brazilian Forests</div><div class="pmeta2" data-en="Role: Coordinator · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq/MCTI) · Process 401741/2023-0" data-pt="Papel: Coordenador · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq/MCTI) · Processo 401741/2023-0">Role: Coordinator · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq/MCTI) · Process 401741/2023-0</div></div></div>
+      <div class="prow-item reveal"><div class="pst on" data-en="Ongoing" data-pt="Em andamento">Ongoing</div><div><div class="pname">Resilience of Biodiversity in the Reserva Biológica do Gurupi, Phase II</div><div class="pmeta2" data-en="Role: Coordinator · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)" data-pt="Papel: Coordenador · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)">Role: Coordinator · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)</div></div></div>
+      <div class="prow-item reveal"><div class="pst on" data-en="Ongoing" data-pt="Em andamento">Ongoing</div><div><div class="pname">Amazonian BioTechQuilombo — Amazonian Biodiversity, Technology Assessment and Knowledge Exchange with Quilombo Communities</div><div class="pmeta2" data-en="Role: Coordinator · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)" data-pt="Papel: Coordenador · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)">Role: Coordinator · Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)</div></div></div>
+      <div class="prow-item reveal"><div class="pst on" data-en="Ongoing" data-pt="Em andamento">Ongoing</div><div><div class="pname">Enabling Large-scale and Climate-resilient Forest Restoration in the Eastern Amazon</div><div class="pmeta2" data-en="Role: Member · Department for Environment, Food &amp; Rural Affairs (DEFRA) / Global Centre on Biodiversity for Climate" data-pt="Papel: Integrante · Department for Environment, Food &amp; Rural Affairs (DEFRA) / Global Centre on Biodiversity for Climate">Role: Member · Department for Environment, Food &amp; Rural Affairs (DEFRA) / Global Centre on Biodiversity for Climate</div></div></div>
+      <div class="prow-item reveal"><div class="pst on" data-en="Ongoing" data-pt="Em andamento">Ongoing</div><div><div class="pname">MAP-Fire: A Platform for Carbon Balance Management — Fire Emissions and Secondary Forest Removals for Maranhão State</div><div class="pmeta2" data-en="Role: Member · Fundação de Amparo à Pesquisa do Estado de São Paulo (FAPESP)" data-pt="Papel: Integrante · Fundação de Amparo à Pesquisa do Estado de São Paulo (FAPESP)">Role: Member · Fundação de Amparo à Pesquisa do Estado de São Paulo (FAPESP)</div></div></div>
+      <div class="prow-item done reveal"><div class="pst cl">✓ <span data-en="Concluded" data-pt="Concluído">Concluded</span></div><div><div class="pname" style="color:rgba(255,255,255,.7)">Fighting Forest Fires in Amazon Indigenous Territories from Space</div><div class="pmeta2" data-en="Role: Coordinator · University of Manchester" data-pt="Papel: Coordenador · University of Manchester">Role: Coordinator · University of Manchester</div></div></div>
+    </div>
+    <div style="text-align:center" class="reveal">
+      <a href="projects.html" class="btp" data-en="Explore all projects with photos &amp; publications →" data-pt="Explorar todos os projetos com fotos e publicações →">Explore all projects with photos &amp; publications →</a>
     </div>
   </div>
 </section>
+<div class="divider"></div>
+
+<!-- FIELDWORK PREVIEW -->
+<section id="fieldwork" style="background:var(--wh)">
+  <div class="container">
+    <div class="slbl reveal" data-en="Field Activities" data-pt="Atividades de Campo">Field Activities</div>
+    <h2 class="stit reveal" data-en="Fieldwork" data-pt="Trabalho de Campo">Fieldwork</h2>
+    <p class="ssub reveal" data-en="Forest inventories, biomass data collection, and validation of remote sensing products in intact and fire-degraded areas across the Amazon, Cerrado, and coastal zones. Visit the dedicated page for photos and detailed descriptions." data-pt="Inventários florestais, coleta de dados de biomassa e validação de produtos de sensoriamento remoto em áreas intactas e degradadas pelo fogo na Amazônia, Cerrado e zonas costeiras. Visite a página dedicada para fotos e descrições detalhadas.">Forest inventories, biomass data collection, and validation of remote sensing products in intact and fire-degraded areas across the Amazon, Cerrado, and coastal zones.</p>
+    <div class="preview-cards">
+      <div class="pcard reveal" style="background:linear-gradient(135deg,#1a5c3a,#2d6a4f)"><div style="font-size:2.5rem;margin-bottom:1rem">🌳</div><h3 data-en="Amazon Forest Inventories" data-pt="Inventários Florestais na Amazônia">Amazon Forest Inventories</h3><p data-en="Permanent 1-ha plots for fragmentation map validation and carbon stock calibration in intact and fire-degraded forests." data-pt="Parcelas permanentes de 1 ha para validação de mapas de fragmentação e calibração de estoques de carbono.">Permanent 1-ha plots for fragmentation map validation and carbon stock calibration in intact and fire-degraded forests.</p></div>
+      <div class="pcard reveal" style="background:linear-gradient(135deg,#5c3d1a,#8c6a2a)"><div style="font-size:2.5rem;margin-bottom:1rem">🔥</div><h3 data-en="Post-fire Areas in the Cerrado" data-pt="Áreas Pós-fogo no Cerrado">Post-fire Areas in the Cerrado</h3><p data-en="Field surveys in burned Cerrado areas of Maranhão for vegetation characterisation and MODIS/VIIRS product validation." data-pt="Levantamentos de campo em áreas queimadas do Cerrado do Maranhão para caracterização da vegetação e validação de produtos MODIS/VIIRS.">Field surveys in burned Cerrado areas of Maranhão for vegetation characterisation and MODIS/VIIRS product validation.</p></div>
+      <div class="pcard reveal" style="background:linear-gradient(135deg,#1a3a5c,#2d6480)"><div style="font-size:2.5rem;margin-bottom:1rem">🌊</div><h3 data-en="Mangroves of the Maranhão Coast" data-pt="Manguezais da Costa do Maranhão">Mangroves of the Maranhão Coast</h3><p data-en="Structural and biomass data collection in Amazonian coast mangroves contributing to blue carbon studies." data-pt="Coleta de dados estruturais e de biomassa em manguezais da costa amazônica para estudos de carbono azul.">Structural and biomass data collection in Amazonian coast mangroves contributing to blue carbon studies.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="fieldwork.html" class="btp" style="background:var(--gm);border-color:var(--gm);color:#fff" data-en="View all fieldwork activities &amp; photos →" data-pt="Ver todas as atividades de campo e fotos →">View all fieldwork activities &amp; photos →</a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- STUDENTS -->
+<section id="students">
+  <div class="container">
+    <div class="slbl reveal" data-en="Human Resources Training" data-pt="Formação de Recursos Humanos">Human Resources Training</div>
+    <h2 class="stit reveal" data-en="Graduate Students" data-pt="Orientandos">Graduate Students</h2>
+    <p class="ssub reveal" data-en="Current and completed supervisions at UFMA, INPE, and IPAM." data-pt="Orientações em andamento e concluídas na UFMA, INPE e IPAM.">Current and completed supervisions at UFMA, INPE, and IPAM.</p>
+
+    <div class="ssec reveal">
+      <h3>🔬 <span data-en="Postdoctoral Supervision — Ongoing" data-pt="Supervisão de Pós-Doutorado — Em Andamento">Postdoctoral Supervision — Ongoing</span></h3>
+      <div class="sg">
+        <div class="sc"><div class="sav">RM</div><div><div class="sn">Renata Maciel Ribeiro</div><div class="sd">Postdoctoral · Instituto de Pesquisa Ambiental da Amazônia (IPAM) / CNPq</div><div class="ss">Since 2025</div></div></div>
+      </div>
+    </div>
+
+    <div class="ssec reveal">
+      <h3>🎓 <span data-en="PhD Students — Ongoing" data-pt="Doutorado — Em Andamento">PhD Students — Ongoing</span></h3>
+      <div class="sg">
+        <div class="sc"><div class="sav">GR</div><div><div class="sn">Gunter de Azevedo Reschke</div><div class="sd">PhD · PPG Bionorte / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Modulation of Tropical Climate Mechanisms associated with Dry Climate and Fires in the Maranhão Amazon Region and Future Trends" data-pt="Modulação dos Mecanismos Climáticos Tropicais associados a Clima Seco e Queimadas na Região Amazônica Maranhense e Tendências Futuras">Modulation of Tropical Climate Mechanisms associated with Dry Climate and Fires in the Maranhão Amazon Region and Future Trends</div><div class="ss">Since 2024 · CAPES</div></div></div>
+        <div class="sc"><div class="sav">TM</div><div><div class="sn">Thais Pereira de Medeiros</div><div class="sd">PhD · Remote Sensing / Instituto Nacional de Pesquisas Espaciais (INPE)</div><div class="st">Fire severity estimation in Brazilian forest types using GEDI-LiDAR technology</div><div class="ss">Since 2024 · CNPq</div></div></div>
+        <div class="sc"><div class="sav">AL</div><div><div class="sn">Adriano de Lima Santos</div><div class="sd">PhD · Biodiversidade e Biotecnologia / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Remote Sensing Techniques for the Spatio-temporal Dynamics of Mangrove Forest Cover on the Maranhão Coastal Zone" data-pt="Uso de Técnicas de Sensoriamento Remoto para Mensuração da Dinâmica Espaço-Temporal da Cobertura de Florestas de Mangues na Zona Costeira do Maranhão">Remote Sensing Techniques for the Spatio-temporal Dynamics of Mangrove Forest Cover on the Maranhão Coastal Zone</div><div class="ss">Since 2023 · CAPES</div></div></div>
+        <div class="sc"><div class="sav">TV</div><div><div class="sn">Thomas Victor de Sousa Malheiros Rocha</div><div class="sd">PhD · PPG Bionorte / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Accuracy Assessment and Limitations of MapBiomas Automatic Classification in the Brazilian Amazon" data-pt="Avaliação da Acurácia e das Limitações da Classificação Automática pelo MapBiomas na Amazônia Brasileira">Accuracy Assessment and Limitations of MapBiomas Automatic Classification in the Brazilian Amazon</div><div class="ss">Since 2025</div></div></div>
+        <div class="sc"><div class="sav">LV</div><div><div class="sn">Luan Victor Pereira de Sousa</div><div class="sd">PhD · PPG Bionorte / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Title under definition" data-pt="Título em definição">Title under definition</div><div class="ss">Since 2024</div></div></div>
+        <div class="sc"><div class="sav">AR</div><div><div class="sn">Admo Ramos Silva Júnior</div><div class="sd">PhD · PPG Bionorte / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Title under definition" data-pt="Título em definição">Title under definition</div><div class="ss">Since 2024</div></div></div>
+        <div class="sc"><div class="sav">AK</div><div><div class="sn">Adriano Kid Azambuja</div><div class="sd">PhD · PPG Bionorte / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Environmental Geoprocessing for Monitoring Permanent Preservation Areas in Grajaú, Maranhão" data-pt="Uso de Geoprocessamento Ambiental no Monitoramento de Áreas de Preservação Permanente no Município de Grajaú, Maranhão">Environmental Geoprocessing for Monitoring Permanent Preservation Areas in Grajaú, Maranhão</div><div class="ss">Since 2025</div></div></div>
+        <div class="sc"><div class="sav">AM</div><div><div class="sn">Alessandro Resende Machado</div><div class="sd">PhD · PPGDAM / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Under elaboration" data-pt="Em elaboração">Under elaboration</div><div class="ss">Since 2026</div></div></div>
+        <div class="sc"><div class="sav">GO</div><div><div class="sn">Giovanne Rafael de Oliveira</div><div class="sd">PhD · PPGDAM / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Under elaboration" data-pt="Em elaboração">Under elaboration</div><div class="ss">Since 2025</div></div></div>
+      </div>
+    </div>
+
+    <div class="ssec reveal">
+      <h3>📚 <span data-en="MSc Students — Ongoing" data-pt="Mestrado — Em Andamento">MSc Students — Ongoing</span></h3>
+      <div class="sg">
+        <div class="sc"><div class="sav">FC</div><div><div class="sn">Fabricio Pires Chagas</div><div class="sd">MSc · Biodiversidade e Conservação / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Title under definition" data-pt="Título em definição">Title under definition</div><div class="ss">Since 2024</div></div></div>
+        <div class="sc"><div class="sav">RR</div><div><div class="sn">Roner Rodrigues</div><div class="sd">MSc · Biodiversidade e Conservação / Universidade Federal do Maranhão (UFMA)</div><div class="st">MANGUE-SAT: Mangrove Monitoring on the Island of Maranhão by Satellite</div><div class="ss">2026 · FAPEMA</div></div></div>
+        <div class="sc"><div class="sav">WG</div><div><div class="sn">Wodson Johnson Gomes Costa</div><div class="sd">MSc · Biodiversidade e Conservação / Universidade Federal do Maranhão (UFMA)</div><div class="st" data-en="Under elaboration" data-pt="Em elaboração">Under elaboration</div><div class="ss">2026</div></div></div>
+      </div>
+    </div>
+
+    <div class="ssec reveal">
+      <h3>✅ <span data-en="Completed Supervisions (selected)" data-pt="Orientações Concluídas (seleção)">Completed Supervisions (selected)</span></h3>
+      <div class="sg">
+        <div class="sc"><div class="sav done">HF</div><div><div class="sn">Helen Giovanna Pereira Fernandes</div><div class="sd">MSc · UFMA / FAPEMA · 2026</div><div class="st" data-en="Temporal Dynamics of Land Use and Cover and its Relations with Fire in Indigenous Territories of Maranhão (1985–2023)" data-pt="Dinâmica Temporal do Uso e Cobertura da Terra e suas Relações com o Fogo em Terras Indígenas do Maranhão (1985–2023)">Temporal Dynamics of Land Use and Cover and its Relations with Fire in Indigenous Territories of Maranhão (1985–2023)</div></div></div>
+        <div class="sc"><div class="sav done">PS</div><div><div class="sn">Phelipe Silva de Araújo</div><div class="sd">MSc · PPGBC / UFMA · 2025</div><div class="st" data-en="Carbon Removals by Secondary Forests and Emissions from Deforestation and Forest Fires in Brazil (1986–2023)" data-pt="Remoções de Carbono em Florestas Secundárias e Emissões do Desmatamento e Incêndios Florestais no Brasil (1986–2023)">Carbon Removals by Secondary Forests and Emissions from Deforestation and Forest Fires in Brazil (1986–2023)</div></div></div>
+        <div class="sc"><div class="sav done">KK</div><div><div class="sn">Karla Karliane Pereira Silva</div><div class="sd">MSc · Agroecologia / Universidade Estadual do Maranhão (UEMA) · 2025</div><div class="st" data-en="Spatio-temporal Quantification of Forest Fragmentation in the Amazon and its Impact on Carbon Stocks" data-pt="Quantificação Espaço-temporal da Fragmentação Florestal na Amazônia e seu Impacto nos Estoques de Carbono">Spatio-temporal Quantification of Forest Fragmentation in the Amazon and its Impact on Carbon Stocks</div></div></div>
+        <div class="sc"><div class="sav done">LD</div><div><div class="sn">Lidielze Oliveira Dourado</div><div class="sd">MSc · UFMA / FAPEMA · 2024</div><div class="st" data-en="Spatio-temporal Analysis of Deforestation in Maranhão State (1986–2023)" data-pt="Análise Espaço-temporal do Desmatamento no Estado do Maranhão (1986–2023)">Spatio-temporal Analysis of Deforestation in Maranhão State (1986–2023)</div></div></div>
+        <div class="sc"><div class="sav done">AS</div><div><div class="sn">Admo Ramos Silva Júnior</div><div class="sd">MSc · PPGBC / UFMA · 2024</div><div class="st" data-en="Quantification of Above-ground Carbon Stocks in the Maranhão Amazon" data-pt="Quantificação dos Estoques de Carbono Acima do Solo da Amazônia Maranhense">Quantification of Above-ground Carbon Stocks in the Maranhão Amazon</div></div></div>
+        <div class="sc"><div class="sav done">DM</div><div><div class="sn">Deila da Silva Magalhães</div><div class="sd">MSc · Remote Sensing / Instituto Nacional de Pesquisas Espaciais (INPE) / FAPESP · 2024</div><div class="st" data-en="Effect of Land Use and Cover on Ecosystem Regulation Services in Pará State" data-pt="Análise do Efeito do Uso e Cobertura da Terra no Provimento dos Serviços Ecossistêmicos de Regulação no Estado do Pará">Effect of Land Use and Cover on Ecosystem Regulation Services in Pará State</div></div></div>
+        <div class="sc"><div class="sav done">IC</div><div><div class="sn">Iara Regina Ferreira do Carmo</div><div class="sd">MSc · PPGBC / UFMA / FAPEMA · 2024</div><div class="st" data-en="Deforestation, Wildfires and Extreme Droughts in the Caatinga Biome, Brazil" data-pt="Desmatamento, Queimadas e Secas Extremas no Bioma Caatinga, Brasil">Deforestation, Wildfires and Extreme Droughts in the Caatinga Biome, Brazil</div></div></div>
+        <div class="sc"><div class="sav done">AL2</div><div><div class="sn">Adriano de Lima Santos</div><div class="sd">MSc · Ciências Ambientais / UFMA · 2022</div><div class="st" data-en="Spatio-temporal Dynamics of Mangrove Cover and CO₂ Sequestration Potential in the Coastal Zone of Maranhão" data-pt="Dinâmica Espaço-temporal da Cobertura dos Manguezais e seu Potencial para o Sequestro de CO₂ na Zona Costeira do Maranhão">Spatio-temporal Dynamics of Mangrove Cover and CO₂ Sequestration Potential in the Coastal Zone of Maranhão</div></div></div>
+        <div class="sc"><div class="sav done">AB</div><div><div class="sn">Arisson Tyson Machado Buna</div><div class="sd">MSc · Meio Ambiente / Uniceuma / FAPEMA · 2020</div><div class="st" data-en="Fragmentation Dynamics and Forest Fires in the Maranhão Amazon" data-pt="Dinâmica da Fragmentação e Incêndios Florestais na Amazônia Maranhense">Fragmentation Dynamics and Forest Fires in the Maranhão Amazon</div></div></div>
+        <div class="sc"><div class="sav done">RP</div><div><div class="sn">Raimundo Nonato Piedade Junior</div><div class="sd">MSc · Meio Ambiente / Uniceuma · 2019</div><div class="st" data-en="Wildfire Dynamics over Land Use and Cover Types in the Amazon Forest of Maranhão State" data-pt="Dinâmica das Queimadas sobre os Tipos de Uso e Cobertura da Terra na Floresta Amazônica do Estado do Maranhão">Wildfire Dynamics over Land Use and Cover Types in the Amazon Forest of Maranhão State</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- CV -->
+<section id="cv" style="background:var(--wh)">
+  <div class="container">
+    <div class="slbl reveal" data-en="Academic Background" data-pt="Trajetória Acadêmica">Academic Background</div>
+    <h2 class="stit reveal" data-en="Education &amp; Experience" data-pt="Formação e Experiência">Education &amp; Experience</h2>
+    <p class="ssub reveal" data-en="From undergraduate studies to postdoctoral research, spanning INPE, UCLA, and JPL/NASA." data-pt="Da graduação ao pós-doutoramento, passando pelo INPE, UCLA e JPL/NASA.">From undergraduate studies to postdoctoral research, spanning INPE, UCLA, and JPL/NASA.</p>
+    <div class="cvcols">
+      <div>
+        <h3 style="font-family:'Roboto Slab',serif;color:var(--gd);margin-bottom:2rem;font-size:1rem" data-en="Academic Education" data-pt="Formação Acadêmica">Academic Education</h3>
+        <div class="tl">
+          <div class="tli reveal"><div class="tly">2022–2023</div><div class="tltt" data-en="Postdoctoral Research" data-pt="Pós-Doutorado">Postdoctoral Research</div><div class="tlin">University of California, Los Angeles (UCLA) — USA</div><div class="tldt" data-en="With research affiliation at Jet Propulsion Laboratory, NASA (JPL/NASA)" data-pt="Com afiliação de pesquisa no Laboratório de Propulsão a Jato da NASA (JPL/NASA)">With research affiliation at Jet Propulsion Laboratory, NASA (JPL/NASA)</div></div>
+          <div class="tli reveal"><div class="tly">2018–2022</div><div class="tltt" data-en="PhD in Remote Sensing" data-pt="Doutorado em Sensoriamento Remoto">PhD in Remote Sensing</div><div class="tlin">Instituto Nacional de Pesquisas Espaciais (INPE)</div><div class="tldt" data-en='"Remote sensing quantification of carbon losses in fragmented tropical forests at multiple geographical scales" · Supervisor: L. E. O. C. Aragão · Co-supervisor: L. O. Anderson · CAPES fellowship' data-pt='"Quantificação por sensoriamento remoto das perdas de carbono em florestas tropicais fragmentadas em múltiplas escalas geográficas" · Orientador: L. E. O. C. Aragão · Coorientadora: L. O. Anderson · Bolsa CAPES'>"Remote sensing quantification of carbon losses in fragmented tropical forests at multiple geographical scales" · Supervisor: L. E. O. C. Aragão · Co-supervisor: L. O. Anderson · CAPES fellowship</div></div>
+          <div class="tli reveal"><div class="tly">2016–2018</div><div class="tltt" data-en="MSc in Remote Sensing" data-pt="Mestrado em Sensoriamento Remoto">MSc in Remote Sensing</div><div class="tlin">Instituto Nacional de Pesquisas Espaciais (INPE)</div><div class="tldt" data-en='"Dynamics of forest edge formation and its impact on carbon stocks in the Amazon Basin using remote sensing" · Supervisor: L. E. O. C. Aragão · Co-supervisor: L. O. Anderson · CAPES fellowship' data-pt='"Dinâmica da formação de bordas florestais e seu impacto nos estoques de carbono na Bacia Amazônica utilizando sensoriamento remoto" · Orientador: L. E. O. C. Aragão · Coorientadora: L. O. Anderson · Bolsa CAPES'>"Dynamics of forest edge formation and its impact on carbon stocks in the Amazon Basin using remote sensing" · Supervisor: L. E. O. C. Aragão · Co-supervisor: L. O. Anderson · CAPES fellowship</div></div>
+          <div class="tli reveal"><div class="tly">2014–2016</div><div class="tltt" data-en="Specialisation in Geoprocessing" data-pt="Especialização em Geoprocessamento">Specialisation in Geoprocessing</div><div class="tlin">Pontifícia Universidade Católica de Minas Gerais (PUC Minas)</div></div>
+          <div class="tli reveal"><div class="tly">2009–2014</div><div class="tltt" data-en="BSc in Environmental Engineering" data-pt="Graduação em Engenharia Ambiental">BSc in Environmental Engineering</div><div class="tlin">Universidade Ceuma (UNICEUMA) — São Luís, MA</div><div class="tldt">MEC/ProUni</div></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Roboto Slab',serif;color:var(--gd);margin-bottom:2rem;font-size:1rem" data-en="Professional Positions" data-pt="Posições Profissionais">Professional Positions</h3>
+        <div class="tl">
+          <div class="tli reveal"><div class="tly" data-en="2023–Present" data-pt="2023–Atual">2023–Present</div><div class="tltt" data-en="Researcher" data-pt="Pesquisador">Researcher</div><div class="tlin">Instituto de Pesquisa Ambiental da Amazônia (IPAM)</div><div class="tldt" data-en="Science Directorate · Celetista (40h)" data-pt="Diretoria de Ciência · Celetista (40h)">Science Directorate · Celetista (40h)</div></div>
+          <div class="tli reveal"><div class="tly" data-en="2022–Present" data-pt="2022–Atual">2022–Present</div><div class="tltt" data-en="Permanent Professor" data-pt="Professor Permanente">Permanent Professor</div><div class="tlin">Universidade Federal do Maranhão (UFMA)</div><div class="tldt" data-en="Graduate Program in Biodiversity and Conservation (PPGBC/CCBS)" data-pt="Programa de Pós-Graduação em Biodiversidade e Conservação (PPGBC/CCBS)">Graduate Program in Biodiversity and Conservation (PPGBC/CCBS)</div></div>
+          <div class="tli reveal"><div class="tly">2023–2026</div><div class="tltt">Honorary Research Fellow</div><div class="tlin">University of Manchester — United Kingdom</div></div>
+          <div class="tli reveal"><div class="tly">2022–2023</div><div class="tltt">Researcher Affiliate</div><div class="tlin">Jet Propulsion Laboratory, NASA (JPL/NASA) — USA</div></div>
+          <div class="tli reveal"><div class="tly" data-en="2016–Present" data-pt="2016–Atual">2016–Present</div><div class="tltt" data-en="Research Associate" data-pt="Pesquisador Colaborador">Research Associate</div><div class="tlin">Instituto Nacional de Pesquisas Espaciais (INPE)</div><div class="tldt" data-en="General Coordination of Earth Observation (OBT/DSR)" data-pt="Coordenação Geral de Observação da Terra (OBT/DSR)">General Coordination of Earth Observation (OBT/DSR)</div></div>
+          <div class="tli reveal"><div class="tly">2020–2022</div><div class="tltt" data-en="Substitute Professor" data-pt="Professor Substituto">Substitute Professor</div><div class="tlin">Universidade Estadual do Maranhão (UEMA)</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:4rem">
+      <h3 class="reveal" style="font-family:'Roboto Slab',serif;color:var(--gd);margin-bottom:1.5rem;font-size:1rem" data-en="🏆 Awards &amp; Honours" data-pt="🏆 Prêmios e Distinções">🏆 Awards &amp; Honours</h3>
+      <div class="awk">
+        <div class="aw reveal"><div class="awy">2026</div><div class="awn" data-en="Affiliate Member" data-pt="Membro Afiliado">Affiliate Member</div><div class="awo">Academia Brasileira de Ciências (ABC)</div></div>
+        <div class="aw reveal"><div class="awy">2023</div><div class="awn" data-en="5th MapBiomas Award — Honourable Mention" data-pt="5ª edição do Prêmio MapBiomas — Menção Honrosa">5th MapBiomas Award — Honourable Mention</div><div class="awo">MapBiomas / Instituto Ciência Hoje</div></div>
+        <div class="aw reveal"><div class="awy">2021</div><div class="awn">Remote Sensing 2021 Young Investigator Award</div><div class="awo">MDPI — Remote Sensing</div></div>
+        <div class="aw reveal"><div class="awy">2021</div><div class="awn" data-en="Member of the Science Panel for the Amazon (SPA)" data-pt="Membro do Painel Científico para a Amazônia (SPA)">Member of the Science Panel for the Amazon (SPA)</div><div class="awo">United Nations Sustainable Development Solutions Network (SDSN)</div></div>
+        <div class="aw reveal"><div class="awy">2017</div><div class="awn" data-en="Best Poster — XVIII Brazilian Remote Sensing Symposium" data-pt="Melhor Pôster — XVIII Simpósio Brasileiro de Sensoriamento Remoto">Best Poster — XVIII Brazilian Remote Sensing Symposium</div><div class="awo" data-en="Brazilian Remote Sensing Society (INPE/SELPER)" data-pt="Sociedade Brasileira de Sensoriamento Remoto (INPE/SELPER)">Brazilian Remote Sensing Society (INPE/SELPER)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- EDITORIAL -->
+<section id="editorial">
+  <div class="container">
+    <div class="slbl reveal" data-en="Scientific Service" data-pt="Serviço Científico">Scientific Service</div>
+    <h2 class="stit reveal" data-en="Editorial Activity" data-pt="Atividade Editorial">Editorial Activity</h2>
+    <p class="ssub reveal" data-en="Editorial board member and peer reviewer for leading national and international journals." data-pt="Membro de corpo editorial e revisor em periódicos nacionais e internacionais de destaque.">Editorial board member and peer reviewer for leading national and international journals.</p>
+    <h3 class="reveal" style="font-family:'Roboto Slab',serif;color:var(--gd);margin-bottom:1.2rem;font-size:.97rem" data-en="Editorial Board Member" data-pt="Membro de Corpo Editorial">Editorial Board Member</h3>
+    <div class="eg" style="margin-bottom:2.5rem">
+      <div class="ei reveal"><span class="er ed" data-en="Editor" data-pt="Editor">Editor</span><span class="ej">Frontiers in Remote Sensing (2024–<span data-en="present" data-pt="atual">present</span>)</span></div>
+      <div class="ei reveal"><span class="er ed" data-en="Editor" data-pt="Editor">Editor</span><span class="ej">Scientific Data (2024–<span data-en="present" data-pt="atual">present</span>)</span></div>
+      <div class="ei reveal"><span class="er ed" data-en="Editor" data-pt="Editor">Editor</span><span class="ej">Frontiers in Forests &amp; Global Change (2022–2024)</span></div>
+      <div class="ei reveal"><span class="er ed" data-en="Editor" data-pt="Editor">Editor</span><span class="ej">Fire (2022–2024)</span></div>
+      <div class="ei reveal"><span class="er ed" data-en="Editor" data-pt="Editor">Editor</span><span class="ej">LAND (2020–2021)</span></div>
+    </div>
+    <h3 class="reveal" style="font-family:'Roboto Slab',serif;color:var(--gd);margin-bottom:1.2rem;font-size:.97rem" data-en="Peer Reviewer (selection)" data-pt="Revisor de Periódico (seleção)">Peer Reviewer (selection)</h3>
+    <div class="eg">
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Nature (2025–<span data-en="present" data-pt="atual">present</span>)</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Nature Ecology &amp; Evolution (2024–<span data-en="present" data-pt="atual">present</span>)</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Earth's Future (2022–<span data-en="present" data-pt="atual">present</span>)</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Remote Sensing of Environment</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Science of the Total Environment</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Global Change Biology</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Environmental Research Letters</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Scientific Reports</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">Acta Amazonica (2021–<span data-en="present" data-pt="atual">present</span>)</span></div>
+      <div class="ei reveal"><span class="er" data-en="Reviewer" data-pt="Revisor">Reviewer</span><span class="ej">GIScience &amp; Remote Sensing</span></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section id="contact">
   <div class="container">
-    <div class="contact-grid">
-      <div>
-        <div class="section-label">Contact</div>
-        <h2 class="section-title">Let's collaborate<br><em>on science that matters</em></h2>
-        <p class="contact-text">
-          I welcome research collaborations, graduate student supervision, editorial partnerships, and scientific consulting in remote sensing, carbon accounting, and tropical forest ecology.
-          <br><br>
-          Based in São Luís, Maranhão — working globally with teams in Brazil, the United Kingdom, the United States, and Europe.
-        </p>
+    <div class="slbl reveal" data-en="Get in Touch" data-pt="Entre em Contato">Get in Touch</div>
+    <h2 class="stit reveal" data-en="Contact" data-pt="Contato">Contact</h2>
+    <div class="cgrid">
+      <div class="reveal">
+        <ul class="clist">
+          <li><span class="ico">🏢</span><div><div style="font-weight:500;color:var(--wh)">Instituto de Pesquisa Ambiental da Amazônia (IPAM)</div><div>Av. Presidente Vargas, 112, 2° andar</div><div>Campina — Belém, PA — Brasil</div></div></li>
+          <li><span class="ico">🎓</span><div><div style="font-weight:500;color:var(--wh)">Universidade Federal do Maranhão (UFMA)</div><div data-en="Graduate Program in Biodiversity and Conservation (PPGBC/CCBS)" data-pt="Programa de Pós-Graduação em Biodiversidade e Conservação (PPGBC/CCBS)">Graduate Program in Biodiversity and Conservation (PPGBC/CCBS)</div></div></li>
+          <li><span class="ico">🔗</span><div><div style="font-weight:500;color:var(--wh)" data-en="Academic Profiles" data-pt="Perfis Acadêmicos">Academic Profiles</div><div><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes CNPq</a></div><div><a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID: 0000-0002-1052-5551</a></div><div><a href="https://scholar.google.com/citations?user=UEWx5SkAAAAJ&hl" target="_blank">Google Scholar</a></div><div><a href="https://github.com/celsohlsj" target="_blank">GitHub: celsohlsj</a></div><div><a href="https://ipam.org.br" target="_blank">ipam.org.br</a></div></div></li>
+        </ul>
+        <div class="socials">
+          <a href="http://lattes.cnpq.br/0506851271452550" target="_blank" class="sl">📋 Lattes</a>
+          <a href="https://orcid.org/0000-0002-1052-5551" target="_blank" class="sl">🔬 ORCID</a>
+          <a href="https://scholar.google.com/citations?user=UEWx5SkAAAAJ&hl" target="_blank" class="sl">📚 Scholar</a>
+          <a href="https://github.com/celsohlsj" target="_blank" class="sl">💻 GitHub</a>
+          <a href="https://ipam.org.br" target="_blank" class="sl">🌿 IPAM</a>
+        </div>
       </div>
-      <div class="contact-links">
-        <a href="mailto:celsohlsj@gmail.com" class="contact-link">
-          <div class="contact-link-icon">✉</div>
-          <div>
-            <div class="contact-link-label">Email</div>
-            <div class="contact-link-value">celsohlsj@gmail.com</div>
+      <div class="reveal">
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:2rem">
+          <h3 style="font-family:'Roboto Slab',serif;color:var(--wh);margin-bottom:1rem;font-size:.97rem" data-en="Collaborations &amp; Partnerships" data-pt="Colaborações e Parcerias">Collaborations &amp; Partnerships</h3>
+          <p style="color:rgba(255,255,255,.6);font-size:.87rem;line-height:1.85;margin-bottom:1.5rem" data-en="Open to collaborations on fire dynamics, forest carbon, remote sensing applied to the Amazon and Cerrado, and forest restoration. Graduate students and postdoctoral researchers interested in these themes are welcome to reach out." data-pt="Aberto a colaborações em dinâmica do fogo, carbono florestal, sensoriamento remoto aplicado à Amazônia e Cerrado e restauração florestal. Estudantes de pós-graduação e pesquisadores de pós-doutorado interessados nessas temáticas são bem-vindos.">Open to collaborations on fire dynamics, forest carbon, remote sensing applied to the Amazon and Cerrado, and forest restoration. Graduate students and postdoctoral researchers interested in these themes are welcome to reach out.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+            <div style="background:rgba(255,255,255,.05);border-radius:6px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.3rem">🤝</div><div style="font-size:.69rem;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:.06em" data-en="Collaborations" data-pt="Colaborações">Collaborations</div><div style="font-size:.78rem;color:var(--wh);margin-top:.2rem" data-en="National &amp; International" data-pt="Nacionais e Internacionais">National &amp; International</div></div>
+            <div style="background:rgba(255,255,255,.05);border-radius:6px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.3rem">📊</div><div style="font-size:.69rem;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:.06em" data-en="Open Data" data-pt="Dados Abertos">Open Data</div><div style="font-size:.78rem;color:var(--wh);margin-top:.2rem">GitHub · GEE Assets</div></div>
+            <div style="background:rgba(255,255,255,.05);border-radius:6px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.3rem">🎓</div><div style="font-size:.69rem;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:.06em" data-en="Supervision" data-pt="Orientação">Supervision</div><div style="font-size:.78rem;color:var(--wh);margin-top:.2rem">MSc · PhD · Postdoc</div></div>
+            <div style="background:rgba(255,255,255,.05);border-radius:6px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.3rem">🗣️</div><div style="font-size:.69rem;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:.06em" data-en="Outreach" data-pt="Divulgação">Outreach</div><div style="font-size:.78rem;color:var(--wh);margin-top:.2rem" data-en="Talks · Interviews" data-pt="Palestras · Entrevistas">Talks · Interviews</div></div>
           </div>
-        </a>
-        <a href="https://scholar.google.com/citations?user=UEWx5SkAAAAJ&hl=en" target="_blank" class="contact-link">
-          <div class="contact-link-icon">🎓</div>
-          <div>
-            <div class="contact-link-label">Google Scholar</div>
-            <div class="contact-link-value">View full publication record</div>
-          </div>
-        </a>
-        <a href="https://orcid.org/0000-0002-1052-5551" target="_blank" class="contact-link">
-          <div class="contact-link-icon">⬡</div>
-          <div>
-            <div class="contact-link-label">ORCID</div>
-            <div class="contact-link-value">0000-0002-1052-5551</div>
-          </div>
-        </a>
-        <a href="http://lattes.cnpq.br/0506851271452550" target="_blank" class="contact-link">
-          <div class="contact-link-icon">📋</div>
-          <div>
-            <div class="contact-link-label">Currículo Lattes</div>
-            <div class="contact-link-value">CNPq Research Profile — ID 0506851271452550</div>
-          </div>
-        </a>
-        <a href="https://ipam.org.br" target="_blank" class="contact-link">
-          <div class="contact-link-icon">🌿</div>
-          <div>
-            <div class="contact-link-label">Institution</div>
-            <div class="contact-link-value">Instituto de Pesquisa Ambiental da Amazônia (IPAM)</div>
-          </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-text">© 2026 Celso H. L. Silva-Junior · IPAM / UFMA · São Luís, Maranhão, Brazil</div>
-  <div class="footer-text">CNPq Research Productivity Fellow · ABC Affiliate Member</div>
+  <p>© 2026 Celso Henrique Leite Silva-Junior · <span data-en="All rights reserved" data-pt="Todos os direitos reservados">All rights reserved</span></p>
+  <p style="margin-top:.5rem"><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes</a> · <a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID</a> · <a href="https://ipam.org.br" target="_blank">IPAM</a></p>
 </footer>
 
 <script>
-  // ── Load Google Scholar metrics from data/scholar_data.json ──
-  fetch('data/scholar_data.json')
-    .then(r => r.json())
-    .then(data => {
-      const cit = data.citations_total;
-      if (cit) {
-        document.getElementById('metric-citations').textContent =
-          cit >= 1000 ? (Math.floor(cit / 100) * 100).toLocaleString('en') + '+' : cit.toLocaleString('en');
-      }
-      if (data.h_index)          document.getElementById('metric-hindex').textContent = 'h = ' + data.h_index;
-      if (data.total_publications) document.getElementById('metric-articles').textContent = data.total_publications + '+';
-      if (data.fetched_at) {
-        const d = new Date(data.fetched_at);
-        document.getElementById('metric-source').textContent =
-          'Google Scholar · ' + d.toLocaleDateString('en', { year:'numeric', month:'short', day:'numeric' });
-      }
-    })
-    .catch(() => { /* keep hardcoded fallbacks */ });
+let lang='en';
 
-  // ── Publication filter ──
-  function filterPubs(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const items = document.querySelectorAll('.pub-item');
-    items.forEach((item, i) => {
-      const show = cat === 'all' || item.dataset.cat === cat;
-      if (show) {
-        item.style.display = 'grid';
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(8px)';
-        setTimeout(() => {
-          item.style.transition = 'opacity 0.28s, transform 0.28s';
-          item.style.opacity = '1';
-          item.style.transform = 'translateY(0)';
-        }, i * 30);
-      } else {
-        item.style.display = 'none';
-      }
-    });
+/* ============================================================
+   TOP-10 — loaded from data/scholar_papers.json
+   Generated weekly by fetch_scholar.py via SerpAPI
+   ============================================================ */
+const NATURE_KW=['nature','communications earth','scientific reports','scientific data','npj'];
+const SCIENCE_KW=['science','science advances'];
+
+function catOf(j=''){
+  const s=j.toLowerCase();
+  if(s.includes('science of the total')) return 'other';
+  for(const k of NATURE_KW) if(s.includes(k)) return 'nature';
+  for(const k of SCIENCE_KW) if(s.includes(k)) return 'science';
+  return 'other';
+}
+
+function hlAuthor(s=''){
+  // Normalise "Silva Junior" -> "Silva-Junior" then bold
+  return s
+    .replace(/Silva\s+Junior/gi, 'Silva-Junior')
+    .replace(/Silva\.?-Junior[^,;<]*/gi, m=>`<strong>${m}</strong>`)
+    .replace(/Celso[^,;<]*Silva-Junior[^,;<]*/gi, m=>`<strong>${m}</strong>`);
+}
+
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+async function loadTop10(){
+  const list=document.getElementById('home-pub-list');
+  const lu=document.getElementById('home-last-upd');
+  if(!list) return;
+
+  let papers=[], stats={};
+
+  try{
+    const [rp,rs]=await Promise.all([
+      fetch('data/scholar_papers.json'),
+      fetch('data/scholar_data.json')
+    ]);
+    if(rp.ok) papers=await rp.json();
+    if(rs.ok) stats=await rs.json();
+  }catch(e){}
+
+  if(!papers.length){
+    list.innerHTML=`<div style="text-align:center;padding:2rem;color:var(--tm);font-size:.88rem">
+      <div style="font-size:1.5rem;margin-bottom:.5rem">📊</div>
+      <div>${lang==='en'
+        ?'Run <code>fetch_scholar.py</code> to populate publications.'
+        :'Execute <code>fetch_scholar.py</code> para carregar as publicações.'}</div>
+    </div>`;
+    return;
   }
 
-  // ── Scroll-reveal ──
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  // Sort by citations desc, take top 10
+  const top10=[...papers]
+    .sort((a,b)=>(b.cited_by||0)-(a.cited_by||0))
+    .slice(0,10);
 
-  document.querySelectorAll('.research-card, .project-card, .timeline-item, .award-card').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(18px)';
-    el.style.transition = `opacity 0.5s ease ${i * 40}ms, transform 0.5s ease ${i * 40}ms`;
-    observer.observe(el);
-  });
+  const citLbl=lang==='en'?'citations':'citações';
 
-  // ── Nav shrink on scroll ──
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.padding =
-      window.scrollY > 60 ? '0.75rem 3.5rem' : '1.1rem 3.5rem';
+  list.innerHTML=top10.map(p=>{
+    const citH=(p.cited_by!=null&&p.cited_by>0)
+      ?`<span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;font-weight:700;color:var(--ad);background:rgba(233,180,76,.1);padding:.22rem .65rem;border-radius:12px">
+          ★ ${Number(p.cited_by).toLocaleString('en')}
+          <span style="font-size:.69rem;font-weight:400;color:var(--tm)">${citLbl}</span>
+        </span>`:'';
+    const lnk=p.link
+      ?`<a href="${p.link}" target="_blank" style="font-size:.72rem;color:var(--gb);font-weight:600;text-decoration:none" rel="noopener">Scholar ↗</a>`:'';
+    return `<div class="pi">
+      <div class="py">${p.year||'—'}</div>
+      <div>
+        <span class="pj">${esc(p.journal||'')}</span>
+        <div class="ptit">${esc(p.title||'')}</div>
+        <div class="pau">${hlAuthor(esc(p.authors||''))}</div>
+        <div class="pmeta" style="display:flex;gap:.75rem;margin-top:.35rem;flex-wrap:wrap">${citH}${lnk}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  if(stats.updated_at&&lu){
+    const d=new Date(stats.updated_at);
+    lu.textContent=`${lang==='en'?'Last updated:':'Atualizado em:'} ${d.toLocaleDateString(lang==='en'?'en-GB':'pt-BR')}`;
+  }
+}
+
+/* ============================================================
+   LANG / REVEAL / NAV
+   ============================================================ */
+function toggleLang(btn){
+  lang=lang==='en'?'pt':'en';
+  btn.textContent=lang==='en'?'🌐 PT':'🌐 EN';
+  document.documentElement.setAttribute('lang',lang==='en'?'en':'pt-BR');
+  document.title=lang==='en'?'Celso H. L. Silva-Junior | Environmental Scientist | IPAM':'Celso H. L. Silva-Junior | Cientista Ambiental | IPAM';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v=el.getAttribute('data-'+lang);
+    if(v!==null&&el.children.length===0)el.textContent=v;
   });
+  loadTop10();
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}});
+},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
+  document.querySelectorAll('.nav-links a[href]').forEach(a=>{a.style.color=a.getAttribute('href')===`#${cur}`?'var(--am)':'';});
+});
+
+document.addEventListener('DOMContentLoaded',()=>loadTop10());
 </script>
-
 </body>
 </html>
