@@ -202,9 +202,9 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
       <div class="affi">
         <div class="affi-ic" style="background:rgba(255,255,255,.07);">🔬</div>
         <div>
-          <div class="affi-role" data-en="Research Associate" data-pt="Pesquisador Colaborador">Research Associate</div>
+          <div class="affi-role" data-en="Scientific Partner" data-pt="Parceiro Científico">Scientific Partner</div>
           <div class="affi-inst">Instituto Nacional de Pesquisas Espaciais (INPE)</div>
-          <div class="affi-det" data-en="OBT/DSR · Since 2016" data-pt="OBT/DSR · Desde 2016">OBT/DSR · Since 2016</div>
+          <div class="affi-det" data-en="TREES Laboratory · Since 2022" data-pt="Laboratório TREES · Desde 2022">TREES Laboratory · Since 2022</div>
         </div>
       </div>
       <div class="badges">
@@ -241,11 +241,11 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
   <div class="container">
     <div class="slbl reveal" data-en="Scientific Output" data-pt="Produção Científica">Scientific Output</div>
     <h2 class="stit reveal" data-en="Top 10 Most Cited Publications" data-pt="10 Publicações Mais Citadas">Top 10 Most Cited Publications</h2>
-    <p class="ssub reveal" data-en="Ranked by citation count from Google Scholar. Updated weekly via SerpAPI." data-pt="Ordenadas por citações do Google Scholar. Atualizadas semanalmente via SerpAPI.">Ranked by citation count from Google Scholar. Updated weekly via SerpAPI.</p>
+    <p class="ssub reveal" data-en="Ranked by citation count from Google Scholar. Updated automatically every week." data-pt="Ordenadas por citações do Google Scholar. Atualizadas automaticamente toda semana.">Ranked by citation count from Google Scholar. Updated weekly via SerpAPI.</p>
     <div class="reveal" style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap">
       <div style="display:inline-flex;align-items:center;gap:.5rem;background:var(--gp);border:1px solid rgba(45,106,79,.2);color:var(--gm);font-size:.7rem;font-weight:600;letter-spacing:.06em;padding:.3rem .85rem;border-radius:20px">
         <span style="width:7px;height:7px;border-radius:50%;background:var(--gb);animation:pls 2s infinite;display:inline-block"></span>
-        <span data-en="Data from Google Scholar via SerpAPI" data-pt="Dados do Google Scholar via SerpAPI">Data from Google Scholar via SerpAPI</span>
+        <span data-en="Data from Google Scholar · Updated weekly" data-pt="Dados do Google Scholar · Atualização semanal">Data from Google Scholar via SerpAPI</span>
       </div>
       <span id="home-last-upd" style="font-size:.72rem;color:var(--tm)"></span>
     </div>
@@ -377,7 +377,7 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
           <div class="tli reveal"><div class="tly" data-en="2022–Present" data-pt="2022–Atual">2022–Present</div><div class="tltt" data-en="Permanent Professor" data-pt="Professor Permanente">Permanent Professor</div><div class="tlin">Universidade Federal do Maranhão (UFMA)</div><div class="tldt" data-en="Graduate Program in Biodiversity and Conservation (PPGBC/CCBS)" data-pt="Programa de Pós-Graduação em Biodiversidade e Conservação (PPGBC/CCBS)">Graduate Program in Biodiversity and Conservation (PPGBC/CCBS)</div></div>
           <div class="tli reveal"><div class="tly">2023–2026</div><div class="tltt">Honorary Research Fellow</div><div class="tlin">University of Manchester — United Kingdom</div></div>
           <div class="tli reveal"><div class="tly">2022–2023</div><div class="tltt">Researcher Affiliate</div><div class="tlin">Jet Propulsion Laboratory, NASA (JPL/NASA) — USA</div></div>
-          <div class="tli reveal"><div class="tly" data-en="2016–Present" data-pt="2016–Atual">2016–Present</div><div class="tltt" data-en="Research Associate" data-pt="Pesquisador Colaborador">Research Associate</div><div class="tlin">Instituto Nacional de Pesquisas Espaciais (INPE)</div><div class="tldt" data-en="General Coordination of Earth Observation (OBT/DSR)" data-pt="Coordenação Geral de Observação da Terra (OBT/DSR)">General Coordination of Earth Observation (OBT/DSR)</div></div>
+          <div class="tli reveal"><div class="tly" data-en="2022–Present" data-pt="2022–Atual">2022–Present</div><div class="tltt" data-en="Scientific Partner" data-pt="Parceiro Científico">Scientific Partner</div><div class="tlin">Instituto Nacional de Pesquisas Espaciais (INPE)</div><div class="tldt" data-en="TREES Laboratory" data-pt="Laboratório TREES">TREES Laboratory</div></div>
           <div class="tli reveal"><div class="tly">2020–2022</div><div class="tltt" data-en="Substitute Professor" data-pt="Professor Substituto">Substitute Professor</div><div class="tlin">Universidade Estadual do Maranhão (UEMA)</div></div>
         </div>
       </div>
@@ -468,11 +468,10 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
   <p style="margin-top:.5rem"><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes</a> · <a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID</a> · <a href="https://ipam.org.br" target="_blank">IPAM</a></p>
 </footer>
 
-<script src="pub_data.js"></script>
 <script>
 /* ============================================================
-   Publications data — loaded from pub_data.js (always available)
-   Optionally overridden by data/scholar_papers.json (from SerpAPI)
+   Publications — loaded from data/scholar_papers.json
+   Generated weekly by fetch_scholar.py via SerpAPI
    ============================================================ */
 
 let lang = 'en';
@@ -516,26 +515,31 @@ function renderTop10(papers, updatedAt){
   }
 }
 
-async function loadTop10(){
-  // Always render static data immediately
-  if(typeof STATIC_PAPERS !== 'undefined') renderTop10(STATIC_PAPERS, null);
+function showNeedsFetch(){
+  const list = document.getElementById('home-pub-list');
+  if(list) list.innerHTML=`<div style="text-align:center;padding:2rem;color:var(--tm);font-size:.88rem">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">📊</div>
+    <div>${lang==='en'
+      ?'Run <code style="background:var(--gp);padding:.1rem .4rem;border-radius:3px">fetch_scholar.py</code> once to populate publications.'
+      :'Execute <code style="background:var(--gp);padding:.1rem .4rem;border-radius:3px">fetch_scholar.py</code> para carregar as publicações.'}</div>
+  </div>`;
+}
 
-  // Try to load fresher data from JSON (generated by fetch_scholar.py)
+async function loadTop10(){
   try{
     const [rp, rs] = await Promise.allSettled([
       fetch('data/scholar_papers.json'),
       fetch('data/scholar_data.json')
     ]);
-    if(rp.status==='fulfilled' && rp.value.ok){
-      const papers = await rp.value.json();
-      let updatedAt = null;
-      if(rs.status==='fulfilled' && rs.value.ok){
-        const stats = await rs.value.json();
-        updatedAt = stats.updated_at;
-      }
-      if(papers && papers.length > 0) renderTop10(papers, updatedAt);
+    let papers = [], updatedAt = null;
+    if(rp.status==='fulfilled' && rp.value.ok) papers = await rp.value.json();
+    if(rs.status==='fulfilled' && rs.value.ok){
+      const stats = await rs.value.json();
+      updatedAt = stats.updated_at;
     }
-  }catch(e){ /* Keep static data */ }
+    if(papers.length > 0) renderTop10(papers, updatedAt);
+    else showNeedsFetch();
+  }catch(e){ showNeedsFetch(); }
 }
 
 /* === LANG === */

@@ -1,40 +1,127 @@
-import re
 """
 fetch_scholar.py
 ================
-Busca dados completos do Google Scholar via SerpAPI e salva em:
-  data/scholar_data.json   — stats gerais (citações, h-index, i10)
-  data/scholar_papers.json — lista de artigos com citações individuais
+Busca métricas e artigos científicos do Google Scholar via SerpAPI.
+
+Regras de filtragem aplicadas a cada item retornado pelo Scholar:
+  ✅ MANTÉM  — artigos em periódicos científicos
+  ❌ REMOVE  — livros, capítulos, dissertações, teses, resumos em anais,
+               relatórios técnicos, notas técnicas, policy briefs,
+               preprints sem periódico identificado, e itens sem ano
+
+Saída:
+  data/scholar_data.json   — métricas do autor (citações, h-index, i10)
+  data/scholar_papers.json — apenas artigos em periódicos
 
 Uso:
   pip install google-search-results
-  export SERPAPI_KEY="sua_chave"
+  export SERPAPI_KEY="sua_chave_serpapi"
   python fetch_scholar.py
 
-Recomendação: rodar semanalmente via cron ou GitHub Actions.
+Automação: .github/workflows/update_scholar.yml  (toda segunda, 06h UTC)
 """
 
+import re
 import json
 import os
 import time
 from serpapi import GoogleSearch
 
-SCHOLAR_ID = "UEWx5SkAAAAJ"
+# ── configuração ──────────────────────────────────────────────────── #
+SCHOLAR_ID = "UEWx5SkAAAAJ"          # ID Google Scholar do autor
 API_KEY    = os.environ["SERPAPI_KEY"]
+PAGE_SIZE  = 100                      # máximo permitido pela API
+SLEEP_SEC  = 1.2                      # pausa entre páginas (rate-limit)
 
-# ------------------------------------------------------------------ #
-#  1. DADOS DO AUTOR (stats gerais)
-# ------------------------------------------------------------------ #
-def fetch_author_stats():
-    params = {
+
+# ── tokens que identificam NÃO-periódicos ─────────────────────────── #
+# Se qualquer token aparecer no campo "publication" do Scholar,
+# o item é descartado.
+BOOK_TOKENS = [
+    # livros / capítulos
+    "springer", "elsevier book", "academic press", "wiley book",
+    "cambridge university press", "oxford university press",
+    "editora", "publisher", "isbn",
+    # anais / conferências
+    "proceedings", "anais", "simpósio", "symposium", "congress",
+    "conference", "workshop", "meeting", "sbsr",
+    # teses / dissertações
+    "dissertation", "dissertação", "thesis", "tese", "mestrado",
+    "doutorado", "monografia",
+    # relatórios / notas técnicas
+    "technical report", "nota técnica", "nota metodológica",
+    "policy brief", "relatório",
+    # preprints sem periódico
+    "biorxiv", "arxiv", "ssrn", "preprint",
+]
+
+# Se o campo "publication" estiver vazio ou for apenas o ano,
+# o item também é descartado.
+YEAR_ONLY_RE = re.compile(r'^\s*\d{4}\s*$')
+
+
+# ── helpers ───────────────────────────────────────────────────────── #
+def extract_year(pub_str: str) -> int | None:
+    m = re.search(r'\b(19|20)\d{2}\b', pub_str or '')
+    return int(m.group()) if m else None
+
+
+def normalise_authors(authors: str | None) -> str | None:
+    """Garante 'Silva-Junior' com hífen em todas as entradas."""
+    if not authors:
+        return authors
+    return re.sub(r'Silva\s+Junior', 'Silva-Junior', authors,
+                  flags=re.IGNORECASE)
+
+
+def categorise(journal: str) -> str:
+    """Nature Portfolio / Science / other."""
+    j = (journal or '').lower()
+    if 'science of the total' in j:
+        return 'other'
+    for k in ['nature', 'communications earth', 'scientific reports',
+               'scientific data', 'npj']:
+        if k in j:
+            return 'nature'
+    for k in ['science', 'science advances']:
+        if k in j:
+            return 'science'
+    return 'other'
+
+
+def is_journal_article(publication: str) -> bool:
+    """
+    Retorna True somente se o campo 'publication' parecer um periódico.
+    Descarta livros, anais, dissertações, relatórios, preprints, etc.
+    """
+    if not publication:
+        return False
+    if YEAR_ONLY_RE.match(publication):
+        return False
+
+    pub_lower = publication.lower()
+    for token in BOOK_TOKENS:
+        if token in pub_lower:
+            return False
+
+    # Precisa conter pelo menos um ano para ser um artigo datado
+    if not re.search(r'\b(19|20)\d{2}\b', publication):
+        return False
+
+    return True
+
+
+# ── fetch author stats ────────────────────────────────────────────── #
+def fetch_author_stats() -> dict:
+    print("  Fetching author metrics…")
+    result  = GoogleSearch({
         "engine":    "google_scholar_author",
         "author_id": SCHOLAR_ID,
         "api_key":   API_KEY,
-    }
-    result    = GoogleSearch(params).get_dict()
-    author    = result.get("author", {})
-    cited_by  = result.get("cited_by", {})
-    table     = cited_by.get("table", [{}, {}, {}])
+    }).get_dict()
+
+    author  = result.get("author", {})
+    table   = result.get("cited_by", {}).get("table", [{}, {}, {}])
 
     return {
         "name":        author.get("name"),
@@ -50,126 +137,90 @@ def fetch_author_stats():
     }
 
 
-# ------------------------------------------------------------------ #
-#  2. LISTA COMPLETA DE ARTIGOS  (paginação automática)
-# ------------------------------------------------------------------ #
-def fetch_all_papers():
+# ── fetch all papers (paginated) ─────────────────────────────────── #
+def fetch_all_papers() -> list[dict]:
     """
-    A API retorna até 100 artigos por página.
-    Paginamos com start=0, 100, 200, … até não haver mais resultados.
+    Pagina o perfil do Scholar (start = 0, 100, 200, …) e
+    retorna apenas itens identificados como artigos em periódicos.
     """
-    all_articles = []
-    start        = 0
-    page_size    = 100
+    print("  Fetching articles from Google Scholar…")
+    journal_articles = []
+    discarded        = 0
+    start            = 0
 
     while True:
-        params = {
-            "engine":        "google_scholar_author",
-            "author_id":     SCHOLAR_ID,
-            "api_key":       API_KEY,
-            "sort":          "cited",       # ordena por citações (mais citado primeiro)
-            "num":           page_size,
-            "start":         start,
-        }
-        result   = GoogleSearch(params).get_dict()
-        articles = result.get("articles", [])
+        result   = GoogleSearch({
+            "engine":    "google_scholar_author",
+            "author_id": SCHOLAR_ID,
+            "api_key":   API_KEY,
+            "sort":      "cited",    # mais citados primeiro
+            "num":       PAGE_SIZE,
+            "start":     start,
+        }).get_dict()
 
+        articles = result.get("articles", [])
         if not articles:
             break
 
         for art in articles:
-            all_articles.append({
-                "title":    art.get("title"),
-                "authors":  _normalise_authors(art.get("authors")),
-                "journal":  art.get("publication"),   # ex: "Nature, 2023"
-                "year":     _extract_year(art.get("publication", "")),
-                "cited_by": art.get("cited_by", {}).get("value"),
-                "link":     art.get("link"),
+            pub = art.get("publication", "")
+
+            if not is_journal_article(pub):
+                discarded += 1
+                continue
+
+            journal_articles.append({
+                "title":       art.get("title"),
+                "authors":     normalise_authors(art.get("authors")),
+                "journal":     pub,
+                "year":        extract_year(pub),
+                "cited_by":    art.get("cited_by", {}).get("value") or 0,
+                "link":        art.get("link"),
                 "citation_id": art.get("citation_id"),
+                "category":    categorise(pub),
             })
 
-        # Se recebemos menos do que pedimos, chegamos ao fim
-        if len(articles) < page_size:
+        page_kept = len([a for a in articles
+                         if is_journal_article(a.get("publication", ""))])
+        print(f"    start={start:>4}: {len(articles)} retrieved, "
+              f"{page_kept} kept as journal articles")
+
+        if len(articles) < PAGE_SIZE:
             break
+        start += PAGE_SIZE
+        time.sleep(SLEEP_SEC)
 
-        start += page_size
-        time.sleep(1)  # respeita rate-limit da SerpAPI
-
-    return all_articles
-
-
-def _extract_year(publication_str: str) -> int | None:
-    """Extrai o ano de strings como 'Nature Climate Change, 2025'."""
-    import re
-    m = re.search(r'\b(19|20)\d{2}\b', publication_str)
-    return int(m.group()) if m else None
+    print(f"\n  Total discarded (books/proceedings/etc.): {discarded}")
+    return journal_articles
 
 
-def _normalise_authors(authors: str | None) -> str | None:
-    """
-    Normalisa o nome do autor para sempre usar 'Silva-Junior' (com hífen).
-    O Google Scholar às vezes retorna 'Silva Junior' sem hífen.
-    """
-    import re
-    if not authors:
-        return authors
-    return re.sub(r'Silva\s+Junior', 'Silva-Junior', authors, flags=re.IGNORECASE)
-
-
-# ------------------------------------------------------------------ #
-#  3. CATEGORIZAÇÃO AUTOMÁTICA
-# ------------------------------------------------------------------ #
-NATURE_JOURNALS = {
-    "nature", "nature climate change", "nature ecology & evolution",
-    "nature ecology and evolution", "nature communications",
-    "nature geoscience", "nature food", "nature plants",
-    "communications earth & environment", "communications earth and environment",
-    "scientific reports", "scientific data", "npj",
-}
-
-SCIENCE_JOURNALS = {
-    "science", "science advances", "science of the total environment",
-}
-
-def categorise(journal_str: str) -> str:
-    j = (journal_str or "").lower()
-    for n in NATURE_JOURNALS:
-        if n in j:
-            return "nature"
-    for s in SCIENCE_JOURNALS:
-        if s in j:
-            return "science"
-    return "other"
-
-
-# ------------------------------------------------------------------ #
-#  4. MAIN
-# ------------------------------------------------------------------ #
+# ── main ─────────────────────────────────────────────────────────── #
 def main():
     os.makedirs("data", exist_ok=True)
 
-    print("⏳  Fetching author stats…")
+    print("\n📊  Step 1/2 — Author metrics")
     stats = fetch_author_stats()
     with open("data/scholar_data.json", "w", encoding="utf-8") as f:
         json.dump(stats, f, indent=2, ensure_ascii=False)
-    print(f"✅  Author stats saved  →  citedby={stats['citedby']}, "
-          f"h={stats['h_index']}, i10={stats['i10_index']}")
+    print(f"  ✅  citedby={stats['citedby']}  "
+          f"h-index={stats['h_index']}  i10={stats['i10_index']}")
 
-    print("\n⏳  Fetching full article list (may take a few seconds)…")
+    print("\n📚  Step 2/2 — Journal articles")
     papers = fetch_all_papers()
 
-    # Enrich with category
-    for p in papers:
-        p["category"] = categorise(p["journal"])
+    # Final sort: citations desc, then year desc
+    papers.sort(key=lambda p: (p.get("cited_by") or 0, p.get("year") or 0),
+                reverse=True)
 
     with open("data/scholar_papers.json", "w", encoding="utf-8") as f:
         json.dump(papers, f, indent=2, ensure_ascii=False)
 
-    total_cit = sum(p["cited_by"] or 0 for p in papers)
-    print(f"✅  {len(papers)} papers saved  →  total citations (sum) = {total_cit:,}")
-    print(f"\n📁  Files written:")
-    print(f"    data/scholar_data.json")
-    print(f"    data/scholar_papers.json")
+    total_cit = sum(p.get("cited_by") or 0 for p in papers)
+    print(f"\n✅  {len(papers)} journal articles saved")
+    print(f"   Sum of individual citations: {total_cit:,}")
+    print(f"\n📁  Output files:")
+    print(f"    data/scholar_data.json   (author metrics)")
+    print(f"    data/scholar_papers.json ({len(papers)} articles)")
 
 
 if __name__ == "__main__":
