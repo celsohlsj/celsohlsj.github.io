@@ -30,7 +30,7 @@ jobs:
 
       - name: Fetch Scholar data
         env:
-          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: python scripts/fetch_scholar.py
 
       - name: Commit updated scholar data
