@@ -27,7 +27,7 @@ section{padding:6rem 2rem}
 #hero{min-height:100vh;background:var(--gd);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:64px}
 .hbg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(64,145,108,.18) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(116,198,157,.10) 0%,transparent 60%)}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(116,198,157,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(116,198,157,.04) 1px,transparent 1px);background-size:60px 60px}
-.hcont{position:relative;max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 390px;gap:4rem;align-items:center}
+.hcont{position:relative;max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 200px 380px;gap:3rem;align-items:center}
 .htag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(233,180,76,.15);border:1px solid rgba(233,180,76,.4);color:var(--am);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .9rem;border-radius:2px;margin-bottom:1.5rem}
 .hname{font-family:'Roboto Slab',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;color:var(--wh);line-height:1.1;margin-bottom:.5rem}
 .hname .acc{color:var(--gl)}
@@ -141,7 +141,7 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes pls{0%,100%{opacity:1}50%{opacity:.4}}
-@media(max-width:960px){.hcont{grid-template-columns:1fr;gap:2.5rem}.cvcols{grid-template-columns:1fr;gap:2.5rem}.cgrid{grid-template-columns:1fr;gap:2.5rem}.preview-cards{grid-template-columns:1fr}.nav-links{display:none}}
+@media(max-width:960px){.hcont{grid-template-columns:1fr;gap:2rem}.hcont>div:nth-child(2){order:-1;align-items:center}.cvcols{grid-template-columns:1fr;gap:2.5rem}.cgrid{grid-template-columns:1fr;gap:2.5rem}.preview-cards{grid-template-columns:1fr}.nav-links{display:none}}
 </style>
 </head>
 <body>
@@ -182,6 +182,19 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
         <a href="http://lattes.cnpq.br/0506851271452550" target="_blank" class="bto">Lattes ↗</a>
       </div>
     </div>
+    <!-- PHOTO -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1.2rem">
+      <div style="width:180px;height:180px;border-radius:50%;overflow:hidden;border:3px solid var(--gl);box-shadow:0 0 0 6px rgba(116,198,157,.15),0 8px 32px rgba(0,0,0,.35)">
+        <img src="assets/photo.jpeg"
+             alt="Celso H. L. Silva-Junior"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top">
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gl);margin-bottom:.3rem">Celso H. L. Silva-Junior</div>
+        <div style="font-size:.68rem;color:rgba(255,255,255,.45);line-height:1.5">Environmental Scientist<br>IPAM · UFMA</div>
+      </div>
+    </div>
+
     <div class="hcard">
       <div class="affi">
         <div class="affi-ic" style="background:rgba(233,180,76,.15);">🌿</div>
@@ -468,6 +481,7 @@ footer a{color:rgba(255,255,255,.45);text-decoration:none}
   <p style="margin-top:.5rem"><a href="http://lattes.cnpq.br/0506851271452550" target="_blank">Lattes</a> · <a href="https://orcid.org/0000-0002-1052-5551" target="_blank">ORCID</a> · <a href="https://ipam.org.br" target="_blank">IPAM</a></p>
 </footer>
 
+<script src="pub_data.js"></script>
 <script>
 /* ============================================================
    Publications — loaded from data/scholar_papers.json
@@ -526,6 +540,12 @@ function showNeedsFetch(){
 }
 
 async function loadTop10(){
+  // Render static data immediately — always works
+  if(typeof STATIC_PAPERS !== 'undefined' && STATIC_PAPERS.length > 0){
+    renderTop10(STATIC_PAPERS, null);
+  }
+
+  // Try to upgrade with fresh Scholar JSON
   try{
     const [rp, rs] = await Promise.allSettled([
       fetch('data/scholar_papers.json'),
@@ -538,8 +558,7 @@ async function loadTop10(){
       updatedAt = stats.updated_at;
     }
     if(papers.length > 0) renderTop10(papers, updatedAt);
-    else showNeedsFetch();
-  }catch(e){ showNeedsFetch(); }
+  }catch(e){ /* static data already shown */ }
 }
 
 /* === LANG === */
