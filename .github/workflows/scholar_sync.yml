@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull origin main --rebase
+          git pull origin main --rebase --autostash
           git add data/scholar_data.json data/scholar_papers.json
           git diff --cached --quiet && echo "Nothing to commit" && exit 0
           git commit -m "chore: scholar sync $(date -u +'%Y-%m-%d')"
