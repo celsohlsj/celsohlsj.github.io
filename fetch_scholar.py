@@ -29,7 +29,10 @@ from serpapi import GoogleSearch
 
 # ── configuração ──────────────────────────────────────────────────── #
 SCHOLAR_ID = "UEWx5SkAAAAJ"          # ID Google Scholar do autor
-API_KEY    = os.environ["SERPAPI_KEY"]
+API_KEY    = os.environ.get("SERPAPI_KEY", "")
+if not API_KEY:
+    raise SystemExit("❌  SERPAPI_KEY environment variable is not set. "
+                     "Add it as a GitHub Actions secret named SERPAPI_KEY.")
 PAGE_SIZE  = 100                      # máximo permitido pela API
 SLEEP_SEC  = 1.2                      # pausa entre páginas (rate-limit)
 
@@ -114,11 +117,13 @@ def is_journal_article(publication: str) -> bool:
 # ── fetch author stats ────────────────────────────────────────────── #
 def fetch_author_stats() -> dict:
     print("  Fetching author metrics…")
-    result  = GoogleSearch({
+    result = GoogleSearch({
         "engine":    "google_scholar_author",
         "author_id": SCHOLAR_ID,
         "api_key":   API_KEY,
     }).get_dict()
+    if "error" in result:
+        raise SystemExit(f"❌  SerpAPI error: {result['error']}")
 
     author  = result.get("author", {})
     table   = result.get("cited_by", {}).get("table", [{}, {}, {}])
@@ -158,6 +163,8 @@ def fetch_all_papers() -> list[dict]:
             "start":     start,
         }).get_dict()
 
+        if "error" in result:
+            raise SystemExit(f"❌  SerpAPI error: {result['error']}")
         articles = result.get("articles", [])
         if not articles:
             break
