@@ -4,7 +4,7 @@
     "authors": "L Aragao, LO Anderson, MG Fonseca, TM Rosan, LB Vedovato, ...",
     "journal": "Nature Communications 9 (1), 536, 2018",
     "year": 2018,
-    "cited_by": 1091,
+    "cited_by": 1097,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:HDshCWvjkbEC",
     "citation_id": "UEWx5SkAAAAJ:HDshCWvjkbEC",
     "category": "nature"
@@ -14,7 +14,7 @@
     "authors": "DM Lapola, P Pinho, J Barlow, LEOC Aragão, E Berenguer, R Carmenta, ...",
     "journal": "Science 379 (6630), eabp8622, 2023",
     "year": 2023,
-    "cited_by": 774,
+    "cited_by": 778,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:5ugPr518TE4C",
     "citation_id": "UEWx5SkAAAAJ:5ugPr518TE4C",
     "category": "science"
@@ -24,7 +24,7 @@
     "authors": "CHL Silva-Junior, ACM Pessôa, NS Carvalho, JBC Reis, LO Anderson, ...",
     "journal": "Nature ecology & evolution 5 (2), 144-145, 2021",
     "year": 2021,
-    "cited_by": 561,
+    "cited_by": 563,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:yD5IFk8b50cC",
     "citation_id": "UEWx5SkAAAAJ:yD5IFk8b50cC",
     "category": "nature"
@@ -34,7 +34,7 @@
     "authors": "VHA Heinrich, R Dalagnol, HLG Cassol, TM Rosan, CT De Almeida, ...",
     "journal": "Nature communications 12 (1), 1785, 2021",
     "year": 2021,
-    "cited_by": 356,
+    "cited_by": 358,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:b0M2c_1WBrUC",
     "citation_id": "UEWx5SkAAAAJ:b0M2c_1WBrUC",
     "category": "nature"
@@ -44,7 +44,7 @@
     "authors": "CHL Silva-Junior, LEOC Aragão, LO Anderson, MG Fonseca, ...",
     "journal": "Science Advances 6 (40), eaaz8360, 2020",
     "year": 2020,
-    "cited_by": 228,
+    "cited_by": 229,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:3s1wT3WcHBgC",
     "citation_id": "UEWx5SkAAAAJ:3s1wT3WcHBgC",
     "category": "science"
@@ -54,7 +54,7 @@
     "authors": "VHA Heinrich, C Vancutsem, R Dalagnol, TM Rosan, D Fawcett, ...",
     "journal": "Nature 615 (7952), 436-442, 2023",
     "year": 2023,
-    "cited_by": 221,
+    "cited_by": 223,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:XiVPGOgt02cC",
     "citation_id": "UEWx5SkAAAAJ:XiVPGOgt02cC",
     "category": "nature"
@@ -84,7 +84,7 @@
     "authors": "MVF Silveira, CHL Silva‐Junior, LO Anderson, LEOC Aragão",
     "journal": "Global Ecology and Biogeography 31 (10), 2026-2040, 2022",
     "year": 2026,
-    "cited_by": 106,
+    "cited_by": 107,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:eflP2zaiRacC",
     "citation_id": "UEWx5SkAAAAJ:eflP2zaiRacC",
     "category": "other"
@@ -94,7 +94,7 @@
     "authors": "MVF Silveira, CA Petri, IS Broggio, GO Chagas, MS Macul, CCSS Leite, ...",
     "journal": "Land 9 (12), 516, 2020",
     "year": 2020,
-    "cited_by": 99,
+    "cited_by": 100,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:u_35RYKgDlwC",
     "citation_id": "UEWx5SkAAAAJ:u_35RYKgDlwC",
     "category": "other"
@@ -214,10 +214,20 @@
     "authors": "CHLS Junior, LO Anderson, AL Silva, CT Almeida, R Dalagnol, M Pletsch, ...",
     "journal": "Front. Earth Sci 7, 97, 2019",
     "year": 2019,
-    "cited_by": 52,
+    "cited_by": 53,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:hCrLmN-GePgC",
     "citation_id": "UEWx5SkAAAAJ:hCrLmN-GePgC",
     "category": "other"
+  },
+  {
+    "title": "Protect young secondary forests for optimum carbon removal",
+    "authors": "N Robinson, CR Drever, DA Gibbs, K Lister, A Esquivel-Muelbert, ...",
+    "journal": "Nature Climate Change 15 (7), 793-800, 2025",
+    "year": 2025,
+    "cited_by": 48,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:BwyfMAYsbu0C",
+    "citation_id": "UEWx5SkAAAAJ:BwyfMAYsbu0C",
+    "category": "nature"
   },
   {
     "title": "Overlooking vegetation loss outside forests imperils the Brazilian Cerrado and other non-forest biomes",
@@ -240,21 +250,11 @@
     "category": "other"
   },
   {
-    "title": "Protect young secondary forests for optimum carbon removal",
-    "authors": "N Robinson, CR Drever, DA Gibbs, K Lister, A Esquivel-Muelbert, ...",
-    "journal": "Nature Climate Change 15 (7), 793-800, 2025",
-    "year": 2025,
-    "cited_by": 45,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:BwyfMAYsbu0C",
-    "citation_id": "UEWx5SkAAAAJ:BwyfMAYsbu0C",
-    "category": "nature"
-  },
-  {
     "title": "Spatio-temporal variation in dry season determines the Amazonian fire calendar",
     "authors": "NS Carvalho, LO Anderson, CA Nunes, ACM Pessôa, CHL Silva-Junior, ...",
     "journal": "Environmental Research Letters 16 (12), 125009, 2021",
     "year": 2021,
-    "cited_by": 45,
+    "cited_by": 46,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:K3LRdlH-MEoC",
     "citation_id": "UEWx5SkAAAAJ:K3LRdlH-MEoC",
     "category": "other"
@@ -380,6 +380,16 @@
     "category": "other"
   },
   {
+    "title": "Protected areas are effective on curbing fires in the Amazon",
+    "authors": "ACM Pessôa, TFM RS, CHL Silva-Junior, J Doblas, NS Carvalho, ...",
+    "journal": "Ecological Economics 214, 107983, 2023",
+    "year": 2023,
+    "cited_by": 19,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:N5tVd3kTz84C",
+    "citation_id": "UEWx5SkAAAAJ:N5tVd3kTz84C",
+    "category": "other"
+  },
+  {
     "title": "Modelling Dunes from Lençóis Maranhenses National park (Brazil): Largest dune field in South America",
     "authors": "ALS dos Santos, HP Borges, CHL Silva-Junior, RNP Junior, ...",
     "journal": "Scientific reports 9 (1), 1-7, 2019",
@@ -388,16 +398,6 @@
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:NMxIlDl6LWMC",
     "citation_id": "UEWx5SkAAAAJ:NMxIlDl6LWMC",
     "category": "nature"
-  },
-  {
-    "title": "Protected areas are effective on curbing fires in the Amazon",
-    "authors": "ACM Pessôa, TFM RS, CHL Silva-Junior, J Doblas, NS Carvalho, ...",
-    "journal": "Ecological Economics 214, 107983, 2023",
-    "year": 2023,
-    "cited_by": 18,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:N5tVd3kTz84C",
-    "citation_id": "UEWx5SkAAAAJ:N5tVd3kTz84C",
-    "category": "other"
   },
   {
     "title": "Northeast Brazil's imperiled Cerrado",
@@ -420,6 +420,16 @@
     "category": "science"
   },
   {
+    "title": "The effect of landscape composition on stingless bee (Melipona fasciculata) honey productivity in a wetland ecosystem of Eastern Amazon, Brazil",
+    "authors": "SJA Farfan, D Celentano, CHL Silva-Junior, MV de Freitas Silveira, ...",
+    "journal": "Journal of Apicultural Research 62 (5), 1102-1114, 2023",
+    "year": 2023,
+    "cited_by": 16,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:q3oQSFYPqjQC",
+    "citation_id": "UEWx5SkAAAAJ:q3oQSFYPqjQC",
+    "category": "other"
+  },
+  {
     "title": "Determining a threshold to delimit the Amazonian forests from the tree canopy cover 2000 GFC data",
     "authors": "KAC Gasparini, CHL Silva-Junior, YE Shimabukuro, E Arai, LEOC Aragão, ...",
     "journal": "Sensors 19 (22), 5020, 2019",
@@ -437,16 +447,6 @@
     "cited_by": 16,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:e5wmG9Sq2KIC",
     "citation_id": "UEWx5SkAAAAJ:e5wmG9Sq2KIC",
-    "category": "other"
-  },
-  {
-    "title": "The effect of landscape composition on stingless bee (Melipona fasciculata) honey productivity in a wetland ecosystem of Eastern Amazon, Brazil",
-    "authors": "SJA Farfan, D Celentano, CHL Silva-Junior, MV de Freitas Silveira, ...",
-    "journal": "Journal of Apicultural Research 62 (5), 1102-1114, 2023",
-    "year": 2023,
-    "cited_by": 15,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:q3oQSFYPqjQC",
-    "citation_id": "UEWx5SkAAAAJ:q3oQSFYPqjQC",
     "category": "other"
   },
   {
