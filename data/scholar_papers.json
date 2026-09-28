@@ -4,7 +4,7 @@
     "authors": "L Aragao, LO Anderson, MG Fonseca, TM Rosan, LB Vedovato, ...",
     "journal": "Nature Communications 9 (1), 536, 2018",
     "year": 2018,
-    "cited_by": 1112,
+    "cited_by": 1118,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:HDshCWvjkbEC",
     "citation_id": "UEWx5SkAAAAJ:HDshCWvjkbEC",
     "category": "nature"
@@ -14,7 +14,7 @@
     "authors": "DM Lapola, P Pinho, J Barlow, LEOC Aragão, E Berenguer, R Carmenta, ...",
     "journal": "Science 379 (6630), eabp8622, 2023",
     "year": 2023,
-    "cited_by": 793,
+    "cited_by": 800,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:5ugPr518TE4C",
     "citation_id": "UEWx5SkAAAAJ:5ugPr518TE4C",
     "category": "science"
@@ -34,7 +34,7 @@
     "authors": "VHA Heinrich, R Dalagnol, HLG Cassol, TM Rosan, CT De Almeida, ...",
     "journal": "Nature communications 12 (1), 1785, 2021",
     "year": 2021,
-    "cited_by": 363,
+    "cited_by": 367,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:b0M2c_1WBrUC",
     "citation_id": "UEWx5SkAAAAJ:b0M2c_1WBrUC",
     "category": "nature"
@@ -54,7 +54,7 @@
     "authors": "VHA Heinrich, C Vancutsem, R Dalagnol, TM Rosan, D Fawcett, ...",
     "journal": "Nature 615 (7952), 436-442, 2023",
     "year": 2023,
-    "cited_by": 228,
+    "cited_by": 229,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:XiVPGOgt02cC",
     "citation_id": "UEWx5SkAAAAJ:XiVPGOgt02cC",
     "category": "nature"
@@ -64,7 +64,7 @@
     "authors": "CHL Silva-Junior, VHA Heinrich, ATG Freire, IS Broggio, TM Rosan, ...",
     "journal": "Scientific Data 7 (1), 1-9, 2020",
     "year": 2020,
-    "cited_by": 164,
+    "cited_by": 165,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:HoB7MX3m0LUC",
     "citation_id": "UEWx5SkAAAAJ:HoB7MX3m0LUC",
     "category": "nature"
@@ -74,7 +74,7 @@
     "authors": "CHL Silva-Junior, LEOC Aragão, MG Fonseca, CT Almeida, LB Vedovato, ...",
     "journal": "Forests 9 (6), 305, 2018",
     "year": 2018,
-    "cited_by": 162,
+    "cited_by": 163,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:_Qo2XoVZTnwC",
     "citation_id": "UEWx5SkAAAAJ:_Qo2XoVZTnwC",
     "category": "other"
@@ -224,7 +224,7 @@
     "authors": "N Robinson, CR Drever, DA Gibbs, K Lister, A Esquivel-Muelbert, ...",
     "journal": "Nature Climate Change 15 (7), 793-800, 2025",
     "year": 2025,
-    "cited_by": 52,
+    "cited_by": 53,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:BwyfMAYsbu0C",
     "citation_id": "UEWx5SkAAAAJ:BwyfMAYsbu0C",
     "category": "nature"
@@ -234,7 +234,7 @@
     "authors": "NS Carvalho, LO Anderson, CA Nunes, ACM Pessôa, CHL Silva-Junior, ...",
     "journal": "Environmental Research Letters 16 (12), 125009, 2021",
     "year": 2021,
-    "cited_by": 48,
+    "cited_by": 49,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:K3LRdlH-MEoC",
     "citation_id": "UEWx5SkAAAAJ:K3LRdlH-MEoC",
     "category": "other"
@@ -244,7 +244,7 @@
     "authors": "P da Conceição Bispo, MCA Picoli, BS Marimon, BH Marimon Junior, ...",
     "journal": "Nature Ecology & Evolution 8 (1), 12-13, 2024",
     "year": 2024,
-    "cited_by": 47,
+    "cited_by": 48,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:NJ774b8OgUMC",
     "citation_id": "UEWx5SkAAAAJ:NJ774b8OgUMC",
     "category": "nature"
@@ -450,6 +450,16 @@
     "category": "other"
   },
   {
+    "title": "Climate benefits of Amazon secondary forests—recent advances and research needs",
+    "authors": "JCA Baker, M Adami, CHL Silva-Junior, LWR Sadeck, C Smith, ...",
+    "journal": "Environmental Research Letters 20 (4), 043001, 2025",
+    "year": 2025,
+    "cited_by": 15,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:tYavs44e6CUC",
+    "citation_id": "UEWx5SkAAAAJ:tYavs44e6CUC",
+    "category": "other"
+  },
+  {
     "title": "Dinâmica das Queimadas na Baixada Maranhense",
     "authors": "CHL Silva-Junior, ATG Freire, TCS Rodrigues, JC Viegas, ...",
     "journal": "InterEspaço: Revista de Geografia e Interdisciplinaridade 2 (5), 355-375, 2016",
@@ -457,16 +467,6 @@
     "cited_by": 15,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:YOwf2qJgpHMC",
     "citation_id": "UEWx5SkAAAAJ:YOwf2qJgpHMC",
-    "category": "other"
-  },
-  {
-    "title": "Climate benefits of Amazon secondary forests—recent advances and research needs",
-    "authors": "JCA Baker, M Adami, CHL Silva-Junior, LWR Sadeck, C Smith, ...",
-    "journal": "Environmental Research Letters 20 (4), 043001, 2025",
-    "year": 2025,
-    "cited_by": 14,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:tYavs44e6CUC",
-    "citation_id": "UEWx5SkAAAAJ:tYavs44e6CUC",
     "category": "other"
   },
   {
@@ -650,6 +650,16 @@
     "category": "other"
   },
   {
+    "title": "Author Correction: Benchmark maps of 33 years of secondary forest age for Brazil",
+    "authors": "CHLS Junior, VHA Heinrich, ATG Freire, IS Broggio, TM Rosan, J Doblas, ...",
+    "journal": "Scientific Data 7, 287, 2020",
+    "year": 2020,
+    "cited_by": 3,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:5qfkUJPXOUwC",
+    "citation_id": "UEWx5SkAAAAJ:5qfkUJPXOUwC",
+    "category": "nature"
+  },
+  {
     "title": "Zoneamento de Susceptibilidade a Deslizamentos Induzidos em Bacias Hidrográficas com Base na Lógica Fuzzy e no Processo Analítico Hierárquico (AHP)",
     "authors": "CHL Silva-Junior, D da Silva Bezerra, LO Anderson, MRM de Andrade, ...",
     "journal": "Revista Brasileira de Cartografia 68 (9), 2016",
@@ -678,16 +688,6 @@
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:1yQoGdGgb4wC",
     "citation_id": "UEWx5SkAAAAJ:1yQoGdGgb4wC",
     "category": "other"
-  },
-  {
-    "title": "Author Correction: Benchmark maps of 33 years of secondary forest age for Brazil",
-    "authors": "CHLS Junior, VHA Heinrich, ATG Freire, IS Broggio, TM Rosan, J Doblas, ...",
-    "journal": "Scientific Data 7, 287, 2020",
-    "year": 2020,
-    "cited_by": 2,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:5qfkUJPXOUwC",
-    "citation_id": "UEWx5SkAAAAJ:5qfkUJPXOUwC",
-    "category": "nature"
   },
   {
     "title": "Dinâmica da formação de bordas florestais e seu impacto nos estoques de carbono na Bacia Amazônica utilizando sensoriamento remoto",
