@@ -65,8 +65,8 @@ YEAR_ONLY_RE = re.compile(r'^\s*\d{4}\s*$')
 
 # ── helpers ───────────────────────────────────────────────────────── #
 def extract_year(pub_str: str) -> int | None:
-    m = re.search(r'\b(19|20)\d{2}\b', pub_str or '')
-    return int(m.group()) if m else None
+    years = re.findall(r'\b(?:19|20)\d{2}\b', pub_str or '')
+    return int(years[-1]) if years else None
 
 
 def normalise_authors(authors: str | None) -> str | None:
