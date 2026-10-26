@@ -4,7 +4,7 @@
     "authors": "L Aragao, LO Anderson, MG Fonseca, TM Rosan, LB Vedovato, ...",
     "journal": "Nature Communications 9 (1), 536, 2018",
     "year": 2018,
-    "cited_by": 1135,
+    "cited_by": 1139,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:HDshCWvjkbEC",
     "citation_id": "UEWx5SkAAAAJ:HDshCWvjkbEC",
     "category": "nature"
@@ -14,7 +14,7 @@
     "authors": "DM Lapola, P Pinho, J Barlow, LEOC Aragão, E Berenguer, R Carmenta, ...",
     "journal": "Science 379 (6630), eabp8622, 2023",
     "year": 2023,
-    "cited_by": 819,
+    "cited_by": 828,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:5ugPr518TE4C",
     "citation_id": "UEWx5SkAAAAJ:5ugPr518TE4C",
     "category": "science"
@@ -24,7 +24,7 @@
     "authors": "CHL Silva-Junior, ACM Pessôa, NS Carvalho, JBC Reis, LO Anderson, ...",
     "journal": "Nature ecology & evolution 5 (2), 144-145, 2021",
     "year": 2021,
-    "cited_by": 571,
+    "cited_by": 574,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:yD5IFk8b50cC",
     "citation_id": "UEWx5SkAAAAJ:yD5IFk8b50cC",
     "category": "nature"
@@ -34,9 +34,19 @@
     "authors": "VHA Heinrich, R Dalagnol, HLG Cassol, TM Rosan, CT De Almeida, ...",
     "journal": "Nature communications 12 (1), 1785, 2021",
     "year": 2021,
-    "cited_by": 370,
+    "cited_by": 375,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:b0M2c_1WBrUC",
     "citation_id": "UEWx5SkAAAAJ:b0M2c_1WBrUC",
+    "category": "nature"
+  },
+  {
+    "title": "The carbon sink of secondary and degraded humid tropical forests",
+    "authors": "VHA Heinrich, C Vancutsem, R Dalagnol, TM Rosan, D Fawcett, ...",
+    "journal": "Nature 615 (7952), 436-442, 2023",
+    "year": 2023,
+    "cited_by": 237,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:XiVPGOgt02cC",
+    "citation_id": "UEWx5SkAAAAJ:XiVPGOgt02cC",
     "category": "nature"
   },
   {
@@ -44,27 +54,17 @@
     "authors": "CHL Silva-Junior, LEOC Aragão, LO Anderson, MG Fonseca, ...",
     "journal": "Science Advances 6 (40), eaaz8360, 2020",
     "year": 2020,
-    "cited_by": 236,
+    "cited_by": 237,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:3s1wT3WcHBgC",
     "citation_id": "UEWx5SkAAAAJ:3s1wT3WcHBgC",
     "category": "science"
-  },
-  {
-    "title": "The carbon sink of secondary and degraded humid tropical forests",
-    "authors": "VHA Heinrich, C Vancutsem, R Dalagnol, TM Rosan, D Fawcett, ...",
-    "journal": "Nature 615 (7952), 436-442, 2023",
-    "year": 2023,
-    "cited_by": 234,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:XiVPGOgt02cC",
-    "citation_id": "UEWx5SkAAAAJ:XiVPGOgt02cC",
-    "category": "nature"
   },
   {
     "title": "Benchmark maps of 33 years of secondary forest age for Brazil",
     "authors": "CHL Silva-Junior, VHA Heinrich, ATG Freire, IS Broggio, TM Rosan, ...",
     "journal": "Scientific Data 7 (1), 1-9, 2020",
     "year": 2020,
-    "cited_by": 166,
+    "cited_by": 167,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:HoB7MX3m0LUC",
     "citation_id": "UEWx5SkAAAAJ:HoB7MX3m0LUC",
     "category": "nature"
@@ -84,7 +84,7 @@
     "authors": "MVF Silveira, CHL Silva‐Junior, LO Anderson, LEOC Aragão",
     "journal": "Global Ecology and Biogeography 31 (10), 2026-2040, 2022",
     "year": 2022,
-    "cited_by": 113,
+    "cited_by": 114,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:eflP2zaiRacC",
     "citation_id": "UEWx5SkAAAAJ:eflP2zaiRacC",
     "category": "other"
@@ -120,23 +120,23 @@
     "category": "nature"
   },
   {
-    "title": "Amazon forest on the edge of collapse in the Maranhão State, Brazil",
-    "authors": "CHL Silva-Junior, D Celentano, GX Rousseau, EG de Moura, ...",
-    "journal": "Land Use Policy 97, 104806, 2020",
-    "year": 2020,
-    "cited_by": 89,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:ldfaerwXgEUC",
-    "citation_id": "UEWx5SkAAAAJ:ldfaerwXgEUC",
-    "category": "other"
-  },
-  {
     "title": "Large scale multi-layer fuel load characterization in tropical savanna using GEDI spaceborne lidar data",
     "authors": "RV Leite, CA Silva, EN Broadbent, CH Do Amaral, V Liesenberg, ...",
     "journal": "Remote Sensing of Environment 268, 112764, 2022",
     "year": 2022,
-    "cited_by": 88,
+    "cited_by": 90,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:738O_yMBCRsC",
     "citation_id": "UEWx5SkAAAAJ:738O_yMBCRsC",
+    "category": "other"
+  },
+  {
+    "title": "Amazon forest on the edge of collapse in the Maranhão State, Brazil",
+    "authors": "CHL Silva-Junior, D Celentano, GX Rousseau, EG de Moura, ...",
+    "journal": "Land Use Policy 97, 104806, 2020",
+    "year": 2020,
+    "cited_by": 90,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:ldfaerwXgEUC",
+    "citation_id": "UEWx5SkAAAAJ:ldfaerwXgEUC",
     "category": "other"
   },
   {
@@ -184,7 +184,7 @@
     "authors": "D Fawcett, S Sitch, P Ciais, JP Wigneron, CHL Silva‐Junior, V Heinrich, ...",
     "journal": "Global Change Biology 29 (4), 1106-1118, 2023",
     "year": 2023,
-    "cited_by": 69,
+    "cited_by": 70,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:V3AGJWp-ZtQC",
     "citation_id": "UEWx5SkAAAAJ:V3AGJWp-ZtQC",
     "category": "other"
@@ -204,7 +204,7 @@
     "authors": "N Robinson, CR Drever, DA Gibbs, K Lister, A Esquivel-Muelbert, ...",
     "journal": "Nature Climate Change 15 (7), 793-800, 2025",
     "year": 2025,
-    "cited_by": 57,
+    "cited_by": 60,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:BwyfMAYsbu0C",
     "citation_id": "UEWx5SkAAAAJ:BwyfMAYsbu0C",
     "category": "nature"
@@ -374,7 +374,7 @@
     "authors": "ACM Pessôa, TFM RS, CHL Silva-Junior, J Doblas, NS Carvalho, ...",
     "journal": "Ecological Economics 214, 107983, 2023",
     "year": 2023,
-    "cited_by": 20,
+    "cited_by": 21,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:N5tVd3kTz84C",
     "citation_id": "UEWx5SkAAAAJ:N5tVd3kTz84C",
     "category": "other"
@@ -394,7 +394,7 @@
     "authors": "ALS dos Santos, HP Borges, CHL Silva-Junior, RNP Junior, ...",
     "journal": "Scientific reports 9 (1), 1-7, 2019",
     "year": 2019,
-    "cited_by": 20,
+    "cited_by": 19,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:NMxIlDl6LWMC",
     "citation_id": "UEWx5SkAAAAJ:NMxIlDl6LWMC",
     "category": "nature"
@@ -430,6 +430,16 @@
     "category": "science"
   },
   {
+    "title": "Climate benefits of Amazon secondary forests—recent advances and research needs",
+    "authors": "JCA Baker, M Adami, CHL Silva-Junior, LWR Sadeck, C Smith, ...",
+    "journal": "Environmental Research Letters 20 (4), 043001, 2025",
+    "year": 2025,
+    "cited_by": 16,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:tYavs44e6CUC",
+    "citation_id": "UEWx5SkAAAAJ:tYavs44e6CUC",
+    "category": "other"
+  },
+  {
     "title": "The effect of landscape composition on stingless bee (Melipona fasciculata) honey productivity in a wetland ecosystem of Eastern Amazon, Brazil",
     "authors": "SJA Farfan, D Celentano, CHL Silva-Junior, MV de Freitas Silveira, ...",
     "journal": "Journal of Apicultural Research 62 (5), 1102-1114, 2023",
@@ -450,13 +460,13 @@
     "category": "other"
   },
   {
-    "title": "Climate benefits of Amazon secondary forests—recent advances and research needs",
-    "authors": "JCA Baker, M Adami, CHL Silva-Junior, LWR Sadeck, C Smith, ...",
-    "journal": "Environmental Research Letters 20 (4), 043001, 2025",
+    "title": "Not just semantics: CO2 fertilization can be a disturbance leading to worldwide forest degradation",
+    "authors": "DM Lapola, CC Blanco, BR Cardeli, A Esquivel‐Muelbert, JV Martinelli, ...",
+    "journal": "Plants, People, Planet 7 (3), 638-643, 2025",
     "year": 2025,
     "cited_by": 15,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:tYavs44e6CUC",
-    "citation_id": "UEWx5SkAAAAJ:tYavs44e6CUC",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:ILKRHgRFtOwC",
+    "citation_id": "UEWx5SkAAAAJ:ILKRHgRFtOwC",
     "category": "other"
   },
   {
@@ -477,16 +487,6 @@
     "cited_by": 15,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:YOwf2qJgpHMC",
     "citation_id": "UEWx5SkAAAAJ:YOwf2qJgpHMC",
-    "category": "other"
-  },
-  {
-    "title": "Not just semantics: CO2 fertilization can be a disturbance leading to worldwide forest degradation",
-    "authors": "DM Lapola, CC Blanco, BR Cardeli, A Esquivel‐Muelbert, JV Martinelli, ...",
-    "journal": "Plants, People, Planet 7 (3), 638-643, 2025",
-    "year": 2025,
-    "cited_by": 14,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:ILKRHgRFtOwC",
-    "citation_id": "UEWx5SkAAAAJ:ILKRHgRFtOwC",
     "category": "other"
   },
   {
@@ -524,9 +524,19 @@
     "authors": "CT Almeida, LS Galvão, JPHB Ometto, AD Jacon, FRS Pereira, LY Sato, ...",
     "journal": "Remote Sensing 16 (21), 3935, 2024",
     "year": 2024,
-    "cited_by": 10,
+    "cited_by": 11,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:p__nRnzSRKYC",
     "citation_id": "UEWx5SkAAAAJ:p__nRnzSRKYC",
+    "category": "other"
+  },
+  {
+    "title": "Beyond trees: Mapping total aboveground biomass density in the Brazilian savanna using high-density UAV-lidar data",
+    "authors": "MBT Costa, CA Silva, EN Broadbent, RV Leite, M Mohan, V Liesenberg, ...",
+    "journal": "Forest Ecology and Management 491, 1-15, 2021",
+    "year": 2021,
+    "cited_by": 11,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:EkHepimYqZsC",
+    "citation_id": "UEWx5SkAAAAJ:EkHepimYqZsC",
     "category": "other"
   },
   {
@@ -538,16 +548,6 @@
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:bnK-pcrLprsC",
     "citation_id": "UEWx5SkAAAAJ:bnK-pcrLprsC",
     "category": "nature"
-  },
-  {
-    "title": "Beyond trees: Mapping total aboveground biomass density in the Brazilian savanna using high-density UAV-lidar data",
-    "authors": "MBT Costa, CA Silva, EN Broadbent, RV Leite, M Mohan, V Liesenberg, ...",
-    "journal": "Forest Ecology and Management 491, 1-15, 2021",
-    "year": 2021,
-    "cited_by": 10,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:EkHepimYqZsC",
-    "citation_id": "UEWx5SkAAAAJ:EkHepimYqZsC",
-    "category": "other"
   },
   {
     "title": "Tendências de extremos climáticos na região de transição Amazônia-Cerrado no estado do Maranhão",
@@ -650,6 +650,16 @@
     "category": "other"
   },
   {
+    "title": "Forest connectivity boosts carbon recovery in regenerating Atlantic Forests",
+    "authors": "TM Rosan, LB Vedovato, VHA Heinrich, CHL Silva-Junior, ...",
+    "journal": "Communications Earth & Environment, 2026",
+    "year": 2026,
+    "cited_by": 3,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:kh2fBNsKQNwC",
+    "citation_id": "UEWx5SkAAAAJ:kh2fBNsKQNwC",
+    "category": "nature"
+  },
+  {
     "title": "Benchmark maps of 33 years of secondary forest age for Brazil",
     "authors": "CHLS Junior, VHA Heinrich, ATG Freire, IS Broggio, TM Rosan, J Doblas, ...",
     "journal": "Scientific data 7 (1), 269, 2020",
@@ -670,6 +680,16 @@
     "category": "other"
   },
   {
+    "title": "A meta-analysis of carbon losses and gains from tropical moist forest degradation and regeneration",
+    "authors": "V Heinrich, A Holcomb, S Besnard, D Requena Suarez, S Cook-Patton, ...",
+    "journal": "Science Advances 12 (27), eadz1923, 2026",
+    "year": 2026,
+    "cited_by": 2,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:GtLg2Ama23sC",
+    "citation_id": "UEWx5SkAAAAJ:GtLg2Ama23sC",
+    "category": "science"
+  },
+  {
     "title": "Remote sensing of environmental changes in the Neotropical region",
     "authors": "CHL Silva-Junior, C Silva, ST Alvarado, TM Rosan, PC Bispo",
     "journal": "Frontiers in Forests and Global Change 6, 1330489, 2023",
@@ -687,6 +707,16 @@
     "cited_by": 2,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:1yQoGdGgb4wC",
     "citation_id": "UEWx5SkAAAAJ:1yQoGdGgb4wC",
+    "category": "other"
+  },
+  {
+    "title": "Maximum Cumulative Water Deficit-MCWD: a R language script (v1. 1.0)",
+    "authors": "CHL Silva-Junior, WA Campanharo",
+    "journal": "Zenodo, 2019",
+    "year": 2019,
+    "cited_by": 2,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:0N-VGjzr574C",
+    "citation_id": "UEWx5SkAAAAJ:0N-VGjzr574C",
     "category": "other"
   },
   {
@@ -710,24 +740,14 @@
     "category": "other"
   },
   {
-    "title": "A meta-analysis of carbon losses and gains from tropical moist forest degradation and regeneration",
-    "authors": "V Heinrich, A Holcomb, S Besnard, D Requena Suarez, S Cook-Patton, ...",
-    "journal": "Science Advances 12 (27), eadz1923, 2026",
+    "title": "Land Use and Land Cover Dynamics and Their Association with Fire in Indigenous Territories of Maranhão, Brazil (1985–2023)",
+    "authors": "HGP Fernandes, TCS Rodrigues, FLS Nogueira, MHF Melo, R Dalagnol, ...",
+    "journal": "Land 15 (1), 132, 2026",
     "year": 2026,
     "cited_by": 1,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:GtLg2Ama23sC",
-    "citation_id": "UEWx5SkAAAAJ:GtLg2Ama23sC",
-    "category": "science"
-  },
-  {
-    "title": "Forest connectivity boosts carbon recovery in regenerating Atlantic Forests",
-    "authors": "TM Rosan, LB Vedovato, VHA Heinrich, CHL Silva-Junior, ...",
-    "journal": "Communications Earth & Environment, 2026",
-    "year": 2026,
-    "cited_by": 1,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:kh2fBNsKQNwC",
-    "citation_id": "UEWx5SkAAAAJ:kh2fBNsKQNwC",
-    "category": "nature"
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:FPJr55Dyh1AC",
+    "citation_id": "UEWx5SkAAAAJ:FPJr55Dyh1AC",
+    "category": "other"
   },
   {
     "title": "Novel approaches and techniques for understanding vegetation fires in South America",
@@ -747,16 +767,6 @@
     "cited_by": 1,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:cFHS6HbyZ2cC",
     "citation_id": "UEWx5SkAAAAJ:cFHS6HbyZ2cC",
-    "category": "other"
-  },
-  {
-    "title": "Maximum Cumulative Water Deficit-MCWD: a R language script (v1. 1.0)",
-    "authors": "CHL Silva-Junior, WA Campanharo",
-    "journal": "Zenodo, 2019",
-    "year": 2019,
-    "cited_by": 1,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&pagesize=100&citation_for_view=UEWx5SkAAAAJ:0N-VGjzr574C",
-    "citation_id": "UEWx5SkAAAAJ:0N-VGjzr574C",
     "category": "other"
   },
   {
@@ -817,16 +827,6 @@
     "cited_by": 0,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&cstart=100&pagesize=100&citation_for_view=UEWx5SkAAAAJ:86PQX7AUzd4C",
     "citation_id": "UEWx5SkAAAAJ:86PQX7AUzd4C",
-    "category": "other"
-  },
-  {
-    "title": "Land Use and Land Cover Dynamics and Their Association with Fire in Indigenous Territories of Maranhão, Brazil (1985–2023)",
-    "authors": "HGP Fernandes, TCS Rodrigues, FLS Nogueira, MHF Melo, R Dalagnol, ...",
-    "journal": "Land 15 (1), 132, 2026",
-    "year": 2026,
-    "cited_by": 0,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEWx5SkAAAAJ&cstart=100&pagesize=100&citation_for_view=UEWx5SkAAAAJ:FPJr55Dyh1AC",
-    "citation_id": "UEWx5SkAAAAJ:FPJr55Dyh1AC",
     "category": "other"
   },
   {
